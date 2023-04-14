@@ -1,26 +1,37 @@
 <template>
-  <BContainer>
-
-    <div class="mb-3 mt-3">
-      <router-link class="p-2" to="/">Главная</router-link>
-
+  <div class="app">
+    <div class="bg-header">
+      <div class="container">
+        <NavigationHeader />
+      </div>
     </div>
-    <router-view class="main-view"></router-view>
-  </BContainer>
+  </div>
 </template>
 
 <script>
+import NavigationHeader from './components/NavigationHeader';
 export default {
-  name: 'App'
-}
+  name: 'App',
+  components: {
+    NavigationHeader,
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<style lang="scss">
+@import '@/assets/scss/_variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Inter:wght@400;500&display=swap');
+.app {
+  font-family: 'Cardo', 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+.bg-header {
+  min-height: 527px;
+  background-color: var(--main-color-dark);
+}
+.container {
+  margin: 0 auto;
+  width: 1300px;
+  box-sizing: border-box;
 }
 </style>
