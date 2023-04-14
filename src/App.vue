@@ -4,6 +4,7 @@
       <div class="container">
         <NavigationHeader />
       </div>
+      <router-view></router-view>
     </div>
   </div>
 </template>
