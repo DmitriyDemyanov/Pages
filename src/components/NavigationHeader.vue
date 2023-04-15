@@ -61,7 +61,7 @@
         <div class="dropdown fz-inter-17px padding-link">
           Pages
 
-          <button class="dropbtn">
+          <button class="drop-btn">
             <svg
               width="16"
               height="16"
@@ -199,17 +199,15 @@ export default {
   padding: 20px 10px;
 }
 //________________________________________________________________________________________________________
-.dropbtn {
+.drop-btn {
   background-color: var(--main-color-dark);
   border: none;
 }
-
 .dropdown {
   position: relative;
   display: inline-block;
   padding-right: 8px;
 }
-
 .dropdown-content {
   display: none;
   position: absolute;
@@ -235,7 +233,6 @@ export default {
   display: none;
   padding: 20px 30px;
 }
-
 .dropdown-content a {
   color: var(--main-color-dark);
   padding: 10px 0;
@@ -245,18 +242,14 @@ export default {
   font-size: 17px;
   font-weight: 500;
 }
-
 .dropdown-content a:hover {
   transition: color 0.3s;
   color: var(--main-color-beer);
 }
-
 .dropdown:hover .dropdown-content .row-drop-1 {
   display: block;
 }
 .dropdown:hover .dropdown-content .row-drop-2 {
   display: block;
-}
-.dropdown:hover .dropbtn {
 }
 </style>
