@@ -1,10 +1,20 @@
 <template>
-  <button class="btn-norm">Order Today</button>
+  <button :class="`btn-${size}`">{{ title }}</button>
 </template>
 
 <script>
 export default {
   name: 'MainButton',
+  props: {
+    size: {
+      type: String,
+      default: 'norm',
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+  },
 };
 </script>
 
