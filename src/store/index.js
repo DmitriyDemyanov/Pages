@@ -5,11 +5,29 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    footerLink: ['home','about us', 'services', 'appointments', 'blog', 'contact us', 'start here', '404 not found', 'password protected', 'licenses', 'changelog'],
+    exploreLink: [
+      'home',
+      'about us',
+      'services',
+      'appointments',
+      'blog',
+      'contact us',
+    ],
+    utilityPages: [
+      'start here',
+      'style guide',
+      '404 not found',
+      'password protected',
+      'licenses',
+      'changelog',
+    ],
   },
   getters: {
-    getFooterLink(state) {
-      return state.footerLink;
+    getExploreLink(state) {
+      return state.exploreLink;
+    },
+    getUtilityPages(state) {
+      return state.utilityPages;
     }
   },
   mutations: {},
