@@ -1,5 +1,5 @@
 <template>
-  <button :class="`btn-${size}`">{{ title }}</button>
+  <button :class="`btn-${type} btn-${size} main-btn`">{{ title }}</button>
 </template>
 
 <script>
@@ -10,6 +10,10 @@ export default {
       type: String,
       default: 'norm',
     },
+    type: {
+      type: String,
+      default: 'default',
+    },
     title: {
       type: String,
       required: true,
@@ -19,21 +23,36 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.btn-norm {
-  width: 180px;
-  height: 50px;
+.main-btn {
+  font-family: 'Cardo';
+  font-weight: 700;
   border: 2px solid var(--main-color-beer);
   background-color: var(--main-color-beer);
   color: var(--main-color-dark);
-  font-family: 'Cardo';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 19px;
+  transition: all 0.5s;
+
   &:hover {
     background-color: var(--main-color-dark);
     color: var(--main-color-light);
     border: 2px solid var(--main-color-beer);
-    transition: all 0.5s;
   }
+}
+
+.btn-reverse {
+  background-color: var(--main-color-dark);
+  color: var(--main-color-light);
+  border: 2px solid var(--main-color-beer);
+
+  &:hover {
+    border: 2px solid var(--main-color-beer);
+    background-color: var(--main-color-beer);
+    color: var(--main-color-dark);
+  }
+}
+
+.btn-norm {
+  width: 180px;
+  height: 50px;
+  font-size: 19px;
 }
 </style>

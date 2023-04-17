@@ -3,11 +3,11 @@
     class="wrapper-nav d-flex align-items-center justify-content-between"
   >
     <div class="wrapper-logo-social">
-      <a class="logo" href="#"
-        ><img src="@/assets/images/icons/Logo.svg" alt="logo"
-      /></a>
-      <a class="social-icon" href="#"
-        ><svg
+      <a class="logo" href="#">
+        <img src="@/assets/images/icons/Logo.svg" alt="logo" />
+      </a>
+      <a class="social-icon" href="#">
+        <svg
           width="46"
           height="46"
           viewBox="0 0 46 46"
@@ -21,8 +21,8 @@
           />
         </svg>
       </a>
-      <a class="social-icon" href="#"
-        ><svg
+      <a class="social-icon" href="#">
+        <svg
           width="46"
           height="46"
           viewBox="0 0 46 46"
@@ -36,8 +36,8 @@
           />
         </svg>
       </a>
-      <a class="social-icon" href="#"
-        ><svg
+      <a class="social-icon" href="#">
+        <svg
           width="46"
           height="46"
           viewBox="0 0 46 46"
@@ -187,14 +187,7 @@ export default {
     }
   }
 }
-.fz-inter-17px {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 17px;
-  line-height: 125%;
-  color: #ffffff;
-}
+
 .cart-img {
   padding: 20px 10px;
 }
@@ -256,7 +249,5 @@ export default {
 }
 .dropdown:hover .dropdown-content .row-drop-2 {
   display: block;
-}
-.dropdown:hover .dropbtn {
 }
 </style>

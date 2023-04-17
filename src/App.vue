@@ -21,9 +21,9 @@ export default {
 
 <style lang="scss">
 @import '@/assets/scss/_variables.scss';
-@import url('https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&family=Inter:wght@400;500&display=swap');
-.app {
-  font-family: 'Cardo', 'Inter', sans-serif;
+@import '@/assets/scss/_fonts.scss';
+
+* {
   box-sizing: border-box;
 }
 .bg-header {
