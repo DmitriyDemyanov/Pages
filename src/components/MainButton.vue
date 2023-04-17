@@ -1,0 +1,58 @@
+<template>
+  <button :class="`btn-${type} btn-${size} main-btn`">{{ title }}</button>
+</template>
+
+<script>
+export default {
+  name: 'MainButton',
+  props: {
+    size: {
+      type: String,
+      default: 'norm',
+    },
+    type: {
+      type: String,
+      default: 'default',
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.main-btn {
+  font-family: 'Cardo';
+  font-weight: 700;
+  border: 2px solid var(--main-color-beer);
+  background-color: var(--main-color-beer);
+  color: var(--main-color-dark);
+  transition: all 0.5s;
+
+  &:hover {
+    background-color: var(--main-color-dark);
+    color: var(--main-color-light);
+    border: 2px solid var(--main-color-beer);
+  }
+}
+
+.btn-reverse {
+  background-color: var(--main-color-dark);
+  color: var(--main-color-light);
+  border: 2px solid var(--main-color-beer);
+
+  &:hover {
+    border: 2px solid var(--main-color-beer);
+    background-color: var(--main-color-beer);
+    color: var(--main-color-dark);
+  }
+}
+
+.btn-norm {
+  width: 180px;
+  height: 50px;
+  font-size: 19px;
+}
+</style>
