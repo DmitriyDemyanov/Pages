@@ -7,12 +7,41 @@ body {
 .font-inter {
   font-family: 'Inter', sans-serif;
 }
+.fz-cardo-h1 {
+  font-family: 'Cardo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 65px;
+  line-height: 110%;
+  color: #ffffff;
+}
 
 .fz-inter-17px {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
   font-size: 17px;
-  line-height: 125%;
+  color: #ffffff;
+}
+.fz-inter-18px {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #b4c7e7;
+}
+.fz-inter-19px {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 180%;
+  color: #b4c7e7;
+}
+.fz-cardo-24px {
+  font-family: 'Cardo';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
   color: #ffffff;
 }
