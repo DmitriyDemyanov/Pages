@@ -16,6 +16,7 @@
       </div>
 
       <div class="wrapper-detail-welcome d-flex justify-content-between">
+
         <div class="item-detail d-flex" v-for="(el,ind) in getDetailsHomeWelcome" :key="ind">
           <div class="item-circle"></div>
           <div class="item-description">
@@ -23,7 +24,11 @@
             <div class="item-subtitle fz-inter-18px">{{ el.subtitle }}</div>
           </div>
         </div>
+
+
       </div>
+
+      
     </div>
     <div class="wrapper-image">
       <img src="@/assets/images/photo/Book-Dark&Light.png" alt="image" />

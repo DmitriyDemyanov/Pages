@@ -46,6 +46,9 @@ export default new Vuex.Store({
     getDetailsHomeWelcome(state) {
       return state.homeDetailsWelcome;
     },
+    getDetailsAuthorsBook(state) {
+      return [state.homeDetailsWelcome[0],state.homeDetailsWelcome[1]]
+    }
   },
   mutations: {},
   actions: {},
