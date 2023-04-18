@@ -35,7 +35,7 @@ export default {
   box-sizing: border-box;
 }
 .bg-header {
-  min-height: 185px;
+  min-height: 85px;
   background-color: var(--main-color-dark);
 }
 .container {

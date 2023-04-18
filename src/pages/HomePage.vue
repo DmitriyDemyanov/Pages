@@ -18,5 +18,6 @@ export default {
 .welcome-bg {
   width: 100%;
   height: 1015px;
+  background-color: var(--main-color-dark);
 }
 </style>
