@@ -16,11 +16,7 @@
       </div>
 
       <div class="wrapper-detail-welcome d-flex justify-content-between">
-        <div
-          class="item-detail d-flex"
-          v-for="(el, ind) in getDetailsHomeWelcome"
-          :key="ind"
-        >
+        <div class="item-detail d-flex" v-for="(el,ind) in getDetailsHomeWelcome" :key="ind">
           <div class="item-circle"></div>
           <div class="item-description">
             <div class="item-title fz-cardo-24px">{{ el.title }}</div>
@@ -54,20 +50,23 @@ export default {
   padding-top: 95px;
   padding-bottom: 115px;
 }
+
 .wrapper-description {
   padding-top: 140px;
-  padding-right: 67px;
-  width: 50%;
+  width: calc(50% - 67px);
 }
+
 .wrapper-welcome-subtitle {
   margin-bottom: 16px;
 }
+
 .welcome-bar {
   width: 34px;
   height: 2px;
   margin-right: 15px;
   background-color: var(--main-color-beer);
 }
+
 .welcome-subtitle {
   font-family: 'Cardo', sans-serif;
   font-style: italic;
@@ -75,6 +74,7 @@ export default {
   font-size: 24px;
   color: #fff;
 }
+
 .welcome-content {
   padding-top: 32px;
   padding-bottom: 49px;
@@ -84,6 +84,7 @@ export default {
   height: 28px;
   margin-left: 41px;
   border-bottom: 1px solid #fff;
+
   a {
     font-family: 'Cardo', sans-serif;
     font-weight: 700;
@@ -91,37 +92,40 @@ export default {
     color: #fff;
     text-decoration: none;
   }
+
   &:hover {
     transition: all 0.3s;
     border-bottom-color: var(--main-color-beer);
+
     a {
       transition: all 0.3s;
       color: var(--main-color-beer);
     }
   }
 }
+
 //______________________________________________________details
 .wrapper-detail-welcome {
   padding-top: 49px;
 }
+
 .item-detail {
   align-items: baseline;
 }
+
 .item-description {
   padding-left: 13px;
 }
+
 .item-circle {
   width: 16px;
   height: 16px;
   border-radius: 50%;
   background-color: var(--main-color-beer);
 }
+
 .item-title {
   text-transform: capitalize;
   margin-bottom: 10px;
-}
-
-.wrapper-image {
-  width: calc(48% - 95px);
 }
 </style>
