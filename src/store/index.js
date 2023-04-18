@@ -21,6 +21,20 @@ export default new Vuex.Store({
       'licenses',
       'changelog',
     ],
+    homeDetailsWelcome: [
+      {
+        title: 'pages:',
+        subtitle: '586pages',
+      },
+      {
+        title: 'length:',
+        subtitle: '10 Hours',
+      },
+      {
+        title: 'ratings:',
+        subtitle: '4.5/5 (305 ratings)',
+      },
+    ],
   },
   getters: {
     getExploreLink(state) {
@@ -28,7 +42,10 @@ export default new Vuex.Store({
     },
     getUtilityPages(state) {
       return state.utilityPages;
-    }
+    },
+    getDetailsHomeWelcome(state) {
+      return state.homeDetailsWelcome;
+    },
   },
   mutations: {},
   actions: {},

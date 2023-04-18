@@ -54,7 +54,7 @@
     </div>
 
     <div class="d-flex align-items-center">
-      <div class="wrapper-link_page d-flex">
+      <div class="wrapper-link_page d-flex align-items-center">
         <router-link class="fz-inter-17px padding-link" to="/"
           >Home</router-link
         >
@@ -86,7 +86,7 @@
               <a href="#">Product Single</a>
             </div>
             <div class="row-drop-2">
-              <div class="title-drop">Utiliry Pages</div>
+              <div class="title-drop">Utility Pages</div>
               <a href="#">Style Guard</a>
               <a href="#">404 Page</a>
               <a href="#">Password Protected</a>
@@ -143,6 +143,7 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper-nav {
+  height: 85px;
   padding-top: 35px;
 }
 .logo {
@@ -174,7 +175,7 @@ export default {
   margin-left: 35px;
 }
 .padding-link {
-  padding: 24px 24px 20px;
+  padding: 15px 24px 15px;
   text-decoration: none;
   &:hover {
     transition: color 0.2s;

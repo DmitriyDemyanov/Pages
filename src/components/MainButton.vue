@@ -55,4 +55,9 @@ export default {
   height: 50px;
   font-size: 19px;
 }
+.btn-big {
+  width: 220px;
+  height: 65px;
+  font-size: 19px;
+}
 </style>
