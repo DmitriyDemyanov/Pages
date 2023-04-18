@@ -45,7 +45,6 @@ export default {
 .bar {
   width: 55px;
   height: 3px;
-  margin-top: 22px;
   background-color: var(--main-color-beer);
 }
 
