@@ -35,6 +35,19 @@ export default new Vuex.Store({
         subtitle: '4.5/5 (305 ratings)',
       },
     ],
+    authorsBook: [
+      {
+        title: 'Atomic One’s',
+        subtitle: 'Many variations of passages of Lorem Ipsum willing araise  alteration in some form.',
+        img: 'Book-Atomic'
+       
+      },
+      {
+        title: 'The Dark Light',
+        subtitle: 'Lorem Ipsum willing araise  alteration in some form Many variations of passages of. ',
+         img: 'Book-2-Light'
+      }
+    ]
   },
   getters: {
     getExploreLink(state) {
@@ -48,6 +61,9 @@ export default new Vuex.Store({
     },
     getDetailsAuthorsBook(state) {
       return [state.homeDetailsWelcome[0],state.homeDetailsWelcome[1]]
+    },
+    getAuthorsBook(state) {
+      return state.authorsBook;
     }
   },
   mutations: {},

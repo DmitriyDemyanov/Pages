@@ -5,17 +5,16 @@
 
     <div class="wrapper-content d-flex justify-content-between">
 
-      <div class="wrapper-book d-flex justify-content-between">
-        <div class="img-book"> <a href="#"><img src="@/assets/images/photo/Book-Atomic.png" alt="photo"></a> </div>
+      <div class="wrapper-book d-flex justify-content-between" v-for="(el,ind) in getAuthorsBook" :key='ind'>
+        <div class="img-book"> <a href="#"><img :src="require(`@/assets/images/photo/${el.img}.png`)" alt="photo"></a>
+        </div>
 
 
         <div>
 
           <div class="description-book">
-            <div class="title fz-cardo-32px">Atomic One’s</div>
-            <div class="content fz-inter-19px">Many variations of passages of Lorem Ipsum willing araise alteration in
-              some
-              form.</div>
+            <div class="title fz-cardo-32px">{{ el.title }}</div>
+            <div class="content fz-inter-19px">{{ el.subtitle }}</div>
 
             <div class="wrapper-detail-welcome d-flex justify-content-between">
 
@@ -36,34 +35,7 @@
 
       </div>
 
-      <div class="wrapper-book d-flex justify-content-between">
-        <div class="img-book"> <a href="#"> <img src="@/assets/images/photo/Book-2-Light.png" alt="photo"></a> </div>
 
-
-        <div>
-
-          <div class="description-book">
-            <div class="title fz-cardo-32px">The Dark Light</div>
-            <div class="content fz-inter-19px">Many variations of passages of Lorem Ipsum willing araise  alteration in some form.</div>
-
-            <div class="wrapper-detail-welcome d-flex justify-content-between">
-
-              <div class="item-detail d-flex" v-for="(el,ind) in getDetailsAuthorsBook" :key="ind">
-                <div class="item-circle"></div>
-                <div class="item-description">
-                  <div class="item-title fz-cardo-24px">{{ el.title }}</div>
-                  <div class="item-subtitle fz-inter-18px">{{ el.subtitle }}</div>
-                </div>
-              </div>
-
-
-            </div>
-
-            <MainButton title='Order Today' size="big" reverse='reverse' />
-          </div>
-        </div>
-
-      </div>
 
     </div>
   </div>
@@ -80,7 +52,7 @@ export default {
     MainButton,
   },
   computed: {
-    ...mapGetters(['getDetailsAuthorsBook'])
+    ...mapGetters(['getDetailsAuthorsBook','getAuthorsBook'])
   }
 }
 </script>
