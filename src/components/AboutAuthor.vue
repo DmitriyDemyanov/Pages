@@ -29,8 +29,19 @@
         </div>
 
       </div>
-      <div class="wrapper-contact">
-
+      <div class="wrapper-contact d-flex align-items-center">
+        <div class="image-qr-code">
+          <img src="@/assets/images/photo/QR-code.png" alt="QR-code">
+        </div>
+        <div class="contact fz-inter-19px">
+          <div class="full-name">John Abraham , Ph.d</div>
+          <div class="mail-author">Mail :
+            <a href="#">johnabraham@gmail.com</a>
+          </div>
+          <div class="phone-author"> Phone :
+            <a href="#"> (+2) 123 545 9000</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -87,5 +98,20 @@ export default {
   width: 477px;
   height: 160px;
   margin-top: 41px;
+  padding-left: 18px;
   background-color: var(--main-color-dark);
-}</style>
+}
+
+.contact {
+  padding-left: 37px;
+
+  a {
+    text-decoration: none;
+    color: #B4C7E7;
+
+    &:hover {
+      color: var(--main-color-beer);
+    }
+  }
+}
+</style>
