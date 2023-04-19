@@ -6,7 +6,7 @@
       </div>
     </div>
     <router-view></router-view>
-    <div class="body">body</div>
+
     <div class="bg-footer">
       <div class="container">
         <FooterSection />
@@ -34,20 +34,19 @@ export default {
 * {
   box-sizing: border-box;
 }
+
 .bg-header {
   min-height: 85px;
   background-color: var(--main-color-dark);
 }
+
 .container {
   margin: 0 auto;
   width: 1300px;
   box-sizing: border-box;
 }
-.body {
-  height: 500px;
-}
+
 .bg-footer {
   height: 510px;
   background-color: var(--main-color-dark);
-}
-</style>
+}</style>
