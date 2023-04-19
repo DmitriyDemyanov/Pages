@@ -36,10 +36,10 @@
         <div class="contact fz-inter-19px">
           <div class="full-name">John Abraham , Ph.d</div>
           <div class="mail-author">Mail :
-            <a href="#">johnabraham@gmail.com</a>
+            <a href="mailto:johnabraham@gmail.com">johnabraham@gmail.com</a>
           </div>
           <div class="phone-author"> Phone :
-            <a href="#"> (+2) 123 545 9000</a>
+            <a href="tel:+21235459000"> (+2) 123 545 9000</a>
           </div>
         </div>
       </div>

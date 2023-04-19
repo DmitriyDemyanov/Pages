@@ -46,10 +46,12 @@ export default {
   width: 55px;
   height: 3px;
   background-color: var(--main-color-beer);
+  margin-top: 11px;
 }
 
 .center {
   text-align: center;
   margin: 0 auto;
+  margin-top: 11px;
 }
 </style>

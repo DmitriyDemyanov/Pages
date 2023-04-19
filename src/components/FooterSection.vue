@@ -121,13 +121,13 @@
         <div class="footer-address d-flex align-items-center">
           <div class="address-subtitle"><a href="#">Mail :</a></div>
           <div class="address-text">
-            <a href="#">support@doctors.com</a>
+            <a href="mailto:support@doctors.com">support@doctors.com</a>
           </div>
         </div>
         <div class="footer-address d-flex align-items-center">
           <div class="address-subtitle"><a href="#">Phone :</a></div>
           <div class="address-text">
-            <a href="(+22)1234567900">(+22) 123 - 4567 - 900</a>
+            <a href="tel:+221234567900">(+22) 123 - 4567 - 900</a>
           </div>
         </div>
       </div>
