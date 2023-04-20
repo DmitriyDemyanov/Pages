@@ -69,6 +69,24 @@ export default new Vuex.Store({
         title: 'Urban Lib',
         text: 'A long established fact that a who looking at its layout.',
       },
+    ],
+    whatYouLearnItems: [
+      {
+        number: '01',
+        text: 'Use HDFS & Map Reduce for storing & analyzing data at scale.'
+      },
+      {
+        number: '02',
+        text: 'Consume streaming data using Spark Streaming, Flink, and Storm.'
+      },
+      {
+        number: '03',
+        text: 'Choose an appropriate data storage technology for your application'
+      },
+      {
+        number: '04',
+        text: 'Analyze non-relational data using HBase, Cassandra, and MongoDB.'
+      },
     ]
   },
   getters: {
@@ -89,7 +107,10 @@ export default new Vuex.Store({
     },
     getOurCompanions(state) {
       return state.ourCompanions;
-    }
+    },
+    getWhatYouLearnItems(state) {
+      return state.whatYouLearnItems;
+    },
   },
   mutations: {},
   actions: {},
