@@ -12,6 +12,10 @@
     <div class="our-companions">
       <OurCompanions />
     </div>
+    <div class="test-bg"></div>
+    <div class="readers-about-book-bg">
+      <ReadersAboutBook />
+    </div>
   </div>
 </template>
 
@@ -20,6 +24,7 @@ import HomeWelcomePages from '@/components/HomeWelcomePages';
 import AuthorsBook from '@/components/AuthorsBook';
 import AboutAuthor from '@/components/AboutAuthor';
 import OurCompanions from '@/components/OurCompanions';
+import ReadersAboutBook from '@/components/ReadersAboutBook';
 export default {
   name: 'HomePage',
   components: {
@@ -27,6 +32,7 @@ export default {
     AuthorsBook,
     AboutAuthor,
     OurCompanions,
+    ReadersAboutBook,
   },
 };
 </script>
@@ -37,18 +43,32 @@ export default {
   min-height: 1015px;
   background-color: var(--main-color-dark);
 }
+
 .authors-bg {
   width: 100%;
   min-height: 827px;
   background-color: #F5F5F5;
 }
+
 .about-author-bg {
   width: 100%;
   min-height: 990px;
   background-color: #F4F8FF;
 }
+
 .our-companions {
   min-height: 607px;
+  background-color: #F5F5F5;
+}
+
+.test-bg {
+  height: 200px;
+  background-color: var(--main-color-dark);
+}
+
+.readers-about-book-bg {
+  width: 100%;
+  min-height: 930px;
   background-color: #F5F5F5;
 }
 </style>
