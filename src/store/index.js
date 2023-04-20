@@ -69,6 +69,32 @@ export default new Vuex.Store({
         title: 'Urban Lib',
         text: 'A long established fact that a who looking at its layout.',
       },
+    ],
+    chapterIncludes: [
+      {
+        title: 'Chapter- 01   Get Started Intro',
+        text: 'You can double your knowledge by reading this ever needed book that can last a lifetime.',
+        numberPage: '106pages',
+        quantity: '1 Hour 15 mins',
+      },
+       {
+        title: 'Chapter- 02   Create a Massive Content',
+        text: 'It will help to improve your life career with the perfect and needed knowledge about your life.',
+        numberPage: '180pages',
+        quantity: '1 Hour 30 mins',
+      },
+        {
+        title: 'Chapter- 03   Maintaining the Creative Arcs',
+        text: ' We wanted to create an easy, convenient way for you to get your books & support.',
+        numberPage:'250pages',
+        quantity: ' 1 Hour 15 mins',
+      },
+         {
+        title: 'Chapter- 04   The Conclusion',
+        text: 'Promote your book via Pages shop to support your writing & reading career.',
+        numberPage: '175pages',
+        quantity: '1 Hour 45 mins',
+      },
     ]
   },
   getters: {
@@ -89,7 +115,10 @@ export default new Vuex.Store({
     },
     getOurCompanions(state) {
       return state.ourCompanions;
-    }
+    },
+    getChapterIncludes(state) {
+      return state.chapterIncludes;
+    },
   },
   mutations: {},
   actions: {},
