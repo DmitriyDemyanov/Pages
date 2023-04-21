@@ -1,7 +1,7 @@
 <template>
   <div>
     <div :class='`${color} ${type}`' class="title">{{ title }}</div>
-    <div :class='`${type}`' class="bar"></div>
+    <div :class='`${type} ${bar_dark} `' class="bar"></div>
   </div>
 </template>
 
@@ -19,7 +19,11 @@ export default {
     },
     type: {
       type: String,
-      default: 'center'
+      default: 'center',
+    },
+    bar_dark: {
+      type: String,
+      default: ''
     }
   }
 }
@@ -31,7 +35,6 @@ export default {
   font-style: normal;
   font-weight: 700;
   font-size: 45px;
-  text-transform: capitalize;
 }
 
 .dark {
@@ -49,9 +52,12 @@ export default {
   margin-top: 11px;
 }
 
+.bar-dark {
+  background-color: var(--main-color-dark);
+}
+
 .center {
   text-align: center;
   margin: 0 auto;
-  margin-top: 11px;
 }
 </style>

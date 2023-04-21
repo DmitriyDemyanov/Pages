@@ -12,9 +12,21 @@
     <div class="our-companions-bg">
       <OurCompanions />
     </div>
-    <div class="test-body"></div>
+    <div class="book-copy-bg">
+      <BookCopy />
+    </div>
     <div class="what-you-learn-bg">
       <WhatYouLearn />
+    </div>
+    <div class="chapter-includes-bg">
+      <ChapterIncludes />
+    </div>
+    <div class="read-chapter">
+      <ReadFreeChapter />
+    </div>
+
+    <div class="articles-resources-bg">
+      <ArticlesResources />
     </div>
   </div>
 </template>
@@ -24,7 +36,12 @@ import HomeWelcomePages from '@/components/HomeWelcomePages';
 import AuthorsBook from '@/components/AuthorsBook';
 import AboutAuthor from '@/components/AboutAuthor';
 import OurCompanions from '@/components/OurCompanions';
+import BookCopy from '@/components/BookCopy';
 import WhatYouLearn from '@/components/WhatYouLearn';
+import ChapterIncludes from '@/components/ChapterIncludes';
+import ReadFreeChapter from '@/components/ReadFreeChapter';
+
+import ArticlesResources from '@/components/ArticlesREsources';
 export default {
   name: 'HomePage',
   components: {
@@ -32,7 +49,11 @@ export default {
     AuthorsBook,
     AboutAuthor,
     OurCompanions,
+    BookCopy,
     WhatYouLearn,
+    ChapterIncludes,
+    ReadFreeChapter,
+    ArticlesResources,
   },
 };
 </script>
@@ -61,8 +82,9 @@ export default {
   background-color: #F5F5F5;
 }
 
-.test-body {
-  height: 200px;
+.book-copy-bg {
+  width: 100%;
+  min-height: 500px;
   background-color: var(--main-color-dark);
 }
 
@@ -70,4 +92,21 @@ export default {
   width: 100%;
   min-height: 1108px;
   background-color: #F5F5F5;
+}
+
+.chapter-includes-bg {
+  width: 100%;
+  min-height: 1200px;
+  background-color: #F4F8FF;
+}
+
+.articles-resources-bg {
+  width: 100%;
+  min-height: 1016px;
+  background-color: #F4F8FF;
+}
+
+.read-chapter {
+  min-height: 817px;
+  width: 100%;
 }</style>

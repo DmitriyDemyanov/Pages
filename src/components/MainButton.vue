@@ -16,7 +16,7 @@ export default {
     },
     title: {
       type: String,
-      required: true,
+      default: 'Order Today'
     },
     reverse: {
       type: String,
@@ -55,6 +55,17 @@ export default {
   }
 }
 
+.reverse-dark {
+  background-color: var(--main-color-dark);
+  color: #fff;
+
+  &:hover {
+    border: 2px solid var(--main-color-beer);
+    background-color: var(--main-color-beer);
+    color: var(--main-color-dark);
+  }
+}
+
 .btn-norm {
   width: 180px;
   height: 50px;
@@ -65,5 +76,17 @@ export default {
   width: 220px;
   height: 65px;
   font-size: 19px;
+}
+
+.btn-full {
+  width: 100%;
+  height: 65px;
+
+  &:hover {
+    transition: all 0.4s;
+    border: 2px solid var(--main-color-beer);
+    background-color: #F4F8FF;
+    color: var(--main-color-dark);
+  }
 }
 </style>
