@@ -12,12 +12,16 @@
     <div class="our-companions-bg">
       <OurCompanions />
     </div>
-    <div class="book-copy-bg">
-      <BookCopy />
-    </div>
-    <div class="articles-resources-bg">
-      <ArticlesResources />
-    </div>
+     <div class="book-copy-bg">
+        <BookCopy />
+      </div>
+      <div class="read-chapter">
+        <ReadFreeChapter/>
+      </div>
+
+      <div class="articles-resources-bg">
+        <ArticlesResources />
+      </div>
   </div>
 </template>
 
@@ -27,6 +31,7 @@ import AuthorsBook from '@/components/AuthorsBook';
 import AboutAuthor from '@/components/AboutAuthor';
 import OurCompanions from '@/components/OurCompanions';
 import BookCopy from '@/components/BookCopy';
+import ReadFreeChapter from '@/components/ReadFreeChapter';
 
 import ArticlesResources from '@/components/ArticlesREsources';
 export default {
@@ -37,6 +42,7 @@ export default {
     AboutAuthor,
     OurCompanions,
     BookCopy,
+    ReadFreeChapter,
     ArticlesResources,
   },
 };
@@ -65,7 +71,6 @@ export default {
   min-height: 607px;
   background-color: #F5F5F5;
 }
-
 .book-copy-bg {
   width: 100%;
   min-height: 500px;
@@ -76,4 +81,10 @@ export default {
   width: 100%;
   min-height: 1016px;
   background-color: #F4F8FF;
-}</style>
+}
+.read-chapter {
+  min-height: 817px;
+  width: 100%;
+}
+
+</style>
