@@ -70,7 +70,7 @@ export default new Vuex.Store({
         text: 'A long established fact that a who looking at its layout.',
       },
     ],
-    chapterIncludes: [
+     chapterIncludes: [
       {
         title: 'Chapter- 01   Get Started Intro',
         text: 'You can double your knowledge by reading this ever needed book that can last a lifetime.',
@@ -96,6 +96,7 @@ export default new Vuex.Store({
         quantity: '1 Hour 45 mins',
       },
     ]
+
   },
   getters: {
     getExploreLink(state) {
@@ -116,7 +117,7 @@ export default new Vuex.Store({
     getOurCompanions(state) {
       return state.ourCompanions;
     },
-    getChapterIncludes(state) {
+      getChapterIncludes(state) {
       return state.chapterIncludes;
     },
   },
