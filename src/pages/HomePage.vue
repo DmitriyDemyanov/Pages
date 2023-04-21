@@ -15,7 +15,9 @@
     <div class="book-copy-bg">
       <BookCopy />
     </div>
-    <div class="body-test"></div>
+    <div class="articles-resources-bg">
+      <ArticlesResources />
+    </div>
   </div>
 </template>
 
@@ -25,6 +27,8 @@ import AuthorsBook from '@/components/AuthorsBook';
 import AboutAuthor from '@/components/AboutAuthor';
 import OurCompanions from '@/components/OurCompanions';
 import BookCopy from '@/components/BookCopy';
+
+import ArticlesResources from '@/components/ArticlesREsources';
 export default {
   name: 'HomePage',
   components: {
@@ -33,6 +37,7 @@ export default {
     AboutAuthor,
     OurCompanions,
     BookCopy,
+    ArticlesResources,
   },
 };
 </script>
@@ -67,8 +72,8 @@ export default {
   background-color: var(--main-color-dark);
 }
 
-.body-test {
+.articles-resources-bg {
   width: 100%;
-  height: 200px;
-}
-</style>
+  min-height: 1016px;
+  background-color: #F4F8FF;
+}</style>
