@@ -21,15 +21,14 @@
     <div class="chapter-includes-bg">
       <ChapterIncludes />
     </div>
-    <div class="read-chapter">
-      <ReadFreeChapter />
+    <div class="readers-about-book-bg">
+      <ReadersAboutBook />
     </div>
-
     <div class="articles-resources-bg">
       <ArticlesResources />
     </div>
-    <div class="readers-about-book-bg">
-      <ReadersAboutBook />
+    <div class="read-chapter-bg">
+      <ReadFreeChapter />
     </div>
   </div>
 </template>
@@ -112,17 +111,15 @@ export default {
   min-height: 1016px;
   background-color: #F4F8FF;
 }
-.test-bg {
-  height: 200px;
-  background-color: var(--main-color-dark);
-}
 
 .readers-about-book-bg {
   width: 100%;
   min-height: 930px;
   background-color: #F5F5F5;
 }
-.read-chapter {
+
+.read-chapter-bg {
   min-height: 817px;
   width: 100%;
-}</style>
+}
+</style>
