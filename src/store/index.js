@@ -69,7 +69,30 @@ export default new Vuex.Store({
         title: 'Urban Lib',
         text: 'A long established fact that a who looking at its layout.',
       },
-    ]
+    ],
+    articlesResources: [
+      {
+        img: 'photo-card_1',
+        title: 'The energy efficiency offers hydrotherapy or swim',
+        text: 'The point of using Lorem Ipsum hiter of that using making it look like others readable will get end.',
+        date: '23.05.2022',
+        link: '#',
+      },
+       {
+        img: 'photo-card_2',
+        title: 'Release of Letraset sheets tools containing  passages',
+        text: 'Lorem Ipsum hiter of that using making it look like others readable will get end.The point of using ',
+        date: '30.08.2022',
+        link: '#',
+      },
+        {
+        img: 'photo-card_3',
+        title: 'The energy efficiency offers hydrotherapy or swim',
+        text:  'Lorem Ipsum hiter of that using making The point of usingit look like others readable will get end.',
+        date: '12.04.2023',
+        link: '#',
+      },
+    ],
   },
   getters: {
     getExploreLink(state) {
@@ -89,7 +112,10 @@ export default new Vuex.Store({
     },
     getOurCompanions(state) {
       return state.ourCompanions;
-    }
+    },
+    getArticlesResources(state) {
+      return state.articlesResources;
+    },
   },
   mutations: {},
   actions: {},
