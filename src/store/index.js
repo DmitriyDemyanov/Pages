@@ -120,6 +120,9 @@ export default new Vuex.Store({
       getChapterIncludes(state) {
       return state.chapterIncludes;
     },
+    getWhatYouLearnItems(state) {
+      return state.whatYouLearnItems;
+    },
   },
   mutations: {},
   actions: {},
