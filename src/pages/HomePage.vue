@@ -12,6 +12,10 @@
     <div class="our-companions">
       <OurCompanions />
     </div>
+    <div class="test-bg"></div>
+    <div class="read-chapter">
+      <ReadFreeChapter/>
+    </div>
   </div>
 </template>
 
@@ -20,6 +24,7 @@ import HomeWelcomePages from '@/components/HomeWelcomePages';
 import AuthorsBook from '@/components/AuthorsBook';
 import AboutAuthor from '@/components/AboutAuthor';
 import OurCompanions from '@/components/OurCompanions';
+import ReadFreeChapter from '@/components/ReadFreeChapter';
 export default {
   name: 'HomePage',
   components: {
@@ -27,6 +32,7 @@ export default {
     AuthorsBook,
     AboutAuthor,
     OurCompanions,
+    ReadFreeChapter,
   },
 };
 </script>
@@ -50,5 +56,13 @@ export default {
 .our-companions {
   min-height: 607px;
   background-color: #F5F5F5;
+}
+.test-bg {
+  height: 200px;
+  background-color: var(--main-color-dark);
+}
+.read-chapter {
+  min-height: 817px;
+  width: 100%;
 }
 </style>
