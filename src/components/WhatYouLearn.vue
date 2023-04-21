@@ -31,7 +31,7 @@ export default {
     TitleSection,
   },
   computed: {
-    ...mapGetters(['getWhatYouLearnItems'])
+    ...mapGetters(['getWhatYouLearnItems']),
   }
 
 }
