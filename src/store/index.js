@@ -70,29 +70,33 @@ export default new Vuex.Store({
         text: 'A long established fact that a who looking at its layout.',
       },
     ],
-    articlesResources: [
+     chapterIncludes: [
       {
-        img: 'photo-card_1',
-        title: 'The energy efficiency offers hydrotherapy or swim',
-        text: 'The point of using Lorem Ipsum hiter of that using making it look like others readable will get end.',
-        date: '23.05.2022',
-        link: '#',
+        title: 'Chapter- 01   Get Started Intro',
+        text: 'You can double your knowledge by reading this ever needed book that can last a lifetime.',
+        numberPage: '106pages',
+        quantity: '1 Hour 15 mins',
       },
        {
-        img: 'photo-card_2',
-        title: 'Release of Letraset sheets tools containing  passages',
-        text: 'Lorem Ipsum hiter of that using making it look like others readable will get end.The point of using ',
-        date: '30.08.2022',
-        link: '#',
+        title: 'Chapter- 02   Create a Massive Content',
+        text: 'It will help to improve your life career with the perfect and needed knowledge about your life.',
+        numberPage: '180pages',
+        quantity: '1 Hour 30 mins',
       },
         {
-        img: 'photo-card_3',
-        title: 'The energy efficiency offers hydrotherapy or swim',
-        text:  'Lorem Ipsum hiter of that using making The point of usingit look like others readable will get end.',
-        date: '12.04.2023',
-        link: '#',
+        title: 'Chapter- 03   Maintaining the Creative Arcs',
+        text: ' We wanted to create an easy, convenient way for you to get your books & support.',
+        numberPage:'250pages',
+        quantity: ' 1 Hour 15 mins',
       },
-    ],
+         {
+        title: 'Chapter- 04   The Conclusion',
+        text: 'Promote your book via Pages shop to support your writing & reading career.',
+        numberPage: '175pages',
+        quantity: '1 Hour 45 mins',
+      },
+    ]
+
   },
   getters: {
     getExploreLink(state) {
@@ -113,8 +117,8 @@ export default new Vuex.Store({
     getOurCompanions(state) {
       return state.ourCompanions;
     },
-    getArticlesResources(state) {
-      return state.articlesResources;
+      getChapterIncludes(state) {
+      return state.chapterIncludes;
     },
   },
   mutations: {},
