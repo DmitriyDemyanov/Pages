@@ -28,6 +28,9 @@
     <div class="articles-resources-bg">
       <ArticlesResources />
     </div>
+    <div class="readers-about-book-bg">
+      <ReadersAboutBook />
+    </div>
   </div>
 </template>
 
@@ -40,7 +43,7 @@ import BookCopy from '@/components/BookCopy';
 import WhatYouLearn from '@/components/WhatYouLearn';
 import ChapterIncludes from '@/components/ChapterIncludes';
 import ReadFreeChapter from '@/components/ReadFreeChapter';
-
+import ReadersAboutBook from '@/components/ReadersAboutBook';
 import ArticlesResources from '@/components/ArticlesREsources';
 export default {
   name: 'HomePage',
@@ -53,6 +56,7 @@ export default {
     WhatYouLearn,
     ChapterIncludes,
     ReadFreeChapter,
+    ReadersAboutBook,
     ArticlesResources,
   },
 };
@@ -77,6 +81,8 @@ export default {
   background-color: #F4F8FF;
 }
 
+
+
 .our-companions-bg {
   min-height: 607px;
   background-color: #F5F5F5;
@@ -87,6 +93,7 @@ export default {
   min-height: 500px;
   background-color: var(--main-color-dark);
 }
+
 
 .what-you-learn-bg {
   width: 100%;
@@ -105,7 +112,16 @@ export default {
   min-height: 1016px;
   background-color: #F4F8FF;
 }
+.test-bg {
+  height: 200px;
+  background-color: var(--main-color-dark);
+}
 
+.readers-about-book-bg {
+  width: 100%;
+  min-height: 930px;
+  background-color: #F5F5F5;
+}
 .read-chapter {
   min-height: 817px;
   width: 100%;

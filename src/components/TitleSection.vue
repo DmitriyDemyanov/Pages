@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class='width'>
     <div :class='`${color} ${type}`' class="title">{{ title }}</div>
     <div :class='`${type} ${bar_dark} `' class="bar"></div>
   </div>
@@ -23,8 +23,13 @@ export default {
     },
     bar_dark: {
       type: String,
-      default: ''
-    }
+      default: 'center'
+    },
+    width: {
+      type: String,
+      default: 'default'
+    },
+
   }
 }
 </script>
@@ -59,5 +64,10 @@ export default {
 .center {
   text-align: center;
   margin: 0 auto;
+}
+
+.small {
+  width: 326px;
+
 }
 </style>
