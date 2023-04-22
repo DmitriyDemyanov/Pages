@@ -1,6 +1,6 @@
 <template>
   <div :class='width'>
-    <div :class='`${color} ${type}`' class="title">{{ title }}</div>
+    <div :class='`${color} ${type} ${title_padding}`' class="title"> {{ title }} </div>
     <div :class='`${type} ${bar_dark} `' class="bar"></div>
   </div>
 </template>
@@ -12,6 +12,10 @@ export default {
     title: {
       type: String,
       required: true,
+    },
+    title_padding: {
+      type: String,
+      default: ''
     },
     color: {
       type: String,
@@ -50,6 +54,21 @@ export default {
   color: #fff;
 }
 
+
+
+.bar-dark {
+  background-color: var(--main-color-dark);
+}
+
+.title-padding {
+  padding-bottom: 12px;
+}
+
+.center {
+  text-align: center;
+  margin: 0 auto;
+}
+
 .bar {
   width: 55px;
   height: 3px;
@@ -57,17 +76,7 @@ export default {
   margin-top: 22px;
 }
 
-.bar-dark {
-  background-color: var(--main-color-dark);
-}
-
-.center {
-  text-align: center;
-  margin: 22px auto 0;
-}
-
 .small {
   width: 326px;
-
 }
 </style>
