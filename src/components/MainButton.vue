@@ -44,7 +44,6 @@ export default {
 
 .btn-reverse {
   background-color: #fff;
-
   color: var(--main-color-dark);
   border: 2px solid var(--main-color-beer);
 
@@ -81,6 +80,7 @@ export default {
 .btn-full {
   width: 100%;
   height: 65px;
+  font-size: 19px;
 
   &:hover {
     transition: all 0.4s;

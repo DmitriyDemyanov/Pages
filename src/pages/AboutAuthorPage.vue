@@ -2,12 +2,15 @@
   <section>
 
     <div class="header-title-standard-dg">
-      <HeaderTitleStandard title='About the Author'
+      <HeaderTitleStandard 
+        title='About the Author'
         subtitle='There are many variations of passages of Lorem Ipsum available,  have suffered alteration in some form.'
-        color='light' padding='title-padding' />
-
+        color='light' 
+        padding='title-padding' />
     </div>
-
+    <div class="author-data-bg">
+      <AuthorData/>
+    </div>
 
     <div class="authors-bg">
       <AuthorsBook />
@@ -23,6 +26,7 @@
 
 <script>
 import HeaderTitleStandard from '@/components/HeaderTitleStandard';
+import AuthorData from '@/components/AuthorData';
 import AuthorsBook from '@/components/AuthorsBook';
 import OurCompanions from '@/components/OurCompanions';
 import ReadFreeChapter from '@/components/ReadFreeChapter';
@@ -30,9 +34,11 @@ export default {
   name: 'AboutAuthorPage',
   components: {
     HeaderTitleStandard,
+    AuthorData,
     AuthorsBook,
     OurCompanions,
     ReadFreeChapter,
+    
 
   }
 }
@@ -43,7 +49,10 @@ export default {
   width: 100%;
   min-height: 442px;
   background-color: var(--main-color-dark);
-
+}
+.author-data-bg {
+  background-color: #F6F8FC;
+  min-height: 1432px;
 }
 
 

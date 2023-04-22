@@ -137,7 +137,13 @@ export default new Vuex.Store({
         link: '#',
       },
     ],
-
+    authorData: [
+      { Country: "United Kingdom"},
+      { Language: 'English'},
+      { Genre: 'Historiography'},
+      { 'Publication date': '1991'},
+      { 'Share us on': ''},
+    ],
   },
   getters: {
     getExploreLink(state) {

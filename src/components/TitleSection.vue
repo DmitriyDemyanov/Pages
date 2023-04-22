@@ -1,6 +1,6 @@
 <template>
   <div :class='width'>
-    <div :class='`${color} ${type} ${title_padding}`' class="title"> {{ title }} </div>
+    <div class="title" :class='`${color} ${type} ${title_padding}`'> {{ title }} </div>
     <div :class='`${type} ${bar_dark} `' class="bar"></div>
   </div>
 </template>
@@ -62,6 +62,7 @@ export default {
 
 .title-padding {
   padding-bottom: 12px;
+  font-size: 50px;
 }
 
 .center {
