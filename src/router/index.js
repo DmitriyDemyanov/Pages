@@ -2,7 +2,7 @@ import VueRouter from 'vue-router';
 import Vue from 'vue';
 
 import HomePage from '@/pages/HomePage';
-import AboutPage from '@/pages/AboutPage';
+import AboutAuthorPage from '@/pages/AboutAuthorPage';
 import ServicesPage from '@/pages/ServicesPage';
 import ContactPage from '@/pages/ContactPage';
 
@@ -17,7 +17,7 @@ const routes = [
   {
     path: '/About',
     name: 'about',
-    component: AboutPage,
+    component: AboutAuthorPage,
   },
   {
     path: '/Services',

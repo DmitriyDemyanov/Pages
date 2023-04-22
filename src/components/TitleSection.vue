@@ -23,7 +23,7 @@ export default {
     },
     bar_dark: {
       type: String,
-      default: 'center'
+      default: ''
     },
     width: {
       type: String,
@@ -54,7 +54,7 @@ export default {
   width: 55px;
   height: 3px;
   background-color: var(--main-color-beer);
-  margin-top: 11px;
+  margin-top: 22px;
 }
 
 .bar-dark {
@@ -63,7 +63,7 @@ export default {
 
 .center {
   text-align: center;
-  margin: 0 auto;
+  margin: 22px auto 0;
 }
 
 .small {
