@@ -36,7 +36,7 @@ export default {
 <style lang='scss' scoped>
 .wrapper-section-header {
   padding-top: 138px;
-  font-size: 50px;
+
 }
 
 

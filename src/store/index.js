@@ -137,13 +137,31 @@ export default new Vuex.Store({
         link: '#',
       },
     ],
+    //Author about page
     authorData: [
-      { Country: "United Kingdom"},
-      { Language: 'English'},
-      { Genre: 'Historiography'},
-      { 'Publication date': '1991'},
-      { 'Share us on': ''},
+      { Country: "United Kingdom" },
+      { Language: 'English' },
+      { Genre: 'Historiography' },
+      { 'Publication date': '1991' },
+      {
+        'Share us on': {
+          facebook: 'facebook.com',
+          twitter: 'twitter.com',
+          'link-in': 'link-in.com',
+        },
+      },
     ],
+    author: {
+      Country: "United Kingdom",
+      Language: 'English',
+      Genre: 'Historiography',
+      ['Publication date']: '1991',
+      links: {
+        facebook: 'facebook.com',
+        twitter: 'twitter.com',
+        'linkedin-in': 'linkedin-in.com',
+      }
+    }
   },
   getters: {
     getExploreLink(state) {
@@ -172,6 +190,9 @@ export default new Vuex.Store({
     },
     getArticlesResources(state) {
       return state.articlesResources;
+    },
+    getAuthorData(state) {
+      return state.author;
     },
   },
   mutations: {},
