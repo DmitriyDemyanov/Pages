@@ -12,6 +12,10 @@
       <AuthorData/>
     </div>
 
+    <div class="my-story-bg">
+      <AuthorStory/>
+    </div>
+
     <div class="authors-bg">
       <AuthorsBook />
     </div>
@@ -27,6 +31,7 @@
 <script>
 import HeaderTitleStandard from '@/components/HeaderTitleStandard';
 import AuthorData from '@/components/AuthorData';
+import AuthorStory from '@/components/AuthorStory';
 import AuthorsBook from '@/components/AuthorsBook';
 import OurCompanions from '@/components/OurCompanions';
 import ReadFreeChapter from '@/components/ReadFreeChapter';
@@ -35,11 +40,10 @@ export default {
   components: {
     HeaderTitleStandard,
     AuthorData,
+    AuthorStory,
     AuthorsBook,
     OurCompanions,
     ReadFreeChapter,
-    
-
   }
 }
 </script>
@@ -55,7 +59,11 @@ export default {
   min-height: 1432px;
 }
 
-
+.my-story-bg {
+  width: 100%;
+  min-height: 952px;
+  background-color: #F5F5F5;
+}
 
 .authors-bg {
   width: 100%;
