@@ -161,7 +161,8 @@ export default new Vuex.Store({
         twitter: 'twitter.com',
         'linkedin-in': 'linkedin-in.com',
       }
-    }
+    },
+    inputSubscribe: '',
   },
   getters: {
     getExploreLink(state) {
@@ -194,8 +195,23 @@ export default new Vuex.Store({
     getAuthorData(state) {
       return state.author;
     },
+
+
+
+    getInputTestSubscribe(state) {
+      return state.inputSubscribe;
+    }
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+    INPUT_SUBSCRIBE(state,payload) {
+      state.inputSubscribe = payload;
+    }
+
+  },
+  actions: {
+    createSubscribe({ commit },payload) {
+      commit('INPUT_SUBSCRIBE',payload);
+    }
+  },
   modules: {},
 });

@@ -9,21 +9,54 @@
 
       <div class="wrapper-form d-flex align-items-center justify-content-between">
 
-        <input class="input-subscribe fz-inter-17px" type="text" placeholder="Your Email id...">
-        <button class="btn-subscribe fz-cardo-19px">Subscribe</button>
+        <input v-model="searchText" @keyup.enter='clickInput' @input='$v.$reset()' class="input-subscribe fz-inter-17px"
+          type="text" placeholder="Your Email id...">
+        <button @click='clickInput' class="btn-subscribe fz-cardo-19px">
+          Subscribe
+        </button>
 
       </div>
-
+      <div class="error" v-if="!$v.searchText.email">It's not an email</div>
+      <div class="error" v-if="!$v.searchText.required">It's required field</div>
+      <div class="test-input"> <b> {{ getInputTestSubscribe }} </b> </div>
     </div>
   </section>
 </template>
 
 <script>
 import TitleSection from '@/components/TitleSection';
+import { mapActions,mapGetters } from 'vuex';
+import { email,required } from 'vuelidate/lib/validators';
+
 export default {
   name: 'ReadFreeChapter',
   components: {
     TitleSection,
+  },
+  computed: {
+    ...mapGetters(['getInputTestSubscribe']),
+  },
+  data() {
+    return {
+      searchText: '',
+    };
+  },
+  methods: {
+    ...mapActions(['createSubscribe']),
+    clickInput() {
+      this.$v.searchText.$touch();
+      if (!this.$v.$invalid) {
+        this.createSubscribe(this.searchText);
+        this.searchText = '';
+      }
+
+    },
+  },
+  validations: {
+    searchText: {
+      email,
+      required
+    }
   }
 }
 </script>
@@ -68,6 +101,7 @@ export default {
   &:focus-visible {
     outline: none;
   }
+
   &::placeholder {
     color: #969AA0;
   }
@@ -84,6 +118,10 @@ export default {
     color: var(--main-color-dark);
     transition: all 0.4s;
   }
+}
 
+.test-input {
+  text-align: center;
+  margin-top: 20px;
 }
 </style>
