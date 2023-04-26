@@ -163,41 +163,41 @@ export default new Vuex.Store({
       }
     },
     inputSubscribe: '',
-    MyStoreBook: [
+    myStoreBook: [
       {
-        title: 'Atomic One’s',
+        title: 'Atomic Dark',
         img: 'book-1',
         price: '$23.89',
         description: 'Many variations of passages of Lorem Ipsum willing araise  alteration in some form.',
       },
       {
-        title: 'Atomic One’s',
+        title: 'The Dark Light',
         img: 'book-1',
-        price: '$23.89',
+        price: '$32.45',
         description: 'Many variations of passages of Lorem Ipsum willing araise  alteration in some form.',
       },
       {
         title: 'Atomic One’s',
         img: 'book-1',
-        price: '$23.89',
+        price: '$56.86',
+        description: 'Many variations of passages of Lorem Ipsum willing araise  alteration in some form.',
+      },
+      {
+        title: 'Atomic Light',
+        img: 'book-1',
+        price: '$28.76',
         description: 'Many variations of passages of Lorem Ipsum willing araise  alteration in some form.',
       },
       {
         title: 'Atomic One’s',
         img: 'book-1',
-        price: '$23.89',
+        price: '$12.89',
         description: 'Many variations of passages of Lorem Ipsum willing araise  alteration in some form.',
       },
       {
-        title: 'Atomic One’s',
+        title: 'The Dark Light',
         img: 'book-1',
-        price: '$23.89',
-        description: 'Many variations of passages of Lorem Ipsum willing araise  alteration in some form.',
-      },
-      {
-        title: 'Atomic One’s',
-        img: 'book-1',
-        price: '$23.89',
+        price: '$26.43',
         description: 'Many variations of passages of Lorem Ipsum willing araise  alteration in some form.',
       },
     ]
@@ -234,10 +234,14 @@ export default new Vuex.Store({
       return state.author;
     },
 
-
+    //_____________________________________________
 
     getInputTestSubscribe(state) {
       return state.inputSubscribe;
+    },
+    //______________________________________myStore
+    getMyStoreBook(state) {
+      return state.myStoreBook
     }
   },
   mutations: {

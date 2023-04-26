@@ -1,40 +1,64 @@
 <template>
-  <section class="wrapper-section-item">
-    <div class="img-item d-flex align-items-center justify-content-center"><img src="@/assets/images/photo/book-1.svg"
-        alt="photo">
+  <section class="wrapper-section">
+    <div class="wrapper-item" v-for="(el,ind) in getMyStoreBook" :key='ind'>
+      <div class="img-item d-flex align-items-center justify-content-center"><img
+          :src="require(`@/assets/images/photo/${el.img}.svg`)" alt="photo">
+        <div class="icon-img" v-show="(el.title ==='The Dark Light')"><img src="@/assets/images/icons/Audio-icon.png"
+            alt=""></div>
+        <div class="icon-img" v-show="(el.title ===  'Atomic One’s')"><img src="@/assets/images/icons/Mockup-icon.png"
+            alt=""></div>
+      </div>
+      <div class="wrapper-price d-flex align-items-center justify-content-between">
+        <div class="title-book fz-cardo-32px">{{ el.title }}</div>
+        <div class="price-book fz-inter-22px">{{ el.price }}</div>
+      </div>
+      <div class="description-book fz-inter-19px">{{ el.description }}
+      </div>
+      <div class="printed-book d-flex align-items-center fz-cardo-24px">
+        <div class="circle"></div> Printed Books
+      </div>
+      <MainButton title='Order Today' size="big" reverse='reverse' />
     </div>
-    <div class="wrapper-price d-flex align-items-center justify-content-between">
-      <div class="title-book fz-cardo-32px">Atomic One’s</div>
-      <div class="price-book fz-inter-22px">$23.89</div>
-    </div>
-    <div class="description-book fz-inter-19px">Many variations of passages of Lorem Ipsum willing araise alteration in
-      some form.
-    </div>
-    <div class="printed-book d-flex align-items-center fz-cardo-24px">
-      <div class="circle"></div> Printed Books
-    </div>
-    <MainButton title='Order Today' size="big" reverse='reverse'/>
   </section>
 </template>
 
 <script>
 import MainButton from '@/components/MainButton';
+import { mapGetters } from 'vuex';
 export default {
   name: 'ItemBookStore',
   components: {
     MainButton,
   },
+  computed: {
+    ...mapGetters(['getMyStoreBook'])
+  }
 }
 </script>
 
 <style lang='scss' scoped>
-.wrapper-section-item {
+.wrapper-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 70px 50px;
+}
+
+.wrapper-item {
   width: 401px;
+
 }
 
 .img-item {
   background-color: #F5F8FC;
   padding: 50px;
+  position: relative;
+}
+
+.icon-img {
+  position: absolute;
+  bottom: 12px;
+  right: 13px;
 }
 
 .wrapper-price {
