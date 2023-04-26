@@ -163,6 +163,44 @@ export default new Vuex.Store({
       }
     },
     inputSubscribe: '',
+    MyStoreBook: [
+      {
+        title: 'Atomic One’s',
+        img: 'book-1',
+        price: '$23.89',
+        description: 'Many variations of passages of Lorem Ipsum willing araise  alteration in some form.',
+      },
+      {
+        title: 'Atomic One’s',
+        img: 'book-1',
+        price: '$23.89',
+        description: 'Many variations of passages of Lorem Ipsum willing araise  alteration in some form.',
+      },
+      {
+        title: 'Atomic One’s',
+        img: 'book-1',
+        price: '$23.89',
+        description: 'Many variations of passages of Lorem Ipsum willing araise  alteration in some form.',
+      },
+      {
+        title: 'Atomic One’s',
+        img: 'book-1',
+        price: '$23.89',
+        description: 'Many variations of passages of Lorem Ipsum willing araise  alteration in some form.',
+      },
+      {
+        title: 'Atomic One’s',
+        img: 'book-1',
+        price: '$23.89',
+        description: 'Many variations of passages of Lorem Ipsum willing araise  alteration in some form.',
+      },
+      {
+        title: 'Atomic One’s',
+        img: 'book-1',
+        price: '$23.89',
+        description: 'Many variations of passages of Lorem Ipsum willing araise  alteration in some form.',
+      },
+    ]
   },
   getters: {
     getExploreLink(state) {

@@ -1,5 +1,6 @@
 <template>
-  <button :class="`btn-${type} btn-${size} btn-${reverse} main-btn`">{{ title }}</button>
+  <button :class="`btn-${type} btn-${size} btn-${reverse} main-btn ${bg}`">{{ title
+  }}</button>
 </template>
 
 <script>
@@ -21,8 +22,10 @@ export default {
     reverse: {
       type: String,
       default: '',
-    }
+    },
+  
   },
+
 };
 </script>
 
@@ -43,7 +46,7 @@ export default {
 }
 
 .btn-reverse {
-  background-color: #fff;
+  background-color: transparent;
   color: var(--main-color-dark);
   border: 2px solid var(--main-color-beer);
 
@@ -77,6 +80,8 @@ export default {
   font-size: 19px;
 }
 
+
+
 .btn-full {
   width: 100%;
   height: 65px;
@@ -85,7 +90,7 @@ export default {
   &:hover {
     transition: all 0.4s;
     border: 2px solid var(--main-color-beer);
-    background-color: #F4F8FF;
+    background-color: transparent;
     color: var(--main-color-dark);
   }
 }
