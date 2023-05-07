@@ -44,8 +44,8 @@
           <div class="dropdown-content d-flex">
             <div class="row-drop-1">
               <div class="title-drop">Pages</div>
-              <a href="#">Articles</a>
-              <router-link href="#" to='/Our-Store'>Our Store</router-link>
+              <router-link to='/articles'>Articles</router-link>
+              <router-link to='/our-Store'>Our Store</router-link>
               <a href="#">Product Single</a>
             </div>
             <div class="row-drop-2">

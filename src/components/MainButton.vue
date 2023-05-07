@@ -1,5 +1,5 @@
 <template>
-  <button :class="`btn-${type} btn-${size} btn-${reverse} main-btn ${bg}`">{{ title
+  <button :class="`btn-${type} btn-${size} btn-${reverse} main-btn`">{{ title
   }}</button>
 </template>
 
@@ -23,7 +23,7 @@ export default {
       type: String,
       default: '',
     },
-  
+
   },
 
 };

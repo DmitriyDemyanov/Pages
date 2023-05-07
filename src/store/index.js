@@ -200,6 +200,72 @@ export default new Vuex.Store({
         price: '$26.43',
         description: 'Many variations of passages of Lorem Ipsum willing araise  alteration in some form.',
       },
+    ],
+    articlesItems: [
+      {
+        img: 'photo-1',
+        title: 'Significant reading has more info number',
+        descr: 'The point of using Lorem Ipsum hiter of that using making it look like others readable will get end.',
+        link: 'https://www.facebook.com',
+        date: '23.05.2022'
+      },
+
+      {
+        img: 'photo-2',
+        title: 'Release of Letraset sheets tools containing  passages',
+        descr: 'The point of using Lorem Ipsum hiter of that using making it look like others readable will get end.',
+        link: 'https://www.facebook.com',
+        date: '23.05.2022'
+      },
+      {
+        img: 'photo-3',
+        title: 'The energy efficiency offers hydrotherapy or swim',
+        descr: 'The point of using Lorem Ipsum hiter of that using making it look like others readable will get end.',
+        link: 'https://www.facebook.com',
+        date: '23.05.2022'
+      },
+      {
+        img: 'photo-4',
+        title: 'Significant reading has more info number',
+        descr: 'The point of using Lorem Ipsum hiter of that using making it look like others readable will get end.',
+        link: 'https://www.facebook.com',
+        date: '23.05.2022'
+      },
+      {
+        img: 'photo-5',
+        title: 'Release of Letraset sheets tools containing  passages',
+        descr: 'The point of using Lorem Ipsum hiter of that using making it look like others readable will get end.',
+        link: 'https://www.facebook.com',
+        date: '23.05.2022'
+      },
+      {
+        img: 'photo-6',
+        title: 'The energy efficiency offers hydrotherapy or swim',
+        descr: 'The point of using Lorem Ipsum hiter of that using making it look like others readable will get end.',
+        link: 'https://www.facebook.com',
+        date: '23.05.2022'
+      },
+      {
+        img: 'photo-7',
+        title: 'The energy efficiency offers hydrotherapy or swim',
+        descr: 'The point of using Lorem Ipsum hiter of that using making it look like others readable will get end.',
+        link: 'https://www.facebook.com',
+        date: '21.06.2021'
+      },
+      {
+        img: 'photo-8',
+        title: 'Significant reading has more info number',
+        descr: 'The point of using Lorem Ipsum hiter of that using making it look like others readable will get end.',
+        link: 'https://www.facebook.com',
+        date: '26.07.2002'
+      },
+      {
+        img: 'photo-9',
+        title: 'Release of Letraset sheets tools containing  passages',
+        descr: 'The point of using Lorem Ipsum hiter of that using making it look like others readable will get end.',
+        link: 'https://www.facebook.com',
+        date: '23.04.2020'
+      },
     ]
   },
   getters: {
@@ -242,7 +308,13 @@ export default new Vuex.Store({
     //______________________________________myStore
     getMyStoreBook(state) {
       return state.myStoreBook
+    },
+    //_________________________________________articles
+    getArticlesItems(state) {
+      return state.articlesItems;
     }
+
+
   },
   mutations: {
     INPUT_SUBSCRIBE(state,payload) {
@@ -255,5 +327,8 @@ export default new Vuex.Store({
       commit('INPUT_SUBSCRIBE',payload);
     }
   },
+
+
+
   modules: {},
 });

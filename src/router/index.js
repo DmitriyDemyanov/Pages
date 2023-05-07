@@ -6,6 +6,7 @@ import AboutAuthorPage from '@/pages/AboutAuthorPage';
 import ServicesPage from '@/pages/ServicesPage';
 import ContactPage from '@/pages/ContactPage';
 import OurStorePage from '@/pages/OurStorePage';
+import ArticlesPage from '@/pages/ArticlesPage';
 
 Vue.use(VueRouter);
 
@@ -32,8 +33,13 @@ const routes = [
   },
   {
     path: '/Our-Store',
-    name: 'Our-Store',
+    name: 'our-Store',
     component: OurStorePage,
+  },
+  {
+    path: '/Articles',
+    name: 'articles',
+    component: ArticlesPage,
   },
 ];
 
