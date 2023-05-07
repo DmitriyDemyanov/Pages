@@ -1,5 +1,6 @@
 <template>
-  <div class="app">
+  <div class="app" target='_blank'>
+    
     <div class="bg-header">
       <div class="container">
         <NavigationHeader />

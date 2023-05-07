@@ -2,10 +2,10 @@
   <section class="wrapper-item">
     <div class="img"><img :src="require(`@/assets/images/photo/article_${item.img}.png`)" alt="photo"></div>
     <div class="wrapper-content">
-      <div class="title-item fz-cardo-24px"> <a :href="item.link" target="_blank">{{ item.title }}</a> </div>
+      <div class="title-item fz-cardo-24px"> <a :href="item.link">{{ item.title }}</a> </div>
       <div class="description-item fz-inter-19px">{{ item.descr }}</div>
       <div class="item-link d-flex justify-content-between align-items-center">
-        <a :href="item.link" target="_blank">Read more</a> <span class="author-date ">Author - {{ item.date }}</span>
+        <a :href="item.link">Read more</a> <span class="author-date ">Author - {{ item.date }}</span>
       </div>
     </div>
   </section>
