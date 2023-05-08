@@ -1,0 +1,54 @@
+{
+    "exploreLink": [
+        {
+            "name": "home",
+            "path": "/"
+        },
+        {
+            "name": "about us",
+            "path": "/about-us"
+        },
+        {
+            "name": "services",
+            "path": "/services"
+        },
+        {
+            "name": "appointments",
+            "path": "/appointments"
+        },
+        {
+            "name": "blog",
+            "path": "/blog"
+        },
+        {
+            "name": "contact us",
+            "path": "/contact-us"
+        }
+    ],
+    "utilityLinks": [
+        {
+            "name": "start here",
+            "path": "/start-here"
+        },
+        {
+            "name": "style guide",
+            "path": "/style-guide"
+        },
+        {
+            "name": "404 not found",
+            "path": "/error"
+        },
+        {
+            "name": "password protected",
+            "path": "/password-protected"
+        },
+        {
+            "name": "licenses",
+            "path": "/licenses"
+        },
+        {
+            "name": "changelog",
+            "path": "/changelog"
+        }
+    ]
+}

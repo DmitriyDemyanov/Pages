@@ -1,0 +1,122 @@
+[
+    {
+        "id": 1,
+        "title": "Atomic One’s",
+        "description": "Making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum.",
+        "publisher": "Learning Private Limited",
+        "publish": 1609452000000,
+        "language": "English",
+        "ISBN-10": 9788120345799,
+        "price": 30.75,
+        "currency": "usd",
+        "pages": 586,
+        "length": 625,
+        "image": "http://localhost:3579/images/atomic-one.svg",
+        "ratings": {
+            "count": 305,
+            "value": 4.5
+        },
+        "dimensions": {
+            "w": 14,
+            "h": 20,
+            "l": 4,
+            "volume": "cm"
+        }
+    },
+    {
+        "id": 2,
+        "title": "The Dark Light",
+        "description": "A powerful look at what it means to be a member of a community that, though large, remains marginalized.",
+        "publisher": "Learning Private Limited",
+        "publish": 1685394000000,
+        "language": "English",
+        "ISBN-10": 9788120345799,
+        "price": 28.79,
+        "currency": "usd",
+        "pages": 235,
+        "length": 148,
+        "image": "http://localhost:3579/images/the-dark-light.svg",
+        "ratings": {
+            "count": 270,
+            "value": 3.2
+        },
+        "dimensions": {
+            "w": 14,
+            "h": 20,
+            "l": 4,
+            "volume": "cm"
+        }
+    },
+    {
+        "id": 3,
+        "title": "chain-gang all-stars",
+        "description": "Imagine \"The Hunger Games\" refashioned into a rowdy, profane, and indignant blues shout at full blast.",
+        "publisher": "Learning Private Limited",
+        "publish": 1682974800000,
+        "language": "English",
+        "ISBN-10": 9788120345799,
+        "price": 12.17,
+        "currency": "euro",
+        "pages": 325,
+        "length": 417,
+        "image": "https://d1ldy8a769gy68.cloudfront.net/200/978/059/331/733/4/9780593317334.jpg",
+        "ratings": {
+            "count": 102,
+            "value": 3.0
+        },
+        "dimensions": {
+            "w": 4,
+            "h": 7,
+            "l": 1,
+            "volume": "inch"
+        }
+    },
+    {
+        "id": 4,
+        "title": "good night, irene",
+        "description": "Top-shelf historical fiction delivered with wit and compassion.",
+        "publisher": "Harry Potter Incorporated",
+        "publish": 1685394000000,
+        "language": "English",
+        "ISBN-10": 9788120345799,
+        "price": 72.97,
+        "currency": "usd",
+        "pages": 784,
+        "length": 950,
+        "image": "https://d1ldy8a769gy68.cloudfront.net/200/978/031/626/585/0/9780316265850.jpg",
+        "ratings": {
+            "count": 57,
+            "value": 4.0
+        },
+        "dimensions": {
+            "w": 16,
+            "h": 22,
+            "l": 9,
+            "volume": "cm"
+        }
+    },
+    {
+        "id": 5,
+        "title": "the disenchantment",
+        "description": "Top-shelf historical fiction delivered with wit and compassion.",
+        "publisher": "Harry Potter Incorporated",
+        "publish": 1685394000000,
+        "language": "English",
+        "ISBN-10": 9788120345799,
+        "price": 29.99,
+        "currency": "usd",
+        "pages": 235,
+        "length": 378,
+        "image": "https://d1ldy8a769gy68.cloudfront.net/200/978/059/331/717/4/9780593317174.jpg",
+        "ratings": {
+            "count": 1250,
+            "value": 3.8
+        },
+        "dimensions": {
+            "w": 14,
+            "h": 20,
+            "l": 3,
+            "volume": "cm"
+        }
+    }
+]
