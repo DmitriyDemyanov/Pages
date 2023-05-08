@@ -1,0 +1,19 @@
+{
+    "author": {
+        "name": "John Abraham , Ph.d",
+        "description": "Isaac Asimov was an American writer and professor of biochemistry at Boston University. During his lifetime, Asimov was considered one of the \"Big Three\" science fiction writers, along with Robert A. Heinlein and Arthur C. Clarke.",
+        "email": "johnabraham@gmail.com",
+        "phone": "(+2) 123 545 9000",
+        "rating": 4.5,
+        "awards": [
+            {
+                "name": "Best Seller Awards",
+                "value": 4
+            }
+        ],
+        "books": {
+            "published": 5,
+            "wip": 2
+        }
+    }
+}

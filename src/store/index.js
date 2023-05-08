@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    // Site Settings
     exploreLink: [
       'home',
       'about us',
@@ -21,6 +22,7 @@ export default new Vuex.Store({
       'licenses',
       'changelog',
     ],
+    // Site Content
     homeDetailsWelcome: [
       {
         title: 'pages:',
