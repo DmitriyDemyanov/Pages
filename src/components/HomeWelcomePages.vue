@@ -15,29 +15,49 @@
         <div class="welcome-link"><a href="#">Read Free Demo</a></div>
       </div>
 
+
       <div class="wrapper-detail-welcome d-flex justify-content-between">
 
-        <div class="item-detail d-flex" v-for="(el,ind) in getDetailsHomeWelcome" :key="ind">
+        <div class="item-detail d-flex">
+
           <div class="item-circle"></div>
           <div class="item-description">
-            <div class="item-title fz-cardo-24px">{{ el.title }}</div>
-            <div class="item-subtitle fz-inter-18px">{{ el.subtitle }}</div>
+            <div class="item-title fz-cardo-24px">Pages:</div>
+            <div class="item-subtitle fz-inter-18px">{{ getRandomBook.pages }}pages</div>
           </div>
+        </div>
+        <div class="item-detail d-flex">
+          <div class="item-circle"></div>
+          <div class="item-description">
+            <div class="item-title fz-cardo-24px">Length:</div>
+            <div class="item-subtitle fz-inter-18px">{{ convertedTime }}</div>
+          </div>
+        </div>
+        <div class="item-detail d-flex">
+          <div class="item-circle"></div>
+          <div class="item-description">
+            <div class="item-title fz-cardo-24px">Ratings:</div>
+            <div class="item-subtitle fz-inter-18px">{{ getRandomBook.ratings.value }}/5 ({{ getRandomBook.ratings.count
+            }} ratings)</div>
+          </div>
+
         </div>
 
 
       </div>
 
-      
+
     </div>
+
     <div class="wrapper-image">
-      <img src="@/assets/images/photo/Book-Dark&Light.png" alt="image" />
+      <img :src="getRandomBook.image" alt="image" />
     </div>
+
   </section>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapActions,mapGetters } from 'vuex';
 import MainButton from './MainButton';
 export default {
   name: 'HomeWelcomePages',
@@ -45,8 +65,17 @@ export default {
     MainButton,
   },
   computed: {
-    ...mapGetters(['getDetailsHomeWelcome']),
+    ...mapGetters(['getRandomBook']),
+    convertedTime() {
+      return `${Math.floor(this.getRandomBook.length / 60)} Hours ${this.getRandomBook.length % 60} min`;
+    }
   },
+  methods: {
+    ...mapActions(['fetchRandomBook']),
+  },
+  mounted() {
+    this.fetchRandomBook();
+  }
 };
 </script>
 
@@ -132,5 +161,16 @@ export default {
 .item-title {
   text-transform: capitalize;
   margin-bottom: 10px;
+}
+
+.wrapper-image {
+  width: 592px;
+  height: 800px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 </style>

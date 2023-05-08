@@ -45,6 +45,7 @@
           <div class="title-link">Explore</div>
         </div>
         <div class="wrapper-link d-flex align-items-center" v-for="(el,ind) in getExploreLink" :key="ind">
+
           <div class="wrapper-circle d-flex">
             <div class="circle-outside">
               <div class="circle-inside"></div>
@@ -57,7 +58,7 @@
             </div>
           </div>
           <div class="link">
-            <a href="http:facebook.com">{{ el }}</a>
+            <a :href="el.path">{{ el.name }}</a>
           </div>
         </div>
       </div>
@@ -65,7 +66,7 @@
         <div class="links-title d-flex">
           <div class="title-link">Utility Pages</div>
         </div>
-        <div class="wrapper-link d-flex align-items-center" v-for="(el,ind) in getUtilityPages" :key="ind">
+        <div class="wrapper-link d-flex align-items-center" v-for="(el,ind) in getUtilityLinks" :key="ind">
           <div class="wrapper-circle d-flex">
             <div class="circle-outside">
               <div class="circle-inside"></div>
@@ -78,7 +79,7 @@
             </div>
           </div>
           <div class="link">
-            <a href="facebook.com">{{ el }}</a>
+            <a :href="el.path">{{ el.name }}</a>
           </div>
         </div>
       </div>
@@ -119,7 +120,7 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'FooterSection',
   computed: {
-    ...mapGetters(['getExploreLink','getUtilityPages']),
+    ...mapGetters(['getExploreLink','getUtilityLinks']),
   },
 };
 </script>

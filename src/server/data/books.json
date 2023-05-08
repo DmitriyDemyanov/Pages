@@ -11,7 +11,7 @@
         "currency": "usd",
         "pages": 586,
         "length": 625,
-        "image": "http://localhost:3579/images/atomic-one.svg",
+        "image": "http://localhost:3579/images/atomic-one.png",
         "ratings": {
             "count": 305,
             "value": 4.5

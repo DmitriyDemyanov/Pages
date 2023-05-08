@@ -5,6 +5,11 @@
         "email": "johnabraham@gmail.com",
         "phone": "(+2) 123 545 9000",
         "rating": 4.5,
+        "images": [
+            "http://localhost:3579/images/author-photo.png",
+            "http://localhost:3579/images/author-photo-1.png",
+            "http://localhost:3579/images/author-photo-2.png"
+        ],
         "awards": [
             {
                 "name": "Best Seller Awards",
