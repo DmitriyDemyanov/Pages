@@ -116,11 +116,18 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapActions,mapGetters } from 'vuex';
 export default {
   name: 'FooterSection',
   computed: {
     ...mapGetters(['getExploreLink','getUtilityLinks']),
+  },
+  methods: {
+    ...mapActions(['fetchExploreLinks','fetchUtilityLinks'])
+  },
+  mounted() {
+    this.fetchExploreLinks();
+    this.fetchUtilityLinks();
   },
 };
 </script>

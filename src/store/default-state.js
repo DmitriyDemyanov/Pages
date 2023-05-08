@@ -51,30 +51,30 @@ export default {
     }
   ],
   "utilityLinks": [
-    {
-      "name": "start here",
-      "path": "/start-here"
-    },
-    {
-      "name": "style guide",
-      "path": "/style-guide"
-    },
-    {
-      "name": "404 not found",
-      "path": "/error"
-    },
-    {
-      "name": "password protected",
-      "path": "/password-protected"
-    },
-    {
-      "name": "licenses",
-      "path": "/licenses"
-    },
-    {
-      "name": "changelog",
-      "path": "/changelog"
-    }
+    // {
+    //   "name": "start here",
+    //   "path": "/start-here"
+    // },
+    // {
+    //   "name": "style guide",
+    //   "path": "/style-guide"
+    // },
+    // {
+    //   "name": "404 not found",
+    //   "path": "/error"
+    // },
+    // {
+    //   "name": "password protected",
+    //   "path": "/password-protected"
+    // },
+    // {
+    //   "name": "licenses",
+    //   "path": "/licenses"
+    // },
+    // {
+    //   "name": "changelog",
+    //   "path": "/changelog"
+    // }
   ],
   // Site Content
   homeDetailsWelcome: [

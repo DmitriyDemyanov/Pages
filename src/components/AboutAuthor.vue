@@ -1,31 +1,28 @@
 <template>
-  <section class="container wrapper-about-author d-flex justify-content-between">
+  <section class="container wrapper-about-author d-flex justify-content-between" v-if="getAboutAuthor.name">
     <div class="photo-frame position-relative">
       <img src="@/assets/images/photo/photo-frame.png" alt="frame">
-      <div class="photo-author"><img src="@/assets/images/photo/Author-photo.png" alt="photo"></div>
+      <div class="photo-author"><img :src="getAboutAuthor.images[0]" alt="photo"></div>
     </div>
 
     <div class="wrapper-content">
 
       <TitleSection title="About Author" type='start' />
 
-      <div class="description fz-inter-19px">All the Lorem Ipsum generators on the Internet tend to repeated predefined
-        chunks as
-        necessary, making this the first true value generator on the Internet. It uses a dictionary of over 200 Latin
-        words, combined with a handful.
+      <div class="description fz-inter-19px">{{ getAboutAuthor.description }}
       </div>
       <div class="wrapper-author-stats d-flex justify-content-between">
         <div class="item-wrapper">
-          <div class="item-title fz-cardo-55px">02</div>
+          <div class="item-title fz-cardo-55px">{{ firstZeroNumber(getAboutAuthor.books.published) }}</div>
           <div class="item-subtitle fz-inter-18px">Books Published</div>
         </div>
         <div class="item-wrapper-border">
-          <div class="item-title fz-cardo-55px">4.5</div>
+          <div class="item-title fz-cardo-55px">{{ getAboutAuthor.rating }}</div>
           <div class="item-subtitle fz-inter-18px">User Reviews</div>
         </div>
         <div class="item-wrapper">
-          <div class="item-title fz-cardo-55px">04</div>
-          <div class="item-subtitle fz-inter-18px">Best Seller Awards</div>
+          <div class="item-title fz-cardo-55px">{{ firstZeroNumber(getAboutAuthor.awards[0].value) }}</div>
+          <div class="item-subtitle fz-inter-18px">{{ getAboutAuthor.awards[0].name }}</div>
         </div>
 
       </div>
@@ -34,12 +31,12 @@
           <img src="@/assets/images/photo/QR-code.png" alt="QR-code">
         </div>
         <div class="contact fz-inter-19px">
-          <div class="full-name">John Abraham , Ph.d</div>
+          <div class="full-name">{{ getAboutAuthor.name }}</div>
           <div class="mail-author">Mail :
-            <a href="mailto:johnabraham@gmail.com">johnabraham@gmail.com</a>
+            <a href="mailto:johnabraham@gmail.com">{{ getAboutAuthor.email }}</a>
           </div>
           <div class="phone-author"> Phone :
-            <a href="tel:+21235459000"> (+2) 123 545 9000</a>
+            <a href="tel:+21235459000">{{ getAboutAuthor.phone }}</a>
           </div>
         </div>
       </div>
@@ -48,12 +45,29 @@
 </template>
 
 <script>
+import { mapActions,mapGetters } from 'vuex';
 import TitleSection from './TitleSection';
 export default {
   name: 'AboutAuthor',
   components: {
     TitleSection,
-  }
+  },
+  computed: {
+    ...mapGetters(['getAboutAuthor']),
+
+  },
+  methods: {
+    ...mapActions(['fetchAboutAuthor']),
+    firstZeroNumber(num) {
+      if (num < 10) {
+        return `0${num}`
+      }
+      return num
+    }
+  },
+  mounted() {
+    this.fetchAboutAuthor();
+  },
 }
 </script>
 
@@ -68,6 +82,14 @@ export default {
   position: absolute;
   right: 40px;
   bottom: 40px;
+  width: 550px;
+  height: 650px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .wrapper-content {
