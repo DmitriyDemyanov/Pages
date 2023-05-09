@@ -11,6 +11,10 @@ export default new Vuex.Store({
     ...DEFAULT_STATE,
     authorBooks: [],
     aboutAuthor: {},
+    cart: {
+      total: 0,
+      items: []
+    },
   },
   getters: {
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
@@ -57,6 +61,9 @@ export default new Vuex.Store({
     getAuthorData(state) {
       return state.author;
     },
+    getAuthorBooks(state) {
+      return state.authorBooks
+    },
 
     //_____________________________________________
 
@@ -71,6 +78,10 @@ export default new Vuex.Store({
     getArticlesItems(state) {
       return state.articlesItems;
     },
+
+    getCart(state) {
+      return state.cart;
+    }
 
 
 
@@ -93,6 +104,17 @@ export default new Vuex.Store({
     },
     SAVE_ABOUT_AUTHOR(state,payload) {
       state.aboutAuthor = payload;
+    },
+    SAVE_CART_BOOK(state,payload) {
+      const { id,price } = payload;
+      state.cart.total += price;
+      const existingBook = state.cart.items.find((el) => el.id === id);
+      if (existingBook) {
+        existingBook.qty++;
+      } else {
+        state.cart.items.push({ id,qty: 1 });
+      }
+      
     }
   },
 
@@ -129,6 +151,10 @@ export default new Vuex.Store({
       const aboutAuthor = await response.json();
       console.log('aboutAuthor---',aboutAuthor);
       commit('SAVE_ABOUT_AUTHOR',aboutAuthor)
+    },
+    addToCart({ commit },payload) {
+      console.log('payload!!!!!!!!',payload);
+      commit('SAVE_CART_BOOK',payload);
     }
   },
 

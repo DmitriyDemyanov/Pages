@@ -1,6 +1,7 @@
 <template>
-  <button :class="`btn-${type} btn-${size} btn-${reverse} main-btn`">{{ title
-  }}</button>
+  <button :class="`btn-${type} btn-${size} btn-${reverse} main-btn`" @click="$emit('btn-click')">
+    {{ title }}
+  </button>
 </template>
 
 <script>
