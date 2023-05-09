@@ -20,5 +20,53 @@
             "published": 5,
             "wip": 2
         }
+    },
+    "corporations": [
+        {
+            "title": "Amazen Corp",
+            "description": "A long established fact that a who looking at its layout.",
+            "image": "http://localhost:3579/images/corp-amazen.svg"
+        },
+        {
+            "title": "Megan Books",
+            "description": "A long established fact that a who looking at its layout.",
+            "image": "http://localhost:3579/images/corp-megan.svg"
+        },
+        {
+            "title": "Los Books",
+            "description": "A long established fact that a who looking at its layout.",
+            "image": "http://localhost:3579/images/corp-los.svg"
+        },
+        {
+            "title": "Urban Lib",
+            "description": "A long established fact that a who looking at its layout.",
+            "image": "http://localhost:3579/images/corp-urban.svg"
+        }
+    ],
+    "testimonials": {
+        "overall": 4.8,
+        "users": [
+            {
+                "name": "Martin Philips",
+                "title": "Awesome Impact",
+                "text": "All the Lorem Ipsum generators on the Internet tend to repeat willings predefined chunks value.",
+                "photo": "http://localhost:3579/images/user-martin.svg",
+                "rating": 4.5
+            },
+            {
+                "name": "James Anderson",
+                "title": "Mind Blowing Words",
+                "text": "All the Lorem Ipsum generators on the Internet tend to repeat willings predefined chunks value.",
+                "photo": "http://localhost:3579/images/user-james.svg",
+                "rating": 4
+            },
+            {
+                "name": "Christina Louis",
+                "title": "Great Books Collections",
+                "text": "All the Lorem Ipsum generators on the Internet tend to repeat willings predefined chunks value.",
+                "photo": "http://localhost:3579/images/user-christina.svg",
+                "rating": 5
+            }
+        ]
     }
 }

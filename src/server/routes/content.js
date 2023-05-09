@@ -3,7 +3,9 @@ const {
   getBooks,
   getRandomBook,
   getBookById,
-  getAuthor
+  getAuthor,
+  getCorporations,
+  getTestimonials
 } = require('../controllers/contentController');
 
 const router = express.Router();
@@ -11,6 +13,9 @@ const router = express.Router();
 router.get('/books/random', getRandomBook);
 router.get('/books/:id', getBookById);
 router.get('/books', getBooks);
+
+router.get('/corporations', getCorporations);
+router.get('/testimonials', getTestimonials);
 
 router.get('/author', getAuthor);
 
