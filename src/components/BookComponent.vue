@@ -6,7 +6,7 @@
     </div>
     <div class="wrapper-price d-flex align-items-center justify-content-between">
       <div class="title-book fz-cardo-32px">{{ book.title }}</div>
-      <div class="price-book fz-inter-22px">{{ book.price }}</div>
+      <div class="price-book fz-inter-22px">${{ book.price }}</div>
     </div>
     <div class="description-book fz-inter-19px">{{ book.description }}
     </div>
@@ -52,9 +52,17 @@ export default {
 }
 
 .img-item {
+  width: 400px;
+  height: 500px;
   background-color: #F5F8FC;
   padding: 50px;
   position: relative;
+
+  img {
+    width: 292px;
+    height: 396px;
+    object-fit: cover;
+  }
 }
 
 .icon-img {
@@ -67,11 +75,14 @@ export default {
   padding-top: 21px;
 }
 
-
 .description-book {
   color: #969AA0;
   padding-top: 10px;
   padding-bottom: 24px;
+  height: 86px;
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;                          //??????????????????
 }
 
 .circle {

@@ -51,15 +51,14 @@
             <div class="row-drop-2">
               <div class="title-drop">Utility Pages</div>
               <a href="#">Style Guard</a>
-              <a href="#">404 Page</a>
+              <router-link to='/modal-cart'>404 Page</router-link>
               <a href="#">Password Protected</a>
               <a href="#">Changelog</a>
             </div>
           </div>
         </div>
         <router-link class="fz-inter-17px padding-link" to="/About">About</router-link>
-        <router-link class="fz-inter-17px padding-link" to="/services">
-          Services</router-link>
+        <router-link class="fz-inter-17px padding-link" to="/services">Services</router-link>
         <router-link class="fz-inter-17px padding-link" to="/contact">Contact</router-link>
         <div class="wrapper-cart">
           <div class="cart-img">
@@ -69,7 +68,8 @@
                 stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
 
-            <div class="cart-count" v-if="getTotalCartQuantity"> {{ getTotalCartQuantity }}</div>
+            <div class="cart-count d-flex justify-content-center align-items-center " v-if="getTotalCartQuantity"> {{
+              getTotalCartQuantity }}</div>
           </div>
 
         </div>
@@ -132,10 +132,18 @@ export default {
 }
 
 .cart-count {
-
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background-color: var(--main-color-beer);
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 13px;
+  left: 26px;
+  color: var(--main-color-dark);
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 10px;
 }
 
 

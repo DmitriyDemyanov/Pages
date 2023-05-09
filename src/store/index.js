@@ -13,7 +13,10 @@ export default new Vuex.Store({
     aboutAuthor: {},
     cart: {
       total: 0,
-      items: []
+      items: [],
+      title: '',
+      priceItem: 0,
+      image: '',
     },
   },
   getters: {
@@ -84,10 +87,11 @@ export default new Vuex.Store({
     },
 
     getTotalCartQuantity(state) {
-    return state.cart.items.reduce((acc,el) => acc += el.qty ,0)
-      
-      
-    }
+      return state.cart.items.reduce((acc,el) => acc += el.qty,0)
+    },
+    getTotalCartPrice(state) {
+      return state.cart.total
+    },
 
 
 
@@ -111,8 +115,12 @@ export default new Vuex.Store({
     SAVE_ABOUT_AUTHOR(state,payload) {
       state.aboutAuthor = payload;
     },
+
     SAVE_CART_BOOK(state,payload) {
-      const { id,price } = payload;
+      const { id,price,title,image } = payload;
+      state.cart.image = image;
+      state.cart.priceItem = price;
+      state.cart.title = title,
       state.cart.total += price;
       const existingBook = state.cart.items.find((el) => el.id === id);
       if (existingBook) {
