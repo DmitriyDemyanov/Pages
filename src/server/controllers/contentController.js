@@ -30,3 +30,8 @@ exports.getTestimonials = async (req, res) => {
   const testimonials = await ContentModel.fetchTestimonials();
   res.status(200).json(testimonials);
 }
+
+exports.getArticlesShort = async (req, res) => {
+  const articles = await ContentModel.fetchArticlesShort();
+  res.status(200).json(articles);
+}

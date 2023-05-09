@@ -2,11 +2,13 @@ const path = require('../utils/path');
 const loadFile = require('../utils/loadFile');
 
 module.exports = class ContentModel {
-  static savedBooks   = null;
-  static savedContent = null;
+  static savedBooks    = null;
+  static savedContent  = null;
+  static savedArticles = null;
 
-  static contentPath = path.getPathName('data', 'siteContent.json');
-  static booksPath   = path.getPathName('data', 'books.json');
+  static contentPath  = path.getPathName('data', 'siteContent.json');
+  static booksPath    = path.getPathName('data', 'books.json');
+  static articlesPath = path.getPathName('data', 'articles.json');
 
   static async fetchAllContent() {
     if (!this.savedContent) {
@@ -20,6 +22,13 @@ module.exports = class ContentModel {
       this.savedBooks = await loadFile(this.booksPath);
     }
     return this.savedBooks;
+  }
+
+  static async fetchArticles() {
+    if (!this.savedArticles) {
+      this.savedArticles = await loadFile(this.articlesPath);
+    }
+    return this.savedArticles;
   }
 
   static async fetchBooks() {
@@ -50,5 +59,13 @@ module.exports = class ContentModel {
   static async fetchTestimonials () {
     const content = await this.fetchAllContent();
     return content.testimonials;
+  }
+
+  static async fetchArticlesShort () {
+    const articles = await this.fetchArticles();
+    return articles.map(article => {
+      const {title, subtitle, id, image, author} = article;
+      return {title, subtitle, id, image, author};
+    });
   }
 }
