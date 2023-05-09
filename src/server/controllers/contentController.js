@@ -20,3 +20,13 @@ exports.getAuthor = async (req, res) => {
   const author = await ContentModel.fetchAuthor();
   res.status(200).json(author);
 }
+
+exports.getCorporations = async (req, res) => {
+  const corporations = await ContentModel.fetchCorporations();
+  res.status(200).json(corporations);
+}
+
+exports.getTestimonials = async (req, res) => {
+  const testimonials = await ContentModel.fetchTestimonials();
+  res.status(200).json(testimonials);
+}

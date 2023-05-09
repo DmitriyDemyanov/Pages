@@ -41,4 +41,14 @@ module.exports = class ContentModel {
     const content = await this.fetchAllContent();
     return content.author;
   }
+
+  static async fetchCorporations () {
+    const content = await this.fetchAllContent();
+    return content.corporations;
+  }
+
+  static async fetchTestimonials () {
+    const content = await this.fetchAllContent();
+    return content.testimonials;
+  }
 }
