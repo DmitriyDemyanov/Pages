@@ -12,6 +12,7 @@
         "pages": 586,
         "length": 625,
         "image": "http://localhost:3579/images/atomic-one.png",
+        "type": "audio",
         "ratings": {
             "count": 305,
             "value": 4.5
@@ -36,6 +37,7 @@
         "pages": 235,
         "length": 148,
         "image": "http://localhost:3579/images/the-dark-light.svg",
+        "type": "",
         "ratings": {
             "count": 270,
             "value": 3.2
@@ -60,6 +62,7 @@
         "pages": 325,
         "length": 417,
         "image": "https://d1ldy8a769gy68.cloudfront.net/200/978/059/331/733/4/9780593317334.jpg",
+        "type":  "audio",
         "ratings": {
             "count": 102,
             "value": 3.0
@@ -84,6 +87,7 @@
         "pages": 784,
         "length": 950,
         "image": "https://d1ldy8a769gy68.cloudfront.net/200/978/031/626/585/0/9780316265850.jpg",
+        "type":  "",
         "ratings": {
             "count": 57,
             "value": 4.0
@@ -108,6 +112,7 @@
         "pages": 235,
         "length": 378,
         "image": "https://d1ldy8a769gy68.cloudfront.net/200/978/059/331/717/4/9780593317174.jpg",
+        "type":  "gram",
         "ratings": {
             "count": 1250,
             "value": 3.8
