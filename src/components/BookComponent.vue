@@ -69,6 +69,11 @@ export default {
   position: absolute;
   bottom: 12px;
   right: 13px;
+  img {
+    width:95px;
+    height: 95px;
+    object-fit: contain;
+  }
 }
 
 .wrapper-price {
