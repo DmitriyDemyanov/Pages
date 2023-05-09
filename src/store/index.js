@@ -81,6 +81,12 @@ export default new Vuex.Store({
 
     getCart(state) {
       return state.cart;
+    },
+
+    getTotalCartQuantity(state) {
+    return state.cart.items.reduce((acc,el) => acc += el.qty ,0)
+      
+      
     }
 
 
@@ -114,7 +120,7 @@ export default new Vuex.Store({
       } else {
         state.cart.items.push({ id,qty: 1 });
       }
-      
+
     }
   },
 

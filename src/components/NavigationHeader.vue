@@ -69,7 +69,7 @@
                 stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
 
-            <div class="cart-count">1</div>
+            <div class="cart-count" v-if="getTotalCartQuantity"> {{ getTotalCartQuantity }}</div>
           </div>
 
         </div>
@@ -82,11 +82,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import MainButton from './MainButton';
 export default {
   name: 'NavigationHeader',
   components: {
     MainButton,
+  },
+  computed: {
+    ...mapGetters(['getTotalCartQuantity']),
   },
 };
 </script>
@@ -128,7 +132,7 @@ export default {
 }
 
 .cart-count {
-  
+
   position: absolute;
   top: 0;
   right: 0;
