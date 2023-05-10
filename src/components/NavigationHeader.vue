@@ -60,7 +60,7 @@
         <router-link class="fz-inter-17px padding-link" to="/About">About</router-link>
         <router-link class="fz-inter-17px padding-link" to="/services">Services</router-link>
         <router-link class="fz-inter-17px padding-link" to="/contact">Contact</router-link>
-        <div class="wrapper-cart">
+        <div class="wrapper-cart" @click='toggleCart(true)'>
           <div class="cart-img">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -82,7 +82,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapActions,mapGetters } from 'vuex';
 import MainButton from './MainButton';
 export default {
   name: 'NavigationHeader',
@@ -91,6 +91,9 @@ export default {
   },
   computed: {
     ...mapGetters(['getTotalCartQuantity']),
+  },
+  methods: {
+    ...mapActions(['toggleCart']),
   },
 };
 </script>

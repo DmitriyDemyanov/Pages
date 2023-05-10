@@ -7,7 +7,7 @@
       </div>
     </div>
     <router-view></router-view>
-
+    <CartComponent v-show="showCart" />
     <div class="bg-footer">
       <div class="container">
         <FooterSection />
@@ -19,11 +19,17 @@
 <script>
 import NavigationHeader from './components/NavigationHeader';
 import FooterSection from './components/FooterSection';
+import CartComponent from '@/components/CartComponent';
+import { mapGetters } from 'vuex';
 export default {
   name: 'App',
   components: {
     NavigationHeader,
     FooterSection,
+    CartComponent,
+  },
+  computed: {
+    ...mapGetters(['showCart']),
   },
 };
 </script>

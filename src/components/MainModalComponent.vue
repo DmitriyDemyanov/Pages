@@ -1,61 +1,64 @@
 <template>
-  <section class="modal-wrapper-bg">
+  <section class="modal-wrapper-bg" @click='clickOnEmptySpace'>
 
     <div class="modal-window">
+      <!-- HEADER -->
       <div class="header-modal d-flex align-items-center justify-content-between">
-        <div class="title-modal">Your Cart</div>
-        <div class="cross">
+
+        <div class="title-modal">{{ title }}</div>
+        <div v-show="showCloseIcon" class="cross" @click='closeModal'>
           <div class="bar-right"></div>
           <div class="bar-left"></div>
         </div>
-      </div>
-      <div class="body-modal d-flex justify-content-between" v-if="getTotalCartQuantity">
 
-        <div class="item-wrapper d-flex">
-
-          <div class="item-img d-flex justify-content-center align-items-center">
-            <img :src="getCart.image" alt="photo">
-          </div>
-
-          <div class="wrapper-content ">
-
-            <div class="item-title fz-cardo-24px">{{ getCart.title }}</div>
-            <div class="item-price">${{ getCart.priceItem.toFixed(2) }} USD</div>
-            <div class="item-remove" @click='get_id()' > Remove </div>
-
-          </div>
-        </div>
-
-        <div class="item-counter d-flex  align-items-center">{{ getTotalCartQuantity }}</div>
       </div>
 
-      <div class="cart-empty" v-else>Your CART IS EMPTY</div>
+      <!-- BODY -->
+      <div class="body-modal d-flex justify-content-between">
 
+        <slot name="modal-body"></slot>
+
+      </div>
+
+
+      <!-- FOOTER -->
       <div class="footer-modal">
-        <div class="wrapper-total d-flex justify-content-between">
-          <div class="total-title fz-cardo-24px">Sub-Total</div>
-          <div class="total-price">${{ getCart.total.toFixed(2) }} USD </div>
-        </div>
-        <MainButton title='Continue to Checkout' size='full' />
+
+        <slot name='modal-footer'></slot>
+
       </div>
+
     </div>
   </section>
 </template>
 
 <script>
-import MainButton from "@/components/MainButton";
 import { mapGetters } from 'vuex';
 export default {
-  name: 'ModalCart',
-  components: {
-    MainButton,
+  name: 'MainModalComponent',
+
+  props: {
+    title: {
+      type: String,
+      default: '',
+    },
+    showCloseIcon: {
+      type: Boolean,
+      default: true,
+    }
   },
   computed: {
-    ...mapGetters(['getCart','getTotalCartQuantity'])
+    ...mapGetters(['getCart'])
   },
   methods: {
-    get_id() {
-      console.log('ready__', this.$emit)
+    closeModal() {
+      this.$emit('close-modal');
+    },
+    clickOnEmptySpace(event) {
+      const target = event.target.closest(".modal-window");
+      if (!target) {
+        this.closeModal();
+      }
     }
   }
 }
@@ -102,6 +105,7 @@ export default {
 .cross {
   position: relative;
   cursor: pointer;
+  padding: 20px;
 }
 
 .bar-right {
@@ -210,12 +214,5 @@ export default {
   font-weight: 700;
   font-size: 20px;
   color: #1B3764;
-}
-
-.cart-empty {
-  padding: 50px 0;
-  text-align: center;
-  font-size: 24px;
-  color: var(--main-color-dark);
 }
 </style>

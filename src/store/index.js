@@ -14,10 +14,8 @@ export default new Vuex.Store({
     cart: {
       total: 0,
       items: [],
-      title: '',
-      priceItem: 0,
-      image: '',
     },
+    showCart: false,
   },
   getters: {
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
@@ -27,6 +25,10 @@ export default new Vuex.Store({
     getAuthorBookIncludes(state) {
       return [state.authorBooks[4],state.authorBooks[2]]
     },
+    showCart(state) {
+      return state.showCart
+    },
+
     //>>>>>>>>>>>>>>>>>
 
     getExploreLink(state) {
@@ -93,7 +95,9 @@ export default new Vuex.Store({
       return state.cart.total
     },
 
-
+    getBookById(state) {
+      return (id) => state.authorBooks.find(book => book.id === id);
+    }
 
   },
   mutations: {
@@ -117,11 +121,8 @@ export default new Vuex.Store({
     },
 
     SAVE_CART_BOOK(state,payload) {
-      const { id,price,title,image } = payload;
-      state.cart.image = image;
-      state.cart.priceItem = price;
-      state.cart.title = title,
-      state.cart.total += price;
+      const { id,price } = payload;
+      state.cart.total = Number((state.cart.total + price).toFixed(2));
       const existingBook = state.cart.items.find((el) => el.id === id);
       if (existingBook) {
         existingBook.qty++;
@@ -129,7 +130,22 @@ export default new Vuex.Store({
         state.cart.items.push({ id,qty: 1 });
       }
 
-    }
+    },
+
+    DELETE_CART_BOOK(state,payload) {
+      const { id,price } = payload;
+      state.cart.items = state.cart.items.filter((el) => {
+        if (el.id === id) {
+          console.log('state.cart.total',state.cart.total);
+          console.log(' el',el);
+          state.cart.total = state.cart.total - price * el.qty;
+        }
+        return el.id !== id;
+      });
+    },
+    TOGGLE_CART(state,payload) {
+      state.showCart = payload;
+    },
   },
 
   actions: {
@@ -169,6 +185,14 @@ export default new Vuex.Store({
     addToCart({ commit },payload) {
       console.log('payload!!!!!!!!',payload);
       commit('SAVE_CART_BOOK',payload);
+    },
+    removeItemById({ commit },id) {
+      const priceBookById = this.state.authorBooks.find((el) => el.id === id);
+      console.log('priceBookById',priceBookById.price)
+      commit('DELETE_CART_BOOK',{ id,price: priceBookById.price });
+    },
+    toggleCart({ commit },payload) {
+      commit('TOGGLE_CART',payload)
     }
   },
 

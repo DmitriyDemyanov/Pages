@@ -7,7 +7,6 @@ import ServicesPage from '@/pages/ServicesPage';
 import ContactPage from '@/pages/ContactPage';
 import OurStorePage from '@/pages/OurStorePage';
 import ArticlesPage from '@/pages/ArticlesPage';
-import ModalCart from '@/components/ModalCart';
 
 Vue.use(VueRouter);
 
@@ -41,11 +40,6 @@ const routes = [
     path: '/Articles',
     name: 'articles',
     component: ArticlesPage,
-  },
-  {
-    path: '/modal-cart',
-    name: 'cart',
-    component: ModalCart,
   }
 ];
 
