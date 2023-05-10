@@ -1,14 +1,16 @@
 <template>
   <section>
     <MainModalComponent title='CART :' @close-modal='closeModal'>
+
       <template #modal-body>
-        <div v-if="getCart.items.length">
+        <div class="item-book" v-if="getCart.items.length">
           <BookCartItemComponent v-for="(book,ind) in getCart.items" :key="ind" :book='book' />
         </div>
 
         <div class="cart-empty" v-else>Your CART IS EMPTY</div>
 
       </template>
+
 
       <template #modal-footer>
         <div class="wrapper-total d-flex justify-content-between">
@@ -53,5 +55,21 @@ export default {
   text-align: center;
   font-size: 24px;
   color: var(--main-color-dark);
+}
+
+.item-book {
+  max-height: 50vh;
+  overflow-y: auto;
+}
+::-webkit-scrollbar {
+  width: 15px;
+  background-color: var(--main-color-beer);
+}
+::-webkit-scrollbar-track {
+  background: var(--main-color-dark);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color-beer);
+  border: 1px solid rgba(27, 55, 100, 0.5);
 }
 </style>

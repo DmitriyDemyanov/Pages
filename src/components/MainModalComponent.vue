@@ -14,11 +14,11 @@
       </div>
 
       <!-- BODY -->
-      <div class="body-modal d-flex justify-content-between">
 
-        <slot name="modal-body"></slot>
 
-      </div>
+      <slot name="modal-body"></slot>
+
+
 
 
       <!-- FOOTER -->
@@ -79,7 +79,7 @@ export default {
 
 .modal-window {
   width: 40%;
-  min-height: 400px;
+  max-height: 90%;
   position: absolute;
   transform: translate(50%, -50%);
   top: 50%;
@@ -105,13 +105,13 @@ export default {
 .cross {
   position: relative;
   cursor: pointer;
-  padding: 20px;
+  padding: 0 20px 40px;
 }
 
 .bar-right {
   position: absolute;
   width: 2px;
-  height: 15px;
+  height: 40px;
   background-color: #000;
   transform: rotate(-45deg);
 }
@@ -119,7 +119,7 @@ export default {
 .bar-left {
   position: absolute;
   width: 2px;
-  height: 15px;
+  height: 40px;
   background-color: #000;
   transform: rotate(45deg);
 }
@@ -128,8 +128,9 @@ export default {
 
 .body-modal {
   width: 100%;
-  height: 310px;
-  padding: 64px 76px;
+  max-height: 50vh;
+  padding: 30px 45px;
+  overflow-y: auto;
 }
 
 .item-img {
@@ -193,15 +194,14 @@ export default {
 ///////////////////////////////////////////////////FOOTER
 .footer-modal {
   width: 100%;
-  min-height: 200px;
-  padding: 25px 76px 60px 76px;
-
+  min-height: 25vh;
+  padding: 25px 76px 30px 76px;
   border-top: 2px solid rgba(27, 55, 100, 0.5);
   color: #000;
 }
 
 .wrapper-total {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 .total-title {
