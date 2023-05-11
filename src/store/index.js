@@ -16,6 +16,12 @@ export default new Vuex.Store({
       items: [],
     },
     showCart: false,
+
+    articlePagination: {
+      currentPage: 1,
+      renderPage: 3,
+      lastPage: 1,
+    }
   },
   getters: {
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
@@ -80,10 +86,20 @@ export default new Vuex.Store({
       return state.myStoreBook
     },
     //_________________________________________articles
-    getArticlesItems(state) {
-      return state.articlesItems;
-    },
 
+
+    getArticlesItems(state) {
+      const currentPage = state.articlePagination.currentPage;
+      const renderPage = state.articlePagination.renderPage;
+      console.log('><><>',state.articlesItems.length / renderPage);
+
+      state.articlePagination.lastPage = Math.ceil(state.articlesItems.length / renderPage)
+      return state.articlesItems.slice((currentPage - 1) * renderPage,renderPage * currentPage);
+    },
+    getNumberPage(state) {
+      return state.articlePagination
+    },
+    //___________________________________________________
     getCart(state) {
       return state.cart;
     },
@@ -156,8 +172,20 @@ export default new Vuex.Store({
 
       item.qty--;
       state.cart.total -= payload.price;
+    },
+    SAVE_ARTICLES(state,payload) {
+      state.articlesItems = payload;
+      console.log('payload>>>',payload)
+    },
 
-    }
+    //_________________________________________________________________________
+    ARTICLES_PAGE_UP(state) {
+      state.articlePagination.currentPage++
+    },
+    ARTICLES_PAGE_DOWN(state) {
+      state.articlePagination.currentPage--
+    },
+
   },
 
   actions: {
@@ -194,6 +222,12 @@ export default new Vuex.Store({
       console.log('aboutAuthor---',aboutAuthor);
       commit('SAVE_ABOUT_AUTHOR',aboutAuthor)
     },
+    async fetchArticles({ commit }) {
+      const response = await fetch('http://localhost:3579/content/articles');
+      const articles = await response.json();
+      commit('SAVE_ARTICLES',articles);
+
+    },
     addToCart({ commit },payload) {
       console.log('payload!!!!!!!!',payload);
       commit('SAVE_CART_BOOK',payload);
@@ -217,6 +251,14 @@ export default new Vuex.Store({
       commit('DELETE_CART_ITEM_BY_ID',payload);
       console.log('DELETE-ID',itemBook.price,id);
     },
+    //_____________________________________ARTICLES
+    nextPage({ commit }) {
+      commit('ARTICLES_PAGE_UP')
+    },
+    prevPage({ commit }) {
+      commit('ARTICLES_PAGE_DOWN');
+    },
+
   },
 
   modules: {},

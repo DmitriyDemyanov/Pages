@@ -1,11 +1,13 @@
 <template>
   <section class="wrapper-item">
-    <div class="img"><img :src="require(`@/assets/images/photo/article_${item.img}.png`)" alt="photo"></div>
+    <div class="img"><img :src="item.image" alt="photo"></div>
     <div class="wrapper-content">
-      <div class="title-item fz-cardo-24px"> <a :href="item.link">{{ item.title }}</a> </div>
-      <div class="description-item fz-inter-19px">{{ item.descr }}</div>
-      <div class="item-link d-flex justify-content-between align-items-center">
-        <a :href="item.link">Read more</a> <span class="author-date ">Author - {{ item.date }}</span>
+      <div class="title-item fz-cardo-24px"> <a href="#">{{ item.title }}</a> </div>
+      <div class="description-item fz-inter-19px">{{ item.subtitle }}</div>
+      <div class="item-link d-flex justify-content-between">
+        <a href="#">Read more</a>
+        <div class="author-date ">{{ item.author }}: <span class="bold">21.22.23 </span>
+        </div>
       </div>
     </div>
   </section>
@@ -33,12 +35,22 @@ export default {
   box-shadow: 0px 35px 25px rgba(4, 11, 20, 0.04);
 }
 
+.img {
+  img {
+    width: 410px;
+    height: 326px;
+    object-fit: cover;
+  }
+}
+
 .wrapper-content {
+  height: 290px;
   padding: 26px 33px 28px 30px;
 }
 
 .title-item {
-
+  max-height: 75px;
+  overflow-y: clip;
   margin-bottom: 14px;
 
   a {
@@ -55,10 +67,13 @@ export default {
 .description-item {
   color: #969AA0;
   margin-bottom: 27px;
+  max-height: 100px;
+  overflow-y: auto;
 }
 
 .item-link {
   a {
+    height: 24px;
     font-family: 'Cardo';
     font-style: normal;
     font-weight: 700;
@@ -78,11 +93,18 @@ export default {
 
 
 .author-date {
+  width: 71%;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
   font-size: 17px;
   line-height: 125%;
   color: #1B3764;
+  text-align: end;
+}
+
+.bold {
+
+  font-weight: 900;
 }
 </style>
