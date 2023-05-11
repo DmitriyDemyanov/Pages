@@ -25,56 +25,10 @@ export default {
   },
 
   "exploreLink": [
-    {
-      "name": "home",
-      "path": "/"
-    },
-    {
-      "name": "about us",
-      "path": "/about-us"
-    },
-    {
-      "name": "services",
-      "path": "/services"
-    },
-    {
-      "name": "appointments",
-      "path": "/appointments"
-    },
-    {
-      "name": "blog",
-      "path": "/blog"
-    },
-    {
-      "name": "contact us",
-      "path": "/contact-us"
-    }
+  
   ],
   "utilityLinks": [
-    // {
-    //   "name": "start here",
-    //   "path": "/start-here"
-    // },
-    // {
-    //   "name": "style guide",
-    //   "path": "/style-guide"
-    // },
-    // {
-    //   "name": "404 not found",
-    //   "path": "/error"
-    // },
-    // {
-    //   "name": "password protected",
-    //   "path": "/password-protected"
-    // },
-    // {
-    //   "name": "licenses",
-    //   "path": "/licenses"
-    // },
-    // {
-    //   "name": "changelog",
-    //   "path": "/changelog"
-    // }
+  
   ],
   // Site Content
   homeDetailsWelcome: [
@@ -260,13 +214,13 @@ export default {
     },
   ],
   articlesItems: [
-    {
-      img: 'photo-1',
-      title: 'Significant reading has more info number',
-      descr: 'The point of using Lorem Ipsum hiter of that using making it look like others readable will get end.',
-      link: 'https://www.facebook.com',
-      date: '23.05.2022'
-    },
+    // {
+    //   img: 'photo-1',
+    //   title: 'Significant reading has more info number',
+    //   descr: 'The point of using Lorem Ipsum hiter of that using making it look like others readable will get end.',
+    //   link: 'https://www.facebook.com',
+    //   date: '23.05.2022'
+    // },
 
     {
       img: 'photo-2',

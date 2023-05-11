@@ -12,10 +12,12 @@
       </div>
     </div>
     <div class="wrapper-count">
+
       <div class="item-counter d-flex  align-items-center">{{ book.qty }}</div>
       <div class="wrapper-btn d-flex justify-content-around">
-        <button class="btn-count">+</button>
-        <button class="btn-count">-</button>
+        <button class="btn-count" :disabled='book.qty === 1' :class='{ "btn-disabled": book.qty === 1 }'
+          @click='deleteItemCart(book.id)'>-</button>
+        <button class="btn-count" @click='addItemCart(book.id)'>+</button>
       </div>
     </div>
   </div>
@@ -36,17 +38,25 @@ export default {
     parsedBook() {
       const { id } = this.book;
       return this.getBookById(id);
+    },
+    disable() {
+      return this.book.qty === 1 ? "btn-disabled" : ''
     }
   },
 
   methods: {
-    ...mapActions(['removeItemById']),
+    ...mapActions(['removeItemById','addItemCartById','deleteItemCartById']),
     getId(id) {
       console.log('ready__id',id);
       this.removeItemById(id);
-
+    },
+    addItemCart(id) {
+      this.addItemCartById(id);
 
     },
+    deleteItemCart(id) {
+      this.deleteItemCartById(id);
+    }
   }
 
 }
@@ -138,7 +148,10 @@ export default {
     border: 1px solid var(--main-color-beer);
     background-color: var(--main-color-beer);
   }
+}
 
-
+.btn-disabled {
+  background-color: var(--main-color-beer);
+  opacity: 0.4;
 }
 </style>

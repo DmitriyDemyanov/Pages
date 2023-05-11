@@ -56,7 +56,7 @@ export default {
     },
     clickOnEmptySpace(event) {
       const target = event.target.closest(".modal-window");
-      if (!target) {
+      if (!target && !event.target.classList.contains("item-remove")) {
         this.closeModal();
       }
     }

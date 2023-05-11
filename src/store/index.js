@@ -137,7 +137,7 @@ export default new Vuex.Store({
       state.cart.items = state.cart.items.filter((el) => {
         if (el.id === id) {
           console.log('state.cart.total',state.cart.total);
-          console.log(' el',el);
+          console.log(' el______________',el);
           state.cart.total = state.cart.total - price * el.qty;
         }
         return el.id !== id;
@@ -146,6 +146,18 @@ export default new Vuex.Store({
     TOGGLE_CART(state,payload) {
       state.showCart = payload;
     },
+    ADD_CART_ITEM_BY_ID(state,payload) {
+      state.cart.total += payload.price;
+      const item = state.cart.items.find((el) => el.id === payload.id);
+      item.qty++;
+    },
+    DELETE_CART_ITEM_BY_ID(state,payload) {
+      const item = state.cart.items.find((el) => el.id === payload.id);
+
+      item.qty--;
+      state.cart.total -= payload.price;
+
+    }
   },
 
   actions: {
@@ -173,7 +185,7 @@ export default new Vuex.Store({
     async fetchUtilityLinks({ commit }) {
       const response = await fetch('http://localhost:3579/settings/utility');
       const utilityLink = await response.json();
-      commit('SAVE_UTILITY_LINK',utilityLink)
+      commit('SAVE_UTILITY_LINK',utilityLink);
 
     },
     async fetchAboutAuthor({ commit }) {
@@ -193,7 +205,18 @@ export default new Vuex.Store({
     },
     toggleCart({ commit },payload) {
       commit('TOGGLE_CART',payload)
-    }
+    },
+    addItemCartById({ commit },id) {
+      const itemBook = this.state.authorBooks.find((el) => el.id === id);
+      const payload = { price: itemBook.price,id }
+      commit('ADD_CART_ITEM_BY_ID',payload)
+    },
+    deleteItemCartById({ commit },id) {
+      const itemBook = this.state.authorBooks.find((el) => el.id === id);
+      const payload = { price: itemBook.price,id };
+      commit('DELETE_CART_ITEM_BY_ID',payload);
+      console.log('DELETE-ID',itemBook.price,id);
+    },
   },
 
   modules: {},
