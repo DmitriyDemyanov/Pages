@@ -91,9 +91,8 @@ export default new Vuex.Store({
     getArticlesItems(state) {
       const currentPage = state.articlePagination.currentPage;
       const renderPage = state.articlePagination.renderPage;
-      console.log('><><>',state.articlesItems.length / renderPage);
 
-      state.articlePagination.lastPage = Math.ceil(state.articlesItems.length / renderPage)
+
       return state.articlesItems.slice((currentPage - 1) * renderPage,renderPage * currentPage);
     },
     getNumberPage(state) {
@@ -175,6 +174,9 @@ export default new Vuex.Store({
     },
     SAVE_ARTICLES(state,payload) {
       state.articlesItems = payload;
+      state.articlePagination.lastPage = Math.ceil(state.articlesItems.length / state.articlePagination.renderPage);
+      console.log(state.articlesItems.length);
+      console.log(state.articlePagination);
       console.log('payload>>>',payload)
     },
 

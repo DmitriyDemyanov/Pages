@@ -68,7 +68,7 @@ export default {
   color: #969AA0;
   margin-bottom: 27px;
   max-height: 100px;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 .item-link {

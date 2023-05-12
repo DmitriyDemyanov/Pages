@@ -34,7 +34,7 @@ export default {
     ...mapActions(['fetchArticles','nextPage','prevPage']),
     pageClick(num) {
       if (num === "+") {
-        this.nextPage()
+        this.nextPage();
       }
       else {
         this.prevPage();
