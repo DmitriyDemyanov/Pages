@@ -4,6 +4,7 @@ import Vuex from 'vuex';
 import DEFAULT_STATE from './default-state';
 
 
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -21,7 +22,10 @@ export default new Vuex.Store({
       currentPage: 1,
       renderPage: 3,
       lastPage: 1,
-    }
+    },
+    corporation: [],
+    //___________________________readersBook
+    readersBook: [],
   },
   getters: {
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
@@ -55,10 +59,12 @@ export default new Vuex.Store({
       return [state.homeDetailsWelcome[0],state.homeDetailsWelcome[1]]
     },
     getAuthorsBook(state) {
+      console.log(' state.authorsBook>>',state.authorsBook)
       return state.authorsBook;
     },
+    //___________________________________________OurCompanions
     getOurCompanions(state) {
-      return state.ourCompanions;
+      return state.corporation;
     },
     getChapterIncludes(state) {
       return state.chapterIncludes;
@@ -74,6 +80,11 @@ export default new Vuex.Store({
     },
     getAuthorBooks(state) {
       return state.authorBooks
+    },
+
+    //__________________________________________readersBook
+    getReadersBook(state) {
+      return state.readersBook;
     },
 
     //_____________________________________________
@@ -180,6 +191,10 @@ export default new Vuex.Store({
       console.log('payload>>>',payload)
     },
 
+    //_____________________________Corporation
+    SAVE_CORPORATION(state,payload) {
+      state.corporation = payload;
+    },
     //_________________________________________________________________________
     ARTICLES_PAGE_UP(state) {
       state.articlePagination.currentPage++
@@ -187,6 +202,10 @@ export default new Vuex.Store({
     ARTICLES_PAGE_DOWN(state) {
       state.articlePagination.currentPage--
     },
+    //_________________________________________________________REadersBook
+    SAVE_READERS_BOOK(state,payload) {
+      state.readersBook = payload;
+    }
 
   },
 
@@ -230,6 +249,20 @@ export default new Vuex.Store({
       commit('SAVE_ARTICLES',articles);
 
     },
+    async fetchCorporations({ commit }) {
+      const response = await fetch('http://localhost:3579/content/corporations');
+      const corporations = await response.json();
+      commit('SAVE_CORPORATION',corporations);
+    },
+    async fetchReadersBook({ commit }) {
+      const response = await fetch('http://localhost:3579/content/testimonials');
+      const REadersBook = await response.json();
+      commit('SAVE_READERS_BOOK',REadersBook);
+      console.log('SAVE_READERS_BOOK',REadersBook)
+    },
+
+
+
     addToCart({ commit },payload) {
       console.log('payload!!!!!!!!',payload);
       commit('SAVE_CART_BOOK',payload);

@@ -3,16 +3,16 @@
     <TitleSection title='Trusted by the Best' />
     <div class="wrapper-items d-flex justify-content-between">
       <div class="item" v-for="(item,ind) in getOurCompanions" :key='ind'>
-        <div class="item-img"><img :src="require(`@/assets/images/icons/${item.img}.png`)" alt="logo"></div>
+        <div class="item-img"><img :src="item.image" alt="logo"></div>
         <div class="item-title fz-cardo-24px">{{ item.title }}</div>
-        <div class="item-text fz-inter-18px">{{ item.text }}</div>
+        <div class="item-text fz-inter-18px">{{ item.description }}</div>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapActions,mapGetters } from 'vuex';
 import TitleSection from './TitleSection';
 export default {
   name: 'OurCompanions',
@@ -21,7 +21,13 @@ export default {
   },
   computed: {
     ...mapGetters(['getOurCompanions'])
-  }
+  },
+  methods: {
+    ...mapActions(['fetchCorporations']),
+  },
+  mounted() {
+    this.fetchCorporations()
+  },
 }
 </script>
 

@@ -60,28 +60,7 @@ export default {
       img: 'Book-2-Light'
     }
   ],
-  ourCompanions: [
-    {
-      img: 'Item-logo_1',
-      title: 'Amazen Corp',
-      text: 'A long established fact that a who looking at its layout.',
-    },
-    {
-      img: 'Item-logo_2',
-      title: 'Megan Books',
-      text: 'A long established fact that a who looking at its layout.',
-    },
-    {
-      img: 'Item-logo_3',
-      title: 'Los Books',
-      text: 'A long established fact that a who looking at its layout.',
-    },
-    {
-      img: 'Item-logo_4',
-      title: 'Urban Lib',
-      text: 'A long established fact that a who looking at its layout.',
-    },
-  ],
+
   whatYouLearnItems: [
     {
       number: '01',

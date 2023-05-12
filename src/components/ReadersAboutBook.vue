@@ -1,5 +1,5 @@
 <template>
-  <section class="container wrapper-section d-flex justify-content-between">
+  <section class="container wrapper-section d-flex justify-content-between" v-if="getReadersBook.users">
     <div class="wrapper-rating">
       <TitleSection title="What Readers Say About the Book" type='start' width='small' />
       <div class="rating-text fz-inter-19px">If you are going to use a passage of Lorem Ipsum, you need to be sure there
@@ -11,17 +11,20 @@
         <div class="circle full"></div>
         <div class="circle full"></div>
         <div class="circle half"></div>
-        <div class="number-rating fz-cardo-22px">(4.8/5)</div>
+        <div class="number-rating fz-cardo-22px">({{ getReadersBook.overall }}/5)</div>
       </div>
+
       <div class="all-rating fz-inter-19px">Overall Customer Ratings</div>
+
     </div>
     <div class="wrapper-users d-flex justify-content-between">
       <div class="two-users">
+
         <div class="user-item">
           <div class="d-flex align-items-center">
-            <div class="user-photo"><img src="@/assets/images/photo/User-1.png" alt="photo"></div>
+            <div class="user-photo"><img :src="getReadersBook.users[0].photo" alt="photo"></div>
             <div>
-              <div class="user-full-name fz-cardo-24px">Martin Philips</div>
+              <div class="user-full-name fz-cardo-24px">{{ getReadersBook.users[0].name }}</div>
               <div class="user-rating d-flex">
                 <div class="user-circle full"></div>
                 <div class="user-circle full"></div>
@@ -31,16 +34,15 @@
               </div>
             </div>
           </div>
-          <div class="user-title fz-cardo-22px">“ Awesome Impact ”</div>
-          <div class="user-text fz-inter-19px">All the Lorem Ipsum generators on the Internet tend to repeat willings
-            predefined chunks value.</div>
+          <div class="user-title fz-cardo-22px">{{ getReadersBook.users[0].title }}</div>
+          <div class="user-text fz-inter-19px">{{ getReadersBook.users[0].text }}</div>
         </div>
 
         <div class="user-item">
           <div class="d-flex align-items-center">
-            <div class="user-photo"><img src="@/assets/images/photo/User-1.png" alt="photo"></div>
+            <div class="user-photo"><img :src="getReadersBook.users[1].photo" alt="photo"></div>
             <div>
-              <div class="user-full-name fz-cardo-24px">Martin Philips</div>
+              <div class="user-full-name fz-cardo-24px">{{ getReadersBook.users[1].name }}</div>
               <div class="user-rating d-flex">
                 <div class="user-circle full"></div>
                 <div class="user-circle full"></div>
@@ -50,18 +52,17 @@
               </div>
             </div>
           </div>
-          <div class="user-title fz-cardo-22px">“ Awesome Impact ”</div>
-          <div class="user-text fz-inter-19px">All the Lorem Ipsum generators on the Internet tend to repeat willings
-            predefined chunks value.</div>
+          <div class="user-title fz-cardo-22px">{{ getReadersBook.users[1].title }}</div>
+          <div class="user-text fz-inter-19px"> {{ getReadersBook.users[1].text }}</div>
         </div>
       </div>
 
       <div class="d-flex align-items-center third-user">
         <div class="user-item">
           <div class="d-flex align-items-center">
-            <div class="user-photo"><img src="@/assets/images/photo/User-1.png" alt="photo"></div>
+            <div class="user-photo"><img :src="getReadersBook.users[2].photo" alt="photo"></div>
             <div>
-              <div class="user-full-name fz-cardo-24px">Martin Philips</div>
+              <div class="user-full-name fz-cardo-24px">{{ getReadersBook.users[2].name }}</div>
               <div class="user-rating d-flex">
                 <div class="user-circle full"></div>
                 <div class="user-circle full"></div>
@@ -71,9 +72,8 @@
               </div>
             </div>
           </div>
-          <div class="user-title fz-cardo-22px">“ Awesome Impact ”</div>
-          <div class="user-text fz-inter-19px">All the Lorem Ipsum generators on the Internet tend to repeat willings
-            predefined chunks value.</div>
+          <div class="user-title fz-cardo-22px">{{ getReadersBook.users[2].title }}</div>
+          <div class="user-text fz-inter-19px"> {{ getReadersBook.users[2].text }}</div>
         </div>
       </div>
 
@@ -85,11 +85,23 @@
 
 <script>
 import TitleSection from '@/components/TitleSection';
+import { mapActions,mapGetters } from 'vuex';
 export default {
   name: 'ReadersAboutBook',
   components: {
     TitleSection,
-  }
+  },
+  computed: {
+    ...mapGetters(['getReadersBook']),
+  },
+  methods: {
+    ...mapActions(['fetchReadersBook'])
+  },
+  mounted() {
+    this.fetchReadersBook();
+  },
+
+
 }
 </script>
 
