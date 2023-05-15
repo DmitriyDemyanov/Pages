@@ -14,12 +14,9 @@
       </div>
 
       <!-- BODY -->
-
-
-      <slot name="modal-body"></slot>
-
-
-
+      <div class="body-modal">
+        <slot name="modal-body"></slot>
+      </div>
 
       <!-- FOOTER -->
       <div class="footer-modal">

@@ -1,6 +1,6 @@
 <template>
   <div class="app" target='_blank'>
-    
+
     <div class="bg-header">
       <div class="container">
         <NavigationHeader />
@@ -8,6 +8,7 @@
     </div>
     <router-view></router-view>
     <CartComponent v-show="showCart" />
+    <ErrorComponent v-show="getErrorComponent" />
     <div class="bg-footer">
       <div class="container">
         <FooterSection />
@@ -20,6 +21,7 @@
 import NavigationHeader from './components/NavigationHeader';
 import FooterSection from './components/FooterSection';
 import CartComponent from '@/components/CartComponent';
+import ErrorComponent from '@/components/ErrorComponent';
 import { mapGetters } from 'vuex';
 export default {
   name: 'App',
@@ -27,9 +29,10 @@ export default {
     NavigationHeader,
     FooterSection,
     CartComponent,
+    ErrorComponent,
   },
   computed: {
-    ...mapGetters(['showCart']),
+    ...mapGetters(['showCart','getErrorComponent']),
   },
 };
 </script>
@@ -56,4 +59,5 @@ export default {
 .bg-footer {
   height: 510px;
   background-color: var(--main-color-dark);
-}</style>
+}
+</style>

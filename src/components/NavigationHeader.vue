@@ -4,7 +4,7 @@
       <a class="logo" href="#">
         <img src="@/assets/images/icons/Logo.svg" alt="logo" />
       </a>
-      <a class="social-icon" href="#">
+      <a class="social-icon" href="#" @click.prevent='errorModal(true)'>
         <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="0.25" y="0.5" width="45" height="45" fill="white" />
           <path
@@ -93,7 +93,7 @@ export default {
     ...mapGetters(['getTotalCartQuantity']),
   },
   methods: {
-    ...mapActions(['toggleCart']),
+    ...mapActions(['toggleCart','errorModal']),
   },
 };
 </script>

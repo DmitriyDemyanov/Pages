@@ -26,6 +26,9 @@ export default new Vuex.Store({
     corporation: [],
     //___________________________readersBook
     readersBook: [],
+
+
+    errorModal: false,
   },
   getters: {
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
@@ -123,6 +126,12 @@ export default new Vuex.Store({
 
     getBookById(state) {
       return (id) => state.authorBooks.find(book => book.id === id);
+    },
+    getErrorComponent(state) {
+      return state.errorModal
+    },
+    getErrorMessage(state) {
+      return state.errorMessage;
     }
 
   },
@@ -155,7 +164,6 @@ export default new Vuex.Store({
       } else {
         state.cart.items.push({ id,qty: 1 });
       }
-
     },
 
     DELETE_CART_BOOK(state,payload) {
@@ -205,20 +213,37 @@ export default new Vuex.Store({
     //_________________________________________________________REadersBook
     SAVE_READERS_BOOK(state,payload) {
       state.readersBook = payload;
+    },
+    //     _______________________________________________________ERROR_MODAL
+    SHOW_ERROR_MODAL(state,payload) {
+      state.errorModal = payload;
+    },
+    SET_ERROR_MESSAGE(state,payload) {
+      state.errorMessage = payload;
     }
-
   },
 
   actions: {
     createSubscribe({ commit },payload) {
       commit('INPUT_SUBSCRIBE',payload);
     },
-    async fetchRandomBook({ commit }) {
-      const response = await fetch('http://localhost:3579/content/books/random');
-      console.log('Fetch Random',response);
-      const book = await response.json();
-      console.log('Book',book);
-      commit('SAVE_RANDOM_BOOK',book);
+    async fetchRandomBook({ commit,dispatch }) {
+      try {
+        console.log("TRY 1");
+        const response = await fetch('http://localhost:3579/content/booksx/random');
+        console.log("TRY 2");
+        const book = await response.json();
+        console.log("TRY 3");
+        commit('SAVE_RANDOM_BOOK',book);
+        console.log("TRY 4");
+      } catch (err) {
+        console.log("Error --------------------");
+        console.dir(err.message || err);
+        commit('SET_ERROR_MESSAGE',err.message || err);
+        dispatch('errorModal',true);
+      } finally {
+        console.log("FINALLY");
+      }
     },
     async fetchAuthorBooks({ commit }) {
       const response = await fetch('http://localhost:3579/content/books');
@@ -240,7 +265,6 @@ export default new Vuex.Store({
     async fetchAboutAuthor({ commit }) {
       const response = await fetch('http://localhost:3579/content/author');
       const aboutAuthor = await response.json();
-      console.log('aboutAuthor---',aboutAuthor);
       commit('SAVE_ABOUT_AUTHOR',aboutAuthor)
     },
     async fetchArticles({ commit }) {
@@ -258,7 +282,6 @@ export default new Vuex.Store({
       const response = await fetch('http://localhost:3579/content/testimonials');
       const REadersBook = await response.json();
       commit('SAVE_READERS_BOOK',REadersBook);
-      console.log('SAVE_READERS_BOOK',REadersBook)
     },
 
 
@@ -293,8 +316,12 @@ export default new Vuex.Store({
     prevPage({ commit }) {
       commit('ARTICLES_PAGE_DOWN');
     },
-
+    errorModal({ commit },payload) {
+      commit('SHOW_ERROR_MODAL',payload);
+    },
   },
+
+
 
   modules: {},
 });
