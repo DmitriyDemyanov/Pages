@@ -50,21 +50,21 @@
                 "name": "Martin Philips",
                 "title": "Awesome Impact",
                 "text": "All the Lorem Ipsum generators on the Internet tend to repeat willings predefined chunks value.",
-                "photo": "http://localhost:3579/images/user-martin.svg",
+                "photo": "http://localhost:3579/images/user-martin.png",
                 "rating": 4.5
             },
             {
                 "name": "James Anderson",
                 "title": "Mind Blowing Words",
                 "text": "All the Lorem Ipsum generators on the Internet tend to repeat willings predefined chunks value.",
-                "photo": "http://localhost:3579/images/user-james.svg",
-                "rating": 4
+                "photo": "http://localhost:3579/images/user-james.png",
+                "rating": 1.2
             },
             {
                 "name": "Christina Louis",
                 "title": "Great Books Collections",
                 "text": "All the Lorem Ipsum generators on the Internet tend to repeat willings predefined chunks value.",
-                "photo": "http://localhost:3579/images/user-christina.svg",
+                "photo": "http://localhost:3579/images/user-christina.png",
                 "rating": 5
             }
         ]
