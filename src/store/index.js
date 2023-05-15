@@ -171,7 +171,6 @@ export default new Vuex.Store({
       state.cart.items = state.cart.items.filter((el) => {
         if (el.id === id) {
           console.log('state.cart.total',state.cart.total);
-          console.log(' el______________',el);
           state.cart.total = state.cart.total - price * el.qty;
         }
         return el.id !== id;
@@ -229,59 +228,120 @@ export default new Vuex.Store({
     },
     async fetchRandomBook({ commit,dispatch }) {
       try {
-        console.log("TRY 1");
-        const response = await fetch('http://localhost:3579/content/booksx/random');
-        console.log("TRY 2");
+
+        const response = await fetch('http://localhost:3579/content/books/random');
+
         const book = await response.json();
-        console.log("TRY 3");
+
         commit('SAVE_RANDOM_BOOK',book);
-        console.log("TRY 4");
+
       } catch (err) {
-        console.log("Error --------------------");
         console.dir(err.message || err);
         commit('SET_ERROR_MESSAGE',err.message || err);
         dispatch('errorModal',true);
       } finally {
-        console.log("FINALLY");
+        console.log('TEST1')
       }
     },
-    async fetchAuthorBooks({ commit }) {
-      const response = await fetch('http://localhost:3579/content/books');
-      const authorBooks = await response.json();
-      commit('SAVE_AUTHOR_BOOKS',authorBooks);
+
+
+    async fetchAuthorBooks({ commit,dispatch }) {
+      try{
+        const response = await fetch('http://localhost:3579/content/books');
+        const authorBooks = await response.json();
+        commit('SAVE_AUTHOR_BOOKS',authorBooks);
+      } catch (err) {
+        commit('SET_ERROR_MESSAGE',err.message || err);
+        dispatch('errorModal',true);
+      }
+    finally {
+      console.log('TEST2')
+    }
     },
-    async fetchExploreLinks({ commit }) {
-      const response = await fetch('http://localhost:3579/settings/explores');
-      const exploreLink = await response.json();
-      commit('SAVE_EXPLORE_LINK',exploreLink)
+
+    async fetchExploreLinks({ commit,dispatch }) {
+      try{
+        const response = await fetch('http://localhost:3579/settings/explores');
+        const exploreLink = await response.json();
+        commit('SAVE_EXPLORE_LINK',exploreLink);
+      } catch (err){
+        commit('SET_ERROR_MESSAGE',err.message || err);
+        dispatch('errorModal', true)
+      } finally{
+        console.log('TEST3')
+      }
+
 
     },
-    async fetchUtilityLinks({ commit }) {
-      const response = await fetch('http://localhost:3579/settings/utility');
+    async fetchUtilityLinks({ commit,dispatch }) {
+      try {
+        const response = await fetch('http://localhost:3579/settings/utility');
       const utilityLink = await response.json();
       commit('SAVE_UTILITY_LINK',utilityLink);
+      } catch (err) {
+        commit('SET_ERROR_MESSAGE',err.stack || err);
+        dispatch('errorModal', true)
+
+      } finally{
+        console.log('TEST4')
+      }
+
 
     },
-    async fetchAboutAuthor({ commit }) {
-      const response = await fetch('http://localhost:3579/content/author');
-      const aboutAuthor = await response.json();
-      commit('SAVE_ABOUT_AUTHOR',aboutAuthor)
+    async fetchAboutAuthor({ commit,dispatch}) {
+      try {
+        const response = await fetch('http://localhost:3579/content/author');
+        const aboutAuthor = await response.json();
+        commit('SAVE_ABOUT_AUTHOR',aboutAuthor);
+      } catch (err) {
+        commit('SET_ERROR_MESSAGE', err.stack);
+        dispatch('errorModal',true)
+      }
+      finally {
+        console.log('TEST5')
+      }
+
     },
-    async fetchArticles({ commit }) {
-      const response = await fetch('http://localhost:3579/content/articles');
+    async fetchArticles({ commit, dispatch }) {
+      try {
+        const response = await fetch('http://localhost:3579/content/articles');
       const articles = await response.json();
       commit('SAVE_ARTICLES',articles);
+      } catch (err) {
+        commit('SET_ERROR_MESSAGE', err.stack);
+        dispatch('errorModal', true)
+      } finally {
+        console.log('TEST6')
+       }
+
 
     },
-    async fetchCorporations({ commit }) {
-      const response = await fetch('http://localhost:3579/content/corporations');
-      const corporations = await response.json();
-      commit('SAVE_CORPORATION',corporations);
+    async fetchCorporations({ commit, dispatch}) {
+      try {
+        const response = await fetch('http://localhost:3579/content/corporations');
+        const corporations = await response.json();
+        commit('SAVE_CORPORATION',corporations);
+      } catch (err) {
+        commit('SET_ERROR_MESSAGE', err.message || err);
+        dispatch('errorModal', true)
+      } finally {
+        console.log('TEST7')
+      }
+
     },
-    async fetchReadersBook({ commit }) {
-      const response = await fetch('http://localhost:3579/content/testimonials');
+    async fetchReadersBook({ commit, dispatch }) {
+      try {
+        const response = await fetch('http://localhost:3579/content/testimonials');
       const REadersBook = await response.json();
       commit('SAVE_READERS_BOOK',REadersBook);
+      } catch (err) {
+        commit('SET_ERROR_MESSAGE', err.message || err);
+        dispatch('errorModal', true);
+      }
+      finally{
+        console.log('TEST8')
+      }
+
     },
 
 
