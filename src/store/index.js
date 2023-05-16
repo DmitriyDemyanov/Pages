@@ -342,10 +342,9 @@ export default new Vuex.Store({
         console.log('TEST8')
       }
 
+
+      
     },
-
-
-
     addToCart({ commit },payload) {
       console.log('payload!!!!!!!!',payload);
       commit('SAVE_CART_BOOK',payload);
@@ -380,8 +379,5 @@ export default new Vuex.Store({
       commit('SHOW_ERROR_MODAL',payload);
     },
   },
-
-
-
   modules: {},
 });
