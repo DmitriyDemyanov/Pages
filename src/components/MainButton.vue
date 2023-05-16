@@ -89,7 +89,7 @@ export default {
   font-size: 19px;
 
   &:hover {
-    transition: all 0.4s;
+    transition: all 0.2s;
     border: 2px solid var(--main-color-beer);
     background-color: transparent;
     color: var(--main-color-dark);

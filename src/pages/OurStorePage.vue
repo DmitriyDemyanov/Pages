@@ -8,6 +8,7 @@
     </div>
     <div class="store-items-bg">
       <StoreItems />
+      <DescriptionBook/>
     </div>
   </section>
 </template>
@@ -15,11 +16,13 @@
 <script>
 import HeaderTitleStandard from '@/components/HeaderTitleStandard';
 import StoreItems from '@/components/StoreItems';
+import DescriptionBook from '@/components/DescriptionBook';
 export default {
   name: 'OurStorePage',
   components: {
     HeaderTitleStandard,
     StoreItems,
+    DescriptionBook
   }
 }
 </script>
