@@ -1,5 +1,6 @@
 <template>
   <button :class="`btn-${type} btn-${size} btn-${reverse} main-btn`" @click="$emit('btn-click')">
+    <slot name='prepend'></slot>
     {{ title }}
   </button>
 </template>

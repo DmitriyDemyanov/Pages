@@ -18,7 +18,11 @@
         <div class="book-dimensions pd">Dimensions : 20 x 14 x 4 cm</div>
         <div class="wrapper-btn-cart d-flex justify-content-between">
           <div class="counter-item">1</div>
-          <MainButton title='Add to Cart' size='full' />
+          <MainButton title='Add to Cart' size='full'>
+            <template #prepend>
+              <span>Hi</span>
+            </template>
+          </MainButton>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@
     </div>
     <div class="store-items-bg">
       <StoreItems />
-      <DescriptionBook/>
+      <DescriptionBook />
     </div>
   </section>
 </template>
@@ -22,7 +22,7 @@ export default {
   components: {
     HeaderTitleStandard,
     StoreItems,
-    DescriptionBook
+    DescriptionBook,
   }
 }
 </script>
