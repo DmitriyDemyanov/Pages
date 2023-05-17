@@ -195,5 +195,23 @@ export default {
   articlesItems: [
 
   ],
-  errorMessage: ''
+  errorMessage: '',
+  //______________________Description-Book
+  privilegeBookPay: [
+    {
+      image: 'secure',
+      title: 'Secure Payments',
+      text: 'There are many variations of passages of alteration in some form.',
+    },
+    {
+      image: 'shipping',
+      title: 'Free Shipping',
+      text: 'There are many variations of passages of alteration in some form.',
+    },
+    {
+      image: 'satisfactions',
+      title: '100% Satisfactions',
+      text: 'There are many variations of passages of alteration in some form.',
+    },
+  ]
 }

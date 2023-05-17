@@ -132,6 +132,10 @@ export default new Vuex.Store({
     },
     getErrorMessage(state) {
       return state.errorMessage;
+    },
+    //____________________________________________DEscription-Book
+    getPrivilegeBookPay(state) {
+      return state.privilegeBookPay;
     }
 
   },

@@ -39,6 +39,9 @@ export default {
   background-color: var(--main-color-beer);
   color: var(--main-color-dark);
   transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
     background-color: var(--main-color-dark);
