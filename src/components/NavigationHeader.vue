@@ -46,7 +46,7 @@
               <div class="title-drop">Pages</div>
               <router-link to='/articles'>Articles</router-link>
               <router-link to='/our-Store'>Our Store</router-link>
-              <a href="#">Product Single</a>
+              <router-link to='/description-book' href="#">Product Single</router-link>
             </div>
             <div class="row-drop-2">
               <div class="title-drop">Utility Pages</div>

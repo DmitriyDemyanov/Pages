@@ -7,6 +7,7 @@ import ServicesPage from '@/pages/ServicesPage';
 import ContactPage from '@/pages/ContactPage';
 import OurStorePage from '@/pages/OurStorePage';
 import ArticlesPage from '@/pages/ArticlesPage';
+import DescriptionBookPage from '@/pages/DescriptionBookPage';
 
 Vue.use(VueRouter);
 
@@ -40,7 +41,12 @@ const routes = [
     path: '/Articles',
     name: 'articles',
     component: ArticlesPage,
-  }
+  },
+  {
+    path: '/description-book',
+    name: 'description',
+    component: DescriptionBookPage,
+  },
 ];
 
 const router = new VueRouter({

@@ -37,9 +37,13 @@ export default {
     ...mapGetters(['getCart']),
   },
   methods: {
-    ...mapActions(['addToCart']),
+    ...mapActions(['addToCart','bookDescription']),
+
     onClick(book) {
+      this.bookDescription(book.id);
       this.addToCart(book);
+      console.log(' this.router',this.$router);
+      this.$router.push({ path: '/description-book' });
     }
   }
 }
@@ -69,8 +73,9 @@ export default {
   position: absolute;
   bottom: 12px;
   right: 13px;
+
   img {
-    width:95px;
+    width: 95px;
     height: 95px;
     object-fit: contain;
   }
@@ -87,7 +92,7 @@ export default {
   height: 86px;
   overflow: hidden;
   width: 100%;
-  text-overflow: ellipsis;                          //??????????????????
+  text-overflow: ellipsis; //??????????????????
 }
 
 .circle {
