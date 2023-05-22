@@ -27,6 +27,7 @@ export default {
   components: {
     MainButton,
   },
+ 
   props: {
     book: {
       type: Object,
@@ -42,7 +43,6 @@ export default {
     onClick(book) {
       this.bookDescription(book.id);
       this.addToCart(book);
-      console.log(' this.router',this.$router);
       this.$router.push({ path: '/description-book' });
     }
   }
