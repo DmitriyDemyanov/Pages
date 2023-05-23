@@ -14,12 +14,14 @@
           <div class="book-language pd">Language : {{ getDescriptionBookById.language }}</div>
           <div class="book-paperback pd"> Paperback : {{ getDescriptionBookById.pages }} pages</div>
           <div class="book-isbn pd"> ISBN-10 : {{ getDescriptionBookById["ISBN-10"] }}</div>
-          <div class="book-dimensions pd">Dimensions : {{ getDescriptionBookById.dimensions.h }} x {{
-            getDescriptionBookById.dimensions.l }} x {{ getDescriptionBookById.dimensions.w }} {{
-    getDescriptionBookById.dimensions.volume }}</div>
+          <div class="book-dimensions pd">
+            Dimensions : {{ getDescriptionBookById.dimensions.h }} x
+            {{ getDescriptionBookById.dimensions.l }} x
+            {{ getDescriptionBookById.dimensions.w }} {{ getDescriptionBookById.dimensions.volume }}
+          </div>
           <div class="wrapper-btn-cart d-flex justify-content-between">
-            <div class="counter-item">1</div>
-            <MainButton title='Add to Cart' size='full' @btn-click="addTocart(getDescriptionBookById.id)">
+            <div class="counter-item">{{ showCounter }}</div>
+            <MainButton title='Add to Cart' size='full' @btn-click="addToCartDescr(getDescriptionBookById)">
               <template #prepend>
                 <div class="img-cart"><img src="@/assets/images/icons/cart-dark.svg" alt="icon"></div>
               </template>
@@ -74,7 +76,7 @@
 
 <script>
 import MainButton from '@/components/MainButton';
-import { mapGetters } from 'vuex';
+import { mapActions,mapGetters } from 'vuex';
 export default {
   name: 'DescriptionBookPage',
   components: {
@@ -86,23 +88,19 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getPrivilegeBookPay','getDescriptionBookById']),
+    ...mapGetters(['getPrivilegeBookPay','getDescriptionBookById','getCart']),
     iconCurrency() {
       return this.getDescriptionBookById.currency === 'euro' ? '₴' : '$';
     },
     fullDate() {
-      // let today = new Date(this.getDescriptionBookById.publish);
-      // let year = today.getFullYear();
-      // let month = today.getUTCMonth()
-      // console.log('today',today);
-      // console.log('year',year);
-      // console.log('month',month);
-
-      // return this.getDescriptionBookById.publish
-      return new Date(this.getDescriptionBookById.publish).toLocaleDateString('en',{ day: 'numeric',month: 'short',year: 'numeric' })
+      return new Date(this.getDescriptionBookById.publish).toLocaleDateString('en-UK',{ day: 'numeric',month: 'short',year: 'numeric' })
     },
+    showCounter() {
+      return 1;
+    }
   },
   methods: {
+    ...mapActions(['addToCart']),
     onActive(string) {
       console.log('string',string)
       console.log('this.showText>>>',this.showText)
@@ -114,9 +112,11 @@ export default {
       }
 
     },
-    addTocart(id) {
-      console.log('TEST_CLICK!!!',id)
+    addToCartDescr(book) {
+      console.log('TEST_CLICK!!!BOOK',book)
+      this.addToCart(book);
     }
+
   }
 
 }
