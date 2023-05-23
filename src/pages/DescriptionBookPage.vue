@@ -19,7 +19,7 @@
     getDescriptionBookById.dimensions.volume }}</div>
           <div class="wrapper-btn-cart d-flex justify-content-between">
             <div class="counter-item">1</div>
-            <MainButton title='Add to Cart' size='full'>
+            <MainButton title='Add to Cart' size='full' @btn-click="addTocart(getDescriptionBookById.id)">
               <template #prepend>
                 <div class="img-cart"><img src="@/assets/images/icons/cart-dark.svg" alt="icon"></div>
               </template>
@@ -114,7 +114,9 @@ export default {
       }
 
     },
-
+    addTocart(id) {
+      console.log('TEST_CLICK!!!',id)
+    }
   }
 
 }
