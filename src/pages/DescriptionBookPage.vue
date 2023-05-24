@@ -1,5 +1,8 @@
 <template>
   <section>
+    <HeaderTitleStandard title='My Store' color='light'
+      subtitle='There are many variations of passages of Lorem Ipsum available,  have suffered alteration in some form.' />
+
     <div class="wrapper-section-book container">
       <div class="wrapper-item-book d-flex justify-content-between">
 
@@ -75,11 +78,13 @@
 </template>
 
 <script>
+import HeaderTitleStandard from '@/components/HeaderTitleStandard'
 import MainButton from '@/components/MainButton';
 import { mapActions,mapGetters } from 'vuex';
 export default {
   name: 'DescriptionBookPage',
   components: {
+    HeaderTitleStandard,
     MainButton,
   },
   data() {
@@ -96,8 +101,12 @@ export default {
       return new Date(this.getDescriptionBookById.publish).toLocaleDateString('en-UK',{ day: 'numeric',month: 'short',year: 'numeric' })
     },
     showCounter() {
-      return 1;
+      if (!this.getCart.items.filter((el) => el.id === this.getDescriptionBookById.id).length) {
+        return 0;
+      }
+      return this.getCart.items.filter((el) => el.id === this.getDescriptionBookById.id)[0].qty
     }
+
   },
   methods: {
     ...mapActions(['addToCart']),
@@ -133,6 +142,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 70px 100px;
 
   img {
     width: 380px;
@@ -146,6 +156,9 @@ export default {
   width: calc(53% - 43px);
   padding: 23px 0;
   color: #969AA0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .book-title {
