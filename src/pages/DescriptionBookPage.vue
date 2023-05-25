@@ -116,7 +116,7 @@ export default {
 
   },
   methods: {
-    ...mapActions(['addToCart','numberBooksAddToCart']),
+    ...mapActions(['addToCart','numberBooksAddToCart','toggleCart']),
     onActive(string) {
       if (string === 'info') {
         this.showText = false;
@@ -126,7 +126,8 @@ export default {
       }
     },
     addToCartDescr(book) {
-      this.addToCart(book);
+      this.addToCart(book); //??????????????????????????
+      this.toggleCart(true);
 
     },
     qtyToCart(string) {

@@ -259,6 +259,7 @@ export default new Vuex.Store({
     },
     SAVE_CART_DESCR(state,payload) {
       state.cartDescrQty = payload;
+      console.log('payload-mutations', payload)
     }
   },
 
@@ -394,7 +395,7 @@ export default new Vuex.Store({
       commit('DELETE_CART_BOOK',{ id,price: priceBookById.price });
     },
     toggleCart({ commit },payload) {
-      commit('TOGGLE_CART',payload)
+      commit('TOGGLE_CART',payload);
     },
     addItemCartById({ commit },id) {
       const itemBook = this.state.authorBooks.find((el) => el.id === id);
