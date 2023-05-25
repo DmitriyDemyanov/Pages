@@ -29,8 +29,10 @@
                 <button class="btn-quantity btn-decrement" @click='qtyToCart("decrement")'> - </button>
               </div>
               <div class="qty-to-cart">
-                {{ showCounter }}
+                {{ quantityBooksCart }}
+
               </div>
+
             </div>
             <MainButton title='Add to Cart' size='full' @btn-click="addToCartDescr(getDescriptionBookById)">
               <template #prepend>
@@ -98,6 +100,7 @@ export default {
   data() {
     return {
       showText: true,
+      quantityBooksCart: 1,
     }
   },
   computed: {
@@ -108,22 +111,12 @@ export default {
     fullDate() {
       return new Date(this.getDescriptionBookById.publish).toLocaleDateString('en-UK',{ day: 'numeric',month: 'short',year: 'numeric' })
     },
-    showCounter() {
-      // const test = this.getCart.items.filter(el => el.id === this.getDescriptionBookById.id).entries();
-      // console.log('TEST::',test)
 
-      const book = this.getCart.items.find(el => el.id === this.getDescriptionBookById.id);
-      console.log('book:::',book)
-      if (book) {
-        return book.qty;
-      }
-      return 0;
-    },
 
 
   },
   methods: {
-    ...mapActions(['addToCart']),
+    ...mapActions(['addToCart','numberBooksAddToCart']),
     onActive(string) {
       if (string === 'info') {
         this.showText = false;
@@ -134,10 +127,16 @@ export default {
     },
     addToCartDescr(book) {
       this.addToCart(book);
+
     },
     qtyToCart(string) {
-      console.log('string',string)
-
+      if (string === 'decrement' && this.quantityBooksCart > 1) {
+        this.quantityBooksCart--
+      }
+      if (string === 'increment') {
+        this.quantityBooksCart++
+      }
+      this.numberBooksAddToCart(this.quantityBooksCart);
     }
 
   }

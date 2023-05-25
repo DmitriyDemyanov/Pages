@@ -54,7 +54,7 @@ export default new Vuex.Store({
       }
     },
 
-
+    cartDescrQty: 0 ,
 
   },
   getters: {
@@ -198,6 +198,7 @@ export default new Vuex.Store({
       } else {
         state.cart.items.push({ id,qty: 1 });
       }
+      console.log('PAYLOAD====',payload)
     },
 
     DELETE_CART_BOOK(state,payload) {
@@ -255,7 +256,9 @@ export default new Vuex.Store({
     SAVE_BOOK_BY_ID(state,payload) {
       let book = state.authorBooks.filter((el) => el.id === payload);
       state.descriptionBookById = book[0];
-      console.log('state.descriptionBookById',state.descriptionBookById)
+    },
+    SAVE_CART_DESCR(state,payload) {
+      state.cartDescrQty = payload;
     }
   },
 
@@ -416,6 +419,10 @@ export default new Vuex.Store({
     },
     bookDescription({ commit },payload) {
       commit('SAVE_BOOK_BY_ID',payload)
+    },
+    numberBooksAddToCart({ commit },payload) {
+      commit('SAVE_CART_DESCR',payload);
+      console.log('payload! number===',payload)
     },
   },
 
