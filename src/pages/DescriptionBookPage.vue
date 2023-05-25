@@ -23,7 +23,15 @@
             {{ getDescriptionBookById.dimensions.w }} {{ getDescriptionBookById.dimensions.volume }}
           </div>
           <div class="wrapper-btn-cart d-flex justify-content-between">
-            <div class="counter-item">{{ showCounter }}</div>
+            <div class="counter-item">
+              <div class="wrapper-btn-quantity">
+                <button class="btn-quantity btn-increment" @click='qtyToCart("increment")'> + </button>
+                <button class="btn-quantity btn-decrement" @click='qtyToCart("decrement")'> - </button>
+              </div>
+              <div class="qty-to-cart">
+                {{ showCounter }}
+              </div>
+            </div>
             <MainButton title='Add to Cart' size='full' @btn-click="addToCartDescr(getDescriptionBookById)">
               <template #prepend>
                 <div class="img-cart"><img src="@/assets/images/icons/cart-dark.svg" alt="icon"></div>
@@ -101,29 +109,35 @@ export default {
       return new Date(this.getDescriptionBookById.publish).toLocaleDateString('en-UK',{ day: 'numeric',month: 'short',year: 'numeric' })
     },
     showCounter() {
-      if (!this.getCart.items.filter((el) => el.id === this.getDescriptionBookById.id).length) {
-        return 0;
+      // const test = this.getCart.items.filter(el => el.id === this.getDescriptionBookById.id).entries();
+      // console.log('TEST::',test)
+
+      const book = this.getCart.items.find(el => el.id === this.getDescriptionBookById.id);
+      console.log('book:::',book)
+      if (book) {
+        return book.qty;
       }
-      return this.getCart.items.filter((el) => el.id === this.getDescriptionBookById.id)[0].qty
-    }
+      return 0;
+    },
+
 
   },
   methods: {
     ...mapActions(['addToCart']),
     onActive(string) {
-      console.log('string',string)
-      console.log('this.showText>>>',this.showText)
       if (string === 'info') {
         this.showText = false;
       }
       else {
         this.showText = true;
       }
-
     },
     addToCartDescr(book) {
-      console.log('TEST_CLICK!!!BOOK',book)
       this.addToCart(book);
+    },
+    qtyToCart(string) {
+      console.log('string',string)
+
     }
 
   }
@@ -186,6 +200,7 @@ export default {
 .wrapper-btn-cart {
   margin-top: 24px;
   width: 76%;
+  height: 65px;
 }
 
 .counter-item {
@@ -193,7 +208,6 @@ export default {
   margin-right: 10px;
   border: 2px solid var(--main-color-beer);
   display: flex;
-  justify-content: center;
   align-items: center;
   font-family: 'Inter';
   font-style: normal;
@@ -262,5 +276,22 @@ export default {
 .active-btn {
   background-color: var(--main-color-dark);
   color: #fff;
+}
+
+.wrapper-btn-quantity {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.qty-to-cart {
+  margin: 0 auto;
+}
+
+.btn-quantity {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
