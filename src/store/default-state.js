@@ -46,21 +46,6 @@ export default {
     },
   ],
 
-
-  authorsBook: [
-    {
-      title: 'Atomic One’s',
-      subtitle: 'Many variations of passages of Lorem Ipsum willing araise  alteration in some form.',
-      img: 'Book-Atomic'
-
-    },
-    {
-      title: 'The Dark Light',
-      subtitle: 'Lorem Ipsum willing araise  alteration in some form Many variations of passages of. ',
-      img: 'Book-2-Light'
-    }
-  ],
-
   whatYouLearnItems: [
     {
       number: '01',

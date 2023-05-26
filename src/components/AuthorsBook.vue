@@ -41,7 +41,7 @@
 <script>
 import TitleSection from './TitleSection';
 import MainButton from './MainButton';
-import { mapActions,mapGetters } from 'vuex';
+import { mapGetters } from 'vuex';
 export default {
   name: 'AuthorsBook',
   components: {
@@ -51,14 +51,6 @@ export default {
   computed: {
     ...mapGetters(['getAuthorBookIncludes']),
   },
-  methods: {
-    ...mapActions(['fetchAuthorBooks']),
-  },
-  mounted() {
-    this.fetchAuthorBooks();
-  },
-
-
 }
 </script>
 

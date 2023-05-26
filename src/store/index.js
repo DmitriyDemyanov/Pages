@@ -54,7 +54,7 @@ export default new Vuex.Store({
       }
     },
 
-    cartDescrQty: 0 ,
+    cartDescrQty: 0,
 
   },
   getters: {
@@ -190,15 +190,17 @@ export default new Vuex.Store({
     },
 
     SAVE_CART_BOOK(state,payload) {
+      console.log('payload before!!!!!',payload)
       const { id,price } = payload;
-      state.cart.total = Number((state.cart.total + price).toFixed(2));
+      const qty = payload.qty ? payload.qty : 1
+      state.cart.total = Number((state.cart.total + price * qty).toFixed(2));
       const existingBook = state.cart.items.find((el) => el.id === id);
       if (existingBook) {
-        existingBook.qty++;
+        existingBook.qty += qty;
       } else {
-        state.cart.items.push({ id,qty: 1 });
+        state.cart.items.push({ id,qty: qty });
       }
-      console.log('PAYLOAD====',payload)
+
     },
 
     DELETE_CART_BOOK(state,payload) {
@@ -259,7 +261,7 @@ export default new Vuex.Store({
     },
     SAVE_CART_DESCR(state,payload) {
       state.cartDescrQty = payload;
-      console.log('payload-mutations', payload)
+      console.log('payload-mutations',payload)
     }
   },
 

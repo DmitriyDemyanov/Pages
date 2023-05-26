@@ -127,7 +127,8 @@ export default {
   width: 100%;
   max-height: 40vh;
   padding: 30px 45px;
-  overflow-y: auto;
+  overflow-y: hidden;
+
 }
 
 .item-img {

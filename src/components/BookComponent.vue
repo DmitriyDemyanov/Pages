@@ -43,7 +43,7 @@ export default {
 
     openDetails(id) {
       this.bookDescription(id);
-      this.$router.push({ path: '/description-book' });
+      this.$router.push({ path: `/description-book/${id}` });
     }
   }
 }

@@ -8,6 +8,7 @@ import ContactPage from '@/pages/ContactPage';
 import OurStorePage from '@/pages/OurStorePage';
 import ArticlesPage from '@/pages/ArticlesPage';
 import DescriptionBookPage from '@/pages/DescriptionBookPage';
+import ContactUsPage from '@/pages/ContactUsPage';
 
 Vue.use(VueRouter);
 
@@ -34,7 +35,7 @@ const routes = [
   },
   {
     path: '/Our-Store',
-    name: 'our-Store',
+    name: 'our-store',
     component: OurStorePage,
   },
   {
@@ -43,9 +44,14 @@ const routes = [
     component: ArticlesPage,
   },
   {
-    path: '/description-book',
+    path: '/description-book/:bookId',
     name: 'description',
     component: DescriptionBookPage,
+  },
+  {
+    path: '/contact-us',
+    name: 'contact-us',
+    component: ContactUsPage,
   },
 ];
 

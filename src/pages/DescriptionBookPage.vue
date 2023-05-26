@@ -3,46 +3,9 @@
     <HeaderTitleStandard title='My Store' color='light'
       subtitle='There are many variations of passages of Lorem Ipsum available,  have suffered alteration in some form.' />
 
-    <div class="wrapper-section-book container">
-      <div class="wrapper-item-book d-flex justify-content-between">
+    <BookDetailComponent />
 
-        <div class="book-image"><img :src="getDescriptionBookById.image" alt="photo"></div>
-
-        <div class="book-content fz-inter-19px">
-          <div class="book-title fz-cardo-32px">{{ getDescriptionBookById.title }}</div>
-          <div class="book-price">{{ iconCurrency }} {{ getDescriptionBookById.price }} {{ getDescriptionBookById.currency
-          }}</div>
-          <div class="book-description">{{ getDescriptionBookById.description }}</div>
-          <div class="book-publisher pd">Publisher : Learning Private Limited ({{ fullDate }})</div>
-          <div class="book-language pd">Language : {{ getDescriptionBookById.language }}</div>
-          <div class="book-paperback pd"> Paperback : {{ getDescriptionBookById.pages }} pages</div>
-          <div class="book-isbn pd"> ISBN-10 : {{ getDescriptionBookById["ISBN-10"] }}</div>
-          <div class="book-dimensions pd">
-            Dimensions : {{ getDescriptionBookById.dimensions.h }} x
-            {{ getDescriptionBookById.dimensions.l }} x
-            {{ getDescriptionBookById.dimensions.w }} {{ getDescriptionBookById.dimensions.volume }}
-          </div>
-          <div class="wrapper-btn-cart d-flex justify-content-between">
-            <div class="counter-item">
-              <div class="wrapper-btn-quantity">
-                <button class="btn-quantity btn-increment" @click='qtyToCart("increment")'> + </button>
-                <button class="btn-quantity btn-decrement" @click='qtyToCart("decrement")'> - </button>
-              </div>
-              <div class="qty-to-cart">
-                {{ quantityBooksCart }}
-
-              </div>
-
-            </div>
-            <MainButton title='Add to Cart' size='full' @btn-click="addToCartDescr(getDescriptionBookById)">
-              <template #prepend>
-                <div class="img-cart"><img src="@/assets/images/icons/cart-dark.svg" alt="icon"></div>
-              </template>
-            </MainButton>
-          </div>
-        </div>
-      </div>
-
+    <div class="pb-5">
       <div class="wrapper-btn-description d-flex justify-content-between">
         <button class="product-btn size-btn-description fz-cardo-18px" :class='{ "active-btn": this.showText }'
           @click='onActive("product")'>Product
@@ -73,6 +36,7 @@
       </div>
     </div>
 
+
     <div class="wrapper-footer">
       <div class="container footer-content d-flex justify-content-between">
         <div class="item-content" v-for="(el,ind) in getPrivilegeBookPay" :key='ind'>
@@ -89,34 +53,25 @@
 
 <script>
 import HeaderTitleStandard from '@/components/HeaderTitleStandard'
-import MainButton from '@/components/MainButton';
-import { mapActions,mapGetters } from 'vuex';
+
+import BookDetailComponent from '@/components/BookDetailComponent';
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'DescriptionBookPage',
   components: {
     HeaderTitleStandard,
-    MainButton,
+    BookDetailComponent,
   },
   data() {
     return {
-      showText: true,
-      quantityBooksCart: 1,
+      showText: true
     }
   },
   computed: {
-    ...mapGetters(['getPrivilegeBookPay','getDescriptionBookById','getCart']),
-    iconCurrency() {
-      return this.getDescriptionBookById.currency === 'euro' ? '₴' : '$';
-    },
-    fullDate() {
-      return new Date(this.getDescriptionBookById.publish).toLocaleDateString('en-UK',{ day: 'numeric',month: 'short',year: 'numeric' })
-    },
-
-
-
+    ...mapGetters(['getPrivilegeBookPay']),
   },
   methods: {
-    ...mapActions(['addToCart','numberBooksAddToCart','toggleCart']),
     onActive(string) {
       if (string === 'info') {
         this.showText = false;
@@ -124,102 +79,12 @@ export default {
       else {
         this.showText = true;
       }
-    },
-    addToCartDescr(book) {
-      this.addToCart(book); //??????????????????????????
-      this.toggleCart(true);
-
-    },
-    qtyToCart(string) {
-      if (string === 'decrement' && this.quantityBooksCart > 1) {
-        this.quantityBooksCart--
-      }
-      if (string === 'increment') {
-        this.quantityBooksCart++
-      }
-      this.numberBooksAddToCart(this.quantityBooksCart);
     }
-
   }
-
 }
 </script>
 
 <style lang='scss' scoped>
-.wrapper-section-book {
-  padding: 150px 0;
-}
-
-.book-image {
-  width: calc(47% - 43px);
-  background-color: #F5F8FC;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 70px 100px;
-
-  img {
-    width: 380px;
-    height: 510px;
-    object-fit: cover;
-  }
-}
-
-
-.book-content {
-  width: calc(53% - 43px);
-  padding: 23px 0;
-  color: #969AA0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.book-title {
-  padding-bottom: 6px;
-}
-
-.book-price {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 800;
-  font-size: 30px;
-  line-height: 170%;
-  color: var(--main-color-beer);
-  padding-bottom: 26px;
-}
-
-.book-description {
-  padding-bottom: 10px;
-}
-
-.pd {
-  padding: 10px 0;
-}
-
-.wrapper-btn-cart {
-  margin-top: 24px;
-  width: 76%;
-  height: 65px;
-}
-
-.counter-item {
-  width: 26%;
-  margin-right: 10px;
-  border: 2px solid var(--main-color-beer);
-  display: flex;
-  align-items: center;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-}
-
-.img-cart {
-  margin-right: 13px;
-  margin-bottom: 5px;
-}
-
 .wrapper-btn-description {
   width: 50%;
   height: 65px;
@@ -276,22 +141,5 @@ export default {
 .active-btn {
   background-color: var(--main-color-dark);
   color: #fff;
-}
-
-.wrapper-btn-quantity {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.qty-to-cart {
-  margin: 0 auto;
-}
-
-.btn-quantity {
-  height: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 </style>
