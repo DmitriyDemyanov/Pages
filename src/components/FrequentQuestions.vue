@@ -3,15 +3,16 @@
     <TitleSection title='Frequent Questions?' />
     <div class="wrapper-questions">
       <div class="wrapper-item" v-for="(el,ind) in getOfterQuestions" :key='ind'>
-        <div class="wrapper-title d-flex align-items-baseline">
+        <div class="wrapper-title d-flex align-items-baseline" @click='showAnswerQuestion(el.id)'>
           <div class="circle-full">
-            <div class="circle-pointer"></div>
+            <div class="circle-pointer" :class='{ "show-pointer": circlePointer }'></div>
           </div>
 
           <h4 class="title-question fz-cardo-24px">{{ el.title }}
           </h4>
         </div>
-        <div class="text-question fz-inter-19px">{{ el.text }}</div>
+        <div class="text-question fz-inter-19px" :class='{ "show-pointer": circlePointer }'>{{ textQuestion }}</div>
+        <!-- <div class="test">{{ textQuestion }}</div> -->
       </div>
     </div>
   </section>
@@ -25,9 +26,24 @@ export default {
   components: {
     TitleSection,
   },
+  data() {
+    return {
+      circlePointer: true,
+      textQuestion: '',
+    }
+  },
   computed: {
     ...mapGetters(['getOfterQuestions'])
   },
+  methods: {
+    showAnswerQuestion(id) {
+      console.log('Answer#$#$#$#',id)
+      this.circlePointer = false;
+      this.textQuestion = this.getOfterQuestions.find(el => el.id === id).text;
+
+      console.log('this.textQuestion',this.textQuestion)
+    }
+  }
 }
 </script>
 
@@ -54,6 +70,10 @@ h4 {
 
 }
 
+.wrapper-title {
+  cursor: pointer;
+}
+
 .circle-full {
   position: relative;
   margin-right: 16px;
@@ -72,6 +92,10 @@ h4 {
   height: 8px;
   border-radius: 50%;
   background-color: #F5F8FC;
+}
+
+.show-pointer {
+  display: none;
 }
 
 .title-question {

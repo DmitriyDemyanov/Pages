@@ -80,51 +80,63 @@ export default new Vuex.Store({
     oftenQuestions: [
       {
         title: 'Do you offer discounts for education? ',
-        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        text: 'Many11111 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 1,
       },
       {
         title: 'Is Hack Producivity book available on the one stores?',
-        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        text: 'Many22222 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 2
       },
       {
         title: 'What is Hack Productivity book about?',
-        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        text: 'Many 333333desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 3
       },
       {
         title: 'Do you offer discounts for education?',
-        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        text: 'Many4444444 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 4
       },
       {
         title: 'Is Hack Producivity book available on the one stores?',
-        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        text: 'Many5555555 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 5
       },
       {
         title: 'What is Hack Productivity book about?',
-        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        text: 'Many666666 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 6
       },
       {
         title: 'Do you offer discounts for education?',
-        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        text: 'Many777777 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 7
       },
       {
         title: 'What is Hack Productivity book about?',
-        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        text: 'Many 888888desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 8
       },
       {
         title: 'Where can I get Hack Productivity book?',
-        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        text: 'Many99999 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 9
       },
       {
         title: 'Do you offer discounts for education?',
-        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        text: 'Many1010 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 10
       },
       {
         title: 'Where can I get Hack Productivity book?',
-        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        text: 'Many11111 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 11
       },
       {
         title: 'What is Hack Productivity book about?',
-        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        text: 'Many121212 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 12
       },
     ]
   },
