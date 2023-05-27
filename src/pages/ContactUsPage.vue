@@ -6,17 +6,22 @@
     <div class='bg-keep-in-touch'>
       <KeepInTouch />
     </div>
+    <div class="bg-questions">
+      <FrequentQuestions />
+    </div>
   </section>
 </template>
 
 <script>
 import HeaderTitleStandard from '@/components/HeaderTitleStandard';
 import KeepInTouch from '@/components/KeepInTouch';
+import FrequentQuestions from '@/components/FrequentQuestions';
 export default {
   name: 'ContactUsPage',
   components: {
     HeaderTitleStandard,
     KeepInTouch,
+    FrequentQuestions,
   }
 }
 </script>
@@ -25,5 +30,10 @@ export default {
 .bg-keep-in-touch {
   width: 100%;
   background-color: #f5f5f5;
+}
+
+.bg-questions {
+  background-color: #F5F8FC;
+  ;
 }
 </style>

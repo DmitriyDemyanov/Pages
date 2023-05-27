@@ -55,7 +55,78 @@ export default new Vuex.Store({
     },
 
     cartDescrQty: 0,
-
+    //keep in touch___________________________________________Contact Us Page
+    keepTouchInfo: [
+      {
+        image: 'house',
+        title: 'Visit Us :',
+        address: 'No: 09a, Downtown, San Dieago, USA.',
+        link: 'none'
+      },
+      {
+        image: 'envelope',
+        title: 'Drop Us :',
+        address: 'support@pages.com',
+        link: 'mailto:support@pages.com'
+      },
+      {
+        image: 'phone',
+        title: 'Call Us :',
+        address: 'Call: 1-800-123-9999',
+        link: 'tel:+18001239999 '
+      },
+    ],
+    //_____________Frequent Questions
+    oftenQuestions: [
+      {
+        title: 'Do you offer discounts for education? ',
+        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+      },
+      {
+        title: 'Is Hack Producivity book available on the one stores?',
+        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+      },
+      {
+        title: 'What is Hack Productivity book about?',
+        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+      },
+      {
+        title: 'Do you offer discounts for education?',
+        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+      },
+      {
+        title: 'Is Hack Producivity book available on the one stores?',
+        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+      },
+      {
+        title: 'What is Hack Productivity book about?',
+        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+      },
+      {
+        title: 'Do you offer discounts for education?',
+        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+      },
+      {
+        title: 'What is Hack Productivity book about?',
+        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+      },
+      {
+        title: 'Where can I get Hack Productivity book?',
+        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+      },
+      {
+        title: 'Do you offer discounts for education?',
+        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+      },
+      {
+        title: 'Where can I get Hack Productivity book?',
+        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+      },
+      {
+        title: 'What is Hack Productivity book about?',
+        text: 'Many desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+      },
+    ]
   },
   getters: {
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
@@ -166,7 +237,15 @@ export default new Vuex.Store({
     },
     getDescriptionBookById(state) {
       return state.descriptionBookById;
-    }
+    },
+    //____________________________________________keep in Touch
+    getKeepTouchInfo(state) {
+      return state.keepTouchInfo;
+    },
+    //____________________________________frequent questions
+    getOfterQuestions(state) {
+      return state.oftenQuestions;
+    },
 
   },
   mutations: {
