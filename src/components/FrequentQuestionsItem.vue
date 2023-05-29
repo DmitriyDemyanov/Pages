@@ -1,38 +1,52 @@
 <template>
-  <section class='wrapper-section container'>
-    <TitleSection title='Frequent Questions?' />
-    <div class="wrapper-questions">
-   <FrequentQuestionsItem v-for="(el,ind) in getOfterQuestions " :key="ind"  :item="el"/>
-    </div>
+  <section >
+
+      <div class="wrapper-item">
+        <div class="wrapper-title d-flex align-items-baseline" @click='showAnswerQuestion(item.id)'>
+          <div class="circle-full">
+            <div class="circle-pointer" :class='{ "show-pointer": circlePointer }'></div>
+          </div>
+
+          <h4 class="title-question fz-cardo-24px">{{ item.title }}
+          </h4>
+        </div>
+        <div class="text-question fz-inter-19px" :class='{ "show-pointer": circlePointer }'> {{ item.text }}</div>
+
+      </div>
+
   </section>
 </template>
 
 <script>
-import TitleSection from '@/components/TitleSection';
-import FrequentQuestionsItem from '@/components/FrequentQuestionsItem';
-import { mapGetters } from 'vuex'
+
 export default {
-  name: 'FrequentQuestions',
-  components: {
-    TitleSection,
-    FrequentQuestionsItem,
-  },
+  name: 'FrequentQuestionsItem',
+  props: {
+    item: {
+      type: Object,
+      required: true,
+    }
+},
   data() {
     return {
       circlePointer: true,
-      textQuestion: '',
+
     }
   },
-  computed: {
-    ...mapGetters(['getOfterQuestions'])
-  },
+
   methods: {
     showAnswerQuestion(id) {
       console.log('Answer#$#$#$#',id)
-      this.circlePointer = false;
-      this.textQuestion = this.getOfterQuestions.find(el => el.id === id).text;
+      if(this.circlePointer) {
+        this.circlePointer = false;
+      }
+      else if ( !this.circlePointer) {
+        this.circlePointer = true
+      }
 
-      console.log('this.textQuestion',this.textQuestion)
+
+
+
     }
   }
 }
