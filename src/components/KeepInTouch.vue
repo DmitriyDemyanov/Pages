@@ -47,7 +47,7 @@
           email</span>
       </div>
 
-      <MainButton size='full' title='Send Message' />
+      <MainButton size='full' title='Send Message' @btn-click="submitForm" />
     </div>
   </section>
 </template>
@@ -58,7 +58,7 @@ import TitleSection from '@/components/TitleSection';
 import MainButton from '@/components/MainButton';
 
 
-import { mapGetters } from 'vuex';
+import {mapActions, mapGetters } from 'vuex';
 export default {
   name: 'KeepInTouch',
   components: {
@@ -80,6 +80,7 @@ export default {
     ...mapGetters(['getKeepTouchInfo']),
   },
   methods: {
+    ...mapActions(['postFormSubmit']),
     onCheckbox() {
       console.log('onCheckbox');
       if (!this.form.checkbox) {
@@ -88,6 +89,9 @@ export default {
       else if (this.form.checkbox) {
         this.form.checkbox = false
       }
+    },
+    submitForm() {
+      this.postFormSubmit(this.form);
     }
   }
 }
@@ -186,6 +190,7 @@ export default {
   padding-left: 60px;
   padding-top: 17px;
   border: 1px solid #DCE1E9;
+  color: #969AA0;
 
   &::placeholder {
     color: #969AA0;

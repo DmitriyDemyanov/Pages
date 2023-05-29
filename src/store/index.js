@@ -357,6 +357,7 @@ export default new Vuex.Store({
   },
 
   actions: {
+
     createSubscribe({ commit },payload) {
       commit('INPUT_SUBSCRIBE',payload);
     },
@@ -518,7 +519,14 @@ export default new Vuex.Store({
       commit('SAVE_CART_DESCR',payload);
       console.log('payload! number===',payload)
     },
-  },
+//_______________________________________________KEEP&TOUCH
 
+    postFormSubmit({commit}, payload) {
+      console.log('commit',commit);
+      console.log('SUBMIT_FORM:::',payload);
+    },
+
+
+  },
   modules: {},
 });
