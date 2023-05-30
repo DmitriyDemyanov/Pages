@@ -2,7 +2,13 @@
   <section class='wrapper-section container'>
     <TitleSection title='Frequent Questions?' />
     <div class="wrapper-questions">
-   <FrequentQuestionsItem v-for="(el,ind) in getOfterQuestions " :key="ind"  :item="el"/>
+      <div class="faq-container">
+        <FrequentQuestionsItem v-for="(el,ind) in firstHalf" :key="ind" :item="el" />
+      </div>
+      <div class="faq-container">
+        <FrequentQuestionsItem v-for="(el,ind) in secondHalf " :key="ind" :item="el" />
+      </div>
+
     </div>
   </section>
 </template>
@@ -24,7 +30,13 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getOfterQuestions'])
+    ...mapGetters(['getOfterQuestions']),
+    firstHalf() {
+      return this.getOfterQuestions.slice(0,Math.ceil(this.getOfterQuestions.length / 2));
+    },
+    secondHalf() {
+      return this.getOfterQuestions.slice(Math.ceil(this.getOfterQuestions.length / 2));
+    }
   },
   methods: {
     showAnswerQuestion(id) {
@@ -49,9 +61,8 @@ h4 {
 
 .wrapper-questions {
   margin-top: 18px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 85px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .wrapper-item {
@@ -96,5 +107,9 @@ h4 {
 .text-question {
   padding-left: 30px;
   color: #969AA0;
+}
+
+.faq-container {
+  width: 49%;
 }
 </style>

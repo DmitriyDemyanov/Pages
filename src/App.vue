@@ -46,24 +46,7 @@ export default {
 <style lang="scss">
 @import '@/assets/scss/_variables.scss';
 @import '@/assets/scss/_fonts.scss';
+@import '@/assets/scss/main.scss';
 
-* {
-  box-sizing: border-box;
-}
 
-.bg-header {
-  min-height: 85px;
-  background-color: var(--main-color-dark);
-}
-
-.container {
-  margin: 0 auto;
-  width: 1300px;
-  box-sizing: border-box;
-}
-
-.bg-footer {
-  height: 510px;
-  background-color: var(--main-color-dark);
-}
 </style>
