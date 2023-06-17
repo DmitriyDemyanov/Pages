@@ -1,10 +1,10 @@
 <template>
   <section>
-    <div class="header-bg">
+    <div class="">
       <HeaderTitleStandard title='Articles' color='light' padding='title-padding'
         subtitle='There are many variations of passages of Lorem Ipsum available,  have suffered alteration in some form.' />
     </div>
-    <ArticlesItems/>
+    <ArticlesItems />
   </section>
 </template>
 
@@ -25,5 +25,6 @@ export default {
   width: 100%;
   min-height: 442px;
   background-color: var(--main-color-dark);
+  
 }
 </style>

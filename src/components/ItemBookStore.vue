@@ -8,7 +8,7 @@
 
 <script>
 import BookComponent from '@/components/BookComponent';
-import { mapActions,mapGetters } from 'vuex';
+import { mapGetters } from 'vuex';
 export default {
   name: 'ItemBookStore',
   components: {
@@ -16,12 +16,6 @@ export default {
   },
   computed: {
     ...mapGetters(['getMyStoreBook','getAuthorBooks'])
-  },
-  methods: {
-    ...mapActions(['fetchAuthorBooks']),
-  },
-  mounted() {
-    this.fetchAuthorBooks();
   }
 }
 </script>

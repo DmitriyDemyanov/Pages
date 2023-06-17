@@ -8,6 +8,7 @@
     </div>
     <div class="store-items-bg">
       <StoreItems />
+
     </div>
   </section>
 </template>
@@ -20,6 +21,7 @@ export default {
   components: {
     HeaderTitleStandard,
     StoreItems,
+
   }
 }
 </script>

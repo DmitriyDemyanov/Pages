@@ -46,21 +46,6 @@ export default {
     },
   ],
 
-
-  authorsBook: [
-    {
-      title: 'Atomic One’s',
-      subtitle: 'Many variations of passages of Lorem Ipsum willing araise  alteration in some form.',
-      img: 'Book-Atomic'
-
-    },
-    {
-      title: 'The Dark Light',
-      subtitle: 'Lorem Ipsum willing araise  alteration in some form Many variations of passages of. ',
-      img: 'Book-2-Light'
-    }
-  ],
-
   whatYouLearnItems: [
     {
       number: '01',
@@ -193,6 +178,25 @@ export default {
     },
   ],
   articlesItems: [
-   
+
+  ],
+  errorMessage: '',
+  //______________________Description-Book
+  privilegeBookPay: [
+    {
+      image: 'secure',
+      title: 'Secure Payments',
+      text: 'There are many variations of passages of alteration in some form.',
+    },
+    {
+      image: 'shipping',
+      title: 'Free Shipping',
+      text: 'There are many variations of passages of alteration in some form.',
+    },
+    {
+      image: 'satisfactions',
+      title: '100% Satisfactions',
+      text: 'There are many variations of passages of alteration in some form.',
+    },
   ]
 }

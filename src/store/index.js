@@ -26,6 +26,119 @@ export default new Vuex.Store({
     corporation: [],
     //___________________________readersBook
     readersBook: [],
+
+
+    errorModal: false,
+    descriptionBookById: {
+      "id": 4,
+      "title": "good night, irene",
+      "description": "Top-shelf historical fiction delivered with wit and compassion.",
+      "publisher": "Harry Potter Incorporated",
+      "publish": 1685394000000,
+      "language": "English",
+      "ISBN-10": 9788120345799,
+      "price": 72.97,
+      "currency": "usd",
+      "pages": 784,
+      "length": 950, // minutes
+      "image": "https://d1ldy8a769gy68.cloudfront.net/200/978/031/626/585/0/9780316265850.jpg",
+      "ratings": {
+        "count": 57,
+        "value": 4
+      },
+      "dimensions": {
+        "w": 16,
+        "h": 22,
+        "l": 9,
+        "volume": "cm"
+      }
+    },
+
+    cartDescrQty: 0,
+    //keep in touch___________________________________________Contact Us Page
+    keepTouchInfo: [
+      {
+        image: 'house',
+        title: 'Visit Us :',
+        address: 'No: 09a, Downtown, San Dieago, USA.',
+        link: 'none'
+      },
+      {
+        image: 'envelope',
+        title: 'Drop Us :',
+        address: 'support@pages.com',
+        link: 'mailto:support@pages.com'
+      },
+      {
+        image: 'phone',
+        title: 'Call Us :',
+        address: 'Call: 1-800-123-9999',
+        link: 'tel:+18001239999 '
+      },
+    ],
+    //_____________Frequent Questions
+    oftenQuestions: [
+      {
+        title: 'Do you offer discounts for education? ',
+        text: 'Many11111 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 1,
+      },
+      {
+        title: 'Is Hack Producivity book available on the one stores?',
+        text: 'Many22222 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 2
+      },
+      {
+        title: 'What is Hack Productivity book about?',
+        text: 'Many 333333desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 3
+      },
+      {
+        title: 'Do you offer discounts for education?',
+        text: 'Many4444444 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 4
+      },
+      {
+        title: 'Is Hack Producivity book available on the one stores?',
+        text: 'Many5555555 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 5
+      },
+      {
+        title: 'What is Hack Productivity book about?',
+        text: 'Many666666 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 6
+      },
+      {
+        title: 'Do you offer discounts for education?',
+        text: 'Many777777 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 7
+      },
+      {
+        title: 'What is Hack Productivity book about?',
+        text: 'Many 888888desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 8
+      },
+      {
+        title: 'Where can I get Hack Productivity book?',
+        text: 'Many99999 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 9
+      },
+      {
+        title: 'Do you offer discounts for education?',
+        text: 'Many1010 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 10
+      },
+      {
+        title: 'Where can I get Hack Productivity book?',
+        text: 'Many11111 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 11
+      },
+      {
+        title: 'What is Hack Productivity book about?',
+        text: 'Many121212 desktop publishing packages and web page editors to now use Lorem Ipsum as their default model text, and angle uncover many web sites still in their infancy.',
+        id: 12
+      },
+    ]
   },
   getters: {
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
@@ -123,7 +236,28 @@ export default new Vuex.Store({
 
     getBookById(state) {
       return (id) => state.authorBooks.find(book => book.id === id);
-    }
+    },
+    getErrorComponent(state) {
+      return state.errorModal
+    },
+    getErrorMessage(state) {
+      return state.errorMessage;
+    },
+    //____________________________________________DEscription-Book
+    getPrivilegeBookPay(state) {
+      return state.privilegeBookPay;
+    },
+    getDescriptionBookById(state) {
+      return state.descriptionBookById;
+    },
+    //____________________________________________keep in Touch
+    getKeepTouchInfo(state) {
+      return state.keepTouchInfo;
+    },
+    //____________________________________frequent questions
+    getOfterQuestions(state) {
+      return state.oftenQuestions;
+    },
 
   },
   mutations: {
@@ -147,13 +281,15 @@ export default new Vuex.Store({
     },
 
     SAVE_CART_BOOK(state,payload) {
+      console.log('payload before!!!!!',payload)
       const { id,price } = payload;
-      state.cart.total = Number((state.cart.total + price).toFixed(2));
+      const qty = payload.qty ? payload.qty : 1
+      state.cart.total = Number((state.cart.total + price * qty).toFixed(2));
       const existingBook = state.cart.items.find((el) => el.id === id);
       if (existingBook) {
-        existingBook.qty++;
+        existingBook.qty += qty;
       } else {
-        state.cart.items.push({ id,qty: 1 });
+        state.cart.items.push({ id,qty: qty });
       }
 
     },
@@ -163,7 +299,6 @@ export default new Vuex.Store({
       state.cart.items = state.cart.items.filter((el) => {
         if (el.id === id) {
           console.log('state.cart.total',state.cart.total);
-          console.log(' el______________',el);
           state.cart.total = state.cart.total - price * el.qty;
         }
         return el.id !== id;
@@ -186,9 +321,7 @@ export default new Vuex.Store({
     SAVE_ARTICLES(state,payload) {
       state.articlesItems = payload;
       state.articlePagination.lastPage = Math.ceil(state.articlesItems.length / state.articlePagination.renderPage);
-      console.log(state.articlesItems.length);
-      console.log(state.articlePagination);
-      console.log('payload>>>',payload)
+
     },
 
     //_____________________________Corporation
@@ -205,66 +338,149 @@ export default new Vuex.Store({
     //_________________________________________________________REadersBook
     SAVE_READERS_BOOK(state,payload) {
       state.readersBook = payload;
+    },
+    //     _______________________________________________________ERROR_MODAL
+    SHOW_ERROR_MODAL(state,payload) {
+      state.errorModal = payload;
+    },
+    SET_ERROR_MESSAGE(state,payload) {
+      state.errorMessage = payload;
+    },
+    SAVE_BOOK_BY_ID(state,payload) {
+      let book = state.authorBooks.filter((el) => el.id === payload);
+      state.descriptionBookById = book[0];
+    },
+    SAVE_CART_DESCR(state,payload) {
+      state.cartDescrQty = payload;
+      console.log('payload-mutations',payload)
     }
-
   },
 
   actions: {
+
     createSubscribe({ commit },payload) {
       commit('INPUT_SUBSCRIBE',payload);
     },
-    async fetchRandomBook({ commit }) {
-      const response = await fetch('http://localhost:3579/content/books/random');
-      console.log('Fetch Random',response);
-      const book = await response.json();
-      console.log('Book',book);
-      commit('SAVE_RANDOM_BOOK',book);
-    },
-    async fetchAuthorBooks({ commit }) {
-      const response = await fetch('http://localhost:3579/content/books');
-      const authorBooks = await response.json();
-      commit('SAVE_AUTHOR_BOOKS',authorBooks);
-    },
-    async fetchExploreLinks({ commit }) {
-      const response = await fetch('http://localhost:3579/settings/explores');
-      const exploreLink = await response.json();
-      commit('SAVE_EXPLORE_LINK',exploreLink)
+    async fetchRandomBook({ commit,dispatch }) {
+      try {
 
-    },
-    async fetchUtilityLinks({ commit }) {
-      const response = await fetch('http://localhost:3579/settings/utility');
-      const utilityLink = await response.json();
-      commit('SAVE_UTILITY_LINK',utilityLink);
+        const response = await fetch('http://localhost:3579/content/books/random');
 
-    },
-    async fetchAboutAuthor({ commit }) {
-      const response = await fetch('http://localhost:3579/content/author');
-      const aboutAuthor = await response.json();
-      console.log('aboutAuthor---',aboutAuthor);
-      commit('SAVE_ABOUT_AUTHOR',aboutAuthor)
-    },
-    async fetchArticles({ commit }) {
-      const response = await fetch('http://localhost:3579/content/articles');
-      const articles = await response.json();
-      commit('SAVE_ARTICLES',articles);
+        const book = await response.json();
 
-    },
-    async fetchCorporations({ commit }) {
-      const response = await fetch('http://localhost:3579/content/corporations');
-      const corporations = await response.json();
-      commit('SAVE_CORPORATION',corporations);
-    },
-    async fetchReadersBook({ commit }) {
-      const response = await fetch('http://localhost:3579/content/testimonials');
-      const REadersBook = await response.json();
-      commit('SAVE_READERS_BOOK',REadersBook);
-      console.log('SAVE_READERS_BOOK',REadersBook)
+        commit('SAVE_RANDOM_BOOK',book);
+
+      } catch (err) {
+        console.dir(err.message || err);
+        commit('SET_ERROR_MESSAGE',err.message || err);
+        dispatch('errorModal',true);
+      } finally {
+        console.log('TEST1')
+      }
     },
 
 
+    async fetchAuthorBooks({ commit,dispatch }) {
+      try {
+        const response = await fetch('http://localhost:3579/content/books');
+        const authorBooks = await response.json();
+        commit('SAVE_AUTHOR_BOOKS',authorBooks);
+      } catch (err) {
+        commit('SET_ERROR_MESSAGE',err.message || err);
+        dispatch('errorModal',true);
+      }
+      finally {
+        console.log('TEST2')
+      }
+    },
 
+    async fetchExploreLinks({ commit,dispatch }) {
+      try {
+        const response = await fetch('http://localhost:3579/settings/explores');
+        const exploreLink = await response.json();
+        commit('SAVE_EXPLORE_LINK',exploreLink);
+      } catch (err) {
+        commit('SET_ERROR_MESSAGE',err.message || err);
+        dispatch('errorModal',true)
+      } finally {
+        console.log('TEST3')
+      }
+
+
+    },
+    async fetchUtilityLinks({ commit,dispatch }) {
+      try {
+        const response = await fetch('http://localhost:3579/settings/utility');
+        const utilityLink = await response.json();
+        commit('SAVE_UTILITY_LINK',utilityLink);
+      } catch (err) {
+        commit('SET_ERROR_MESSAGE',err.stack || err);
+        dispatch('errorModal',true)
+
+      } finally {
+        console.log('TEST4')
+      }
+
+
+    },
+    async fetchAboutAuthor({ commit,dispatch }) {
+      try {
+        const response = await fetch('http://localhost:3579/content/author');
+        const aboutAuthor = await response.json();
+        commit('SAVE_ABOUT_AUTHOR',aboutAuthor);
+      } catch (err) {
+        commit('SET_ERROR_MESSAGE',err.stack);
+        dispatch('errorModal',true)
+      }
+      finally {
+        console.log('TEST5')
+      }
+
+    },
+    async fetchArticles({ commit,dispatch }) {
+      try {
+        const response = await fetch('http://localhost:3579/content/articles');
+        const articles = await response.json();
+        commit('SAVE_ARTICLES',articles);
+      } catch (err) {
+        commit('SET_ERROR_MESSAGE',err.stack);
+        dispatch('errorModal',true)
+      } finally {
+        console.log('TEST6')
+      }
+
+
+    },
+    async fetchCorporations({ commit,dispatch }) {
+      try {
+        const response = await fetch('http://localhost:3579/content/corporations');
+        const corporations = await response.json();
+        commit('SAVE_CORPORATION',corporations);
+      } catch (err) {
+        commit('SET_ERROR_MESSAGE',err.message || err);
+        dispatch('errorModal',true)
+      } finally {
+        console.log('TEST7')
+      }
+
+    },
+    async fetchReadersBook({ commit,dispatch }) {
+      try {
+        const response = await fetch('http://localhost:3579/content/testimonials');
+        const REadersBook = await response.json();
+        commit('SAVE_READERS_BOOK',REadersBook);
+      } catch (err) {
+        commit('SET_ERROR_MESSAGE',err.message || err);
+        dispatch('errorModal',true);
+      }
+      finally {
+        console.log('TEST8')
+      }
+
+
+
+    },
     addToCart({ commit },payload) {
-      console.log('payload!!!!!!!!',payload);
       commit('SAVE_CART_BOOK',payload);
     },
     removeItemById({ commit },id) {
@@ -273,7 +489,7 @@ export default new Vuex.Store({
       commit('DELETE_CART_BOOK',{ id,price: priceBookById.price });
     },
     toggleCart({ commit },payload) {
-      commit('TOGGLE_CART',payload)
+      commit('TOGGLE_CART',payload);
     },
     addItemCartById({ commit },id) {
       const itemBook = this.state.authorBooks.find((el) => el.id === id);
@@ -293,8 +509,24 @@ export default new Vuex.Store({
     prevPage({ commit }) {
       commit('ARTICLES_PAGE_DOWN');
     },
+    errorModal({ commit },payload) {
+      commit('SHOW_ERROR_MODAL',payload);
+    },
+    bookDescription({ commit },payload) {
+      commit('SAVE_BOOK_BY_ID',payload)
+    },
+    numberBooksAddToCart({ commit },payload) {
+      commit('SAVE_CART_DESCR',payload);
+      console.log('payload! number===',payload)
+    },
+//_______________________________________________KEEP&TOUCH
+
+    postFormSubmit({commit}, payload) {
+      console.log('commit',commit);
+      console.log('SUBMIT_FORM:::',payload);
+    },
+
 
   },
-
   modules: {},
 });

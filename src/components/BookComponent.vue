@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper-item">
-    <div class="img-item d-flex align-items-center justify-content-center"><img :src="book.image" alt="photo">
+    <div class="img-item d-flex align-items-center justify-content-center" @click='openDetails(book.id)'><img
+        :src="book.image" alt="photo">
       <div class="icon-img" v-show="(book.type === 'audio')"><img src="@/assets/images/icons/Audio-icon.png" alt=""></div>
       <div class="icon-img" v-show="(book.type === 'gram')"><img src="@/assets/images/icons/Mockup-icon.png" alt=""></div>
     </div>
@@ -13,7 +14,7 @@
     <div class="printed-book d-flex align-items-center fz-cardo-24px">
       <div class="circle"></div> Printed Books
     </div>
-    <MainButton title='Order Today' size="big" reverse='reverse' @btn-click='onClick(book)' />
+    <MainButton title='Order Today' size="big" reverse='reverse' @btn-click='addToCart(book)' />
     <div class="tests">{{ getCart }}</div>
   </div>
 </template>
@@ -27,6 +28,7 @@ export default {
   components: {
     MainButton,
   },
+
   props: {
     book: {
       type: Object,
@@ -37,9 +39,11 @@ export default {
     ...mapGetters(['getCart']),
   },
   methods: {
-    ...mapActions(['addToCart']),
-    onClick(book) {
-      this.addToCart(book);
+    ...mapActions(['addToCart','bookDescription']),
+
+    openDetails(id) {
+      this.bookDescription(id);
+      this.$router.push({ path: `/description-book/${id}` });
     }
   }
 }
@@ -69,8 +73,9 @@ export default {
   position: absolute;
   bottom: 12px;
   right: 13px;
+
   img {
-    width:95px;
+    width: 95px;
     height: 95px;
     object-fit: contain;
   }
@@ -87,7 +92,7 @@ export default {
   height: 86px;
   overflow: hidden;
   width: 100%;
-  text-overflow: ellipsis;                          //??????????????????
+  text-overflow: ellipsis; //??????????????????
 }
 
 .circle {

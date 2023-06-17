@@ -14,12 +14,9 @@
       </div>
 
       <!-- BODY -->
-
-
-      <slot name="modal-body"></slot>
-
-
-
+      <div class="body-modal">
+        <slot name="modal-body"></slot>
+      </div>
 
       <!-- FOOTER -->
       <div class="footer-modal">
@@ -78,8 +75,8 @@ export default {
 }
 
 .modal-window {
-  width: 40%;
-  max-height: 90%;
+  width: 60%;
+  max-height: 95%;
   position: absolute;
   transform: translate(50%, -50%);
   top: 50%;
@@ -128,9 +125,10 @@ export default {
 
 .body-modal {
   width: 100%;
-  max-height: 50vh;
+  max-height: 40vh;
   padding: 30px 45px;
-  overflow-y: auto;
+  overflow-y: hidden;
+
 }
 
 .item-img {

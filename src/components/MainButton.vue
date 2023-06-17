@@ -1,5 +1,6 @@
 <template>
   <button :class="`btn-${type} btn-${size} btn-${reverse} main-btn`" @click="$emit('btn-click')">
+    <slot name='prepend'></slot>
     {{ title }}
   </button>
 </template>
@@ -38,6 +39,9 @@ export default {
   background-color: var(--main-color-beer);
   color: var(--main-color-dark);
   transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
     background-color: var(--main-color-dark);
@@ -89,7 +93,7 @@ export default {
   font-size: 19px;
 
   &:hover {
-    transition: all 0.4s;
+    transition: all 0.2s;
     border: 2px solid var(--main-color-beer);
     background-color: transparent;
     color: var(--main-color-dark);

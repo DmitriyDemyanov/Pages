@@ -1,5 +1,5 @@
 <template>
-  <section class="container wrapper-section-header ">
+  <section class="wrapper-section-header ">
     <TitleSection :title='title' :color='color' :title_padding='padding' />
     <div class="header-subtitle fz-inter-19px">{{ subtitle }}</div>
   </section>
@@ -36,7 +36,8 @@ export default {
 <style lang='scss' scoped>
 .wrapper-section-header {
   padding-top: 138px;
-
+  min-height: 442px;
+  background-color: var(--main-color-dark);
 }
 
 

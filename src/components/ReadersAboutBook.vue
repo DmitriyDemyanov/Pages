@@ -5,6 +5,8 @@
       <div class="rating-text fz-inter-19px">If you are going to use a passage of Lorem Ipsum, you need to be sure there
         isn't anything
         embarrassing hidden in the middle of text. All the Lorem Ipsum generators.</div>
+
+
       <div class="wrapper-circle d-flex align-items-center">
         <div class="circle full" v-for="ind in Math.floor(getReadersBook.overall)" :key='ind'></div>
 
@@ -17,66 +19,13 @@
       <div class="all-rating fz-inter-19px">Overall Customer Ratings</div>
 
     </div>
-    <div class="wrapper-users d-flex justify-content-between">
-      <div class="two-users">
 
-        <div class="user-item">
-          <div class="d-flex align-items-center">
-            <div class="user-photo"><img :src="getReadersBook.users[0].photo" alt="photo"></div>
-            <div>
-              <div class="user-full-name fz-cardo-24px">{{ getReadersBook.users[0].name }}</div>
-              <div class="user-rating d-flex">
-                <div class="user-circle full"></div>
-                <div class="user-circle full"></div>
-                <div class="user-circle full"></div>
-                <div class="user-circle full"></div>
-                <div class="user-circle half small"></div>
-              </div>
-            </div>
-          </div>
-          <div class="user-title fz-cardo-22px">{{ getReadersBook.users[0].title }}</div>
-          <div class="user-text fz-inter-19px">{{ getReadersBook.users[0].text }}</div>
-        </div>
 
-        <div class="user-item">
-          <div class="d-flex align-items-center">
-            <div class="user-photo"><img :src="getReadersBook.users[1].photo" alt="photo"></div>
-            <div>
-              <div class="user-full-name fz-cardo-24px">{{ getReadersBook.users[1].name }}</div>
-              <div class="user-rating d-flex">
-                <div class="user-circle full"></div>
-                <div class="user-circle full"></div>
-                <div class="user-circle full"></div>
-                <div class="user-circle full"></div>
-                <div class="user-circle half small"></div>
-              </div>
-            </div>
-          </div>
-          <div class="user-title fz-cardo-22px">{{ getReadersBook.users[1].title }}</div>
-          <div class="user-text fz-inter-19px"> {{ getReadersBook.users[1].text }}</div>
-        </div>
-      </div>
 
-      <div class="d-flex align-items-center third-user">
-        <div class="user-item">
-          <div class="d-flex align-items-center">
-            <div class="user-photo"><img :src="getReadersBook.users[2].photo" alt="photo"></div>
-            <div>
-              <div class="user-full-name fz-cardo-24px">{{ getReadersBook.users[2].name }}</div>
-              <div class="user-rating d-flex">
-                <div class="user-circle full"></div>
-                <div class="user-circle full"></div>
-                <div class="user-circle full"></div>
-                <div class="user-circle full"></div>
-                <div class="user-circle half small"></div>
-              </div>
-            </div>
-          </div>
-          <div class="user-title fz-cardo-22px">{{ getReadersBook.users[2].title }}</div>
-          <div class="user-text fz-inter-19px"> {{ getReadersBook.users[2].text }}</div>
-        </div>
-      </div>
+    <div class="wrapper-users  ">
 
+
+      <ReaderUser v-for="(itemUser,ind) in getReadersBook.users" :key='ind' :userItem='itemUser' :num='ind' />
 
     </div>
 
@@ -84,15 +33,24 @@
 </template>
 
 <script>
-import TitleSection from '@/components/TitleSection';
 import { mapActions,mapGetters } from 'vuex';
+
+import TitleSection from '@/components/TitleSection';
+import ReaderUser from '@/components/ReaderUser';
+
 export default {
   name: 'ReadersAboutBook',
   components: {
     TitleSection,
+    ReaderUser,
   },
   computed: {
     ...mapGetters(['getReadersBook']),
+
+    percentCircle() {
+      return ((this.getReadersBook.overall - (Math.floor(this.getReadersBook.overall))) * 100) + '%';
+    },
+
   },
   methods: {
     ...mapActions(['fetchReadersBook'])
@@ -160,17 +118,50 @@ export default {
 
 }
 
-.user-circle {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  margin-right: 3px;
-}
+// .user-photo {
+//   width: 85px;
+//   height: 85px;
+//   margin-right: 20px;
 
-.user-title {
-  padding-top: 20px;
-  padding-bottom: 10px;
-  color: #fff;
+//   img {
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//   }
+// }
 
-}
+// .two-users {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+// }
+
+// .third-user {
+//   padding-top: 40px;
+// }
+
+
+// .user-item {
+//   width: 370px;
+//   height: 310px;
+//   background-color: var(--main-color-dark);
+//   padding: 34px 31px;
+
+//   // margin: auto 0;
+
+// }
+
+// .user-circle {
+//   width: 16px;
+//   height: 16px;
+//   border-radius: 50%;
+//   margin-right: 3px;
+// }
+
+// .user-title {
+//   padding-top: 20px;
+//   padding-bottom: 10px;
+//   color: #fff;
+
+// }
 </style>
