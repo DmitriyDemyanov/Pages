@@ -6,11 +6,11 @@
         isn't anything
         embarrassing hidden in the middle of text. All the Lorem Ipsum generators.</div>
       <div class="wrapper-circle d-flex align-items-center">
-        <div class="circle full"></div>
-        <div class="circle full"></div>
-        <div class="circle full"></div>
-        <div class="circle full"></div>
-        <div class="circle half"></div>
+        <div class="circle full" v-for="ind in Math.floor(getReadersBook.overall)" :key='ind'></div>
+
+        <div class="circle half"
+          :style="`background: linear-gradient(to right, var(--main-color-beer) 0%, var(--main-color-beer) ${percentCircle}, #fff ${percentCircle}, #fff 100%);`">
+        </div>
         <div class="number-rating fz-cardo-22px">({{ getReadersBook.overall }}/5)</div>
       </div>
 
@@ -153,27 +153,10 @@ export default {
 
 // ___________________________________________________________Users
 .wrapper-users {
-  width: calc(66% - 111px);
-}
-
-.two-users {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.third-user {
-  padding-top: 40px;
-}
-
-
-.user-item {
-  width: 370px;
-  height: 310px;
-  background-color: var(--main-color-dark);
-  padding: 34px 31px;
-
-  // margin: auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows:auto;
+  gap: 40px 30px;
 
 }
 
