@@ -8,7 +8,7 @@
 
 
       <div class="wrapper-circle d-flex align-items-center">
-        <div class="circle full" v-for="ind in Math.floor(getReadersBook.overall)" :key='ind' ></div>
+        <div class="circle full" v-for="ind in Math.floor(getReadersBook.overall)" :key='ind'></div>
 
         <div class="circle half"
           :style="`background: linear-gradient(to right, var(--main-color-beer) 0%, var(--main-color-beer) ${percentCircle}, #fff ${percentCircle}, #fff 100%);`">
@@ -22,10 +22,10 @@
 
 
 
-    <div class="wrapper-users d-flex justify-content-between ">
+    <div class="wrapper-users  ">
 
 
-      <ReaderUser v-for="(itemUser,ind) in getReadersBook.users" :key='ind' :userItem='itemUser' />
+      <ReaderUser v-for="(itemUser,ind) in getReadersBook.users" :key='ind' :userItem='itemUser' :num='ind' />
 
     </div>
 
@@ -110,9 +110,13 @@ export default {
 }
 
 // ___________________________________________________________Users
-// .wrapper-users {
-//   width: calc(66% - 111px);
-// }
+.wrapper-users {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows:auto;
+  gap: 40px 30px;
+
+}
 
 // .user-photo {
 //   width: 85px;

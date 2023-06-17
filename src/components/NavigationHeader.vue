@@ -4,7 +4,7 @@
       <a class="logo" href="#">
         <img src="@/assets/images/icons/Logo.svg" alt="logo" />
       </a>
-      <a class="social-icon" href="#">
+      <a class="social-icon" href="#" @click.prevent='errorModal(true)'>
         <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="0.25" y="0.5" width="45" height="45" fill="white" />
           <path
@@ -59,7 +59,7 @@
         </div>
         <router-link class="fz-inter-17px padding-link" to="/About">About</router-link>
         <router-link class="fz-inter-17px padding-link" to="/services">Services</router-link>
-        <router-link class="fz-inter-17px padding-link" to="/contact">Contact</router-link>
+        <router-link class="fz-inter-17px padding-link" to='/contact-us'>Contact</router-link>
         <div class="wrapper-cart" @click='toggleCart(true)'>
           <div class="cart-img">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -93,7 +93,7 @@ export default {
     ...mapGetters(['getTotalCartQuantity']),
   },
   methods: {
-    ...mapActions(['toggleCart']),
+    ...mapActions(['toggleCart','errorModal']),
   },
 };
 </script>

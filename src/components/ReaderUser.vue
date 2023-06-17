@@ -1,16 +1,19 @@
 <template>
-  <div class="user-item">
+  <div class="user-item" :class='{ "third": num === 1 }'>
     <div class="d-flex align-items-center">
       <div class="user-photo"><img :src="userItem.photo" alt="photo"></div>
       <div>
         <div class="user-full-name fz-cardo-24px">{{ userItem.name }}</div>
         <div class="user-rating d-flex">
-          <div class="user-circle full" v-for="ind in Math.floor(userItem.rating)" :key='ind'></div>
+          <div class="user-circle full" v-for="ind in Math.floor(userItem.rating)" :key='`full-circle-${ind}`'></div>
 
           <div class="user-circle half small" v-show="userItem.rating - Math.floor(userItem.rating)"
             :style="`background: linear-gradient(to right, var(--main-color-beer) 0%, var(--main-color-beer) ${percentCircle}, var(--main-color-dark) ${percentCircle}, var(--main-color-dark) 100%);`">
           </div>
-          <div class="user-circle circle-empty"></div>
+          
+          <div class="user-circle circle-empty" v-show="5 - Math.ceil(userItem.rating)"
+            v-for="index in 5 - Math.ceil(userItem.rating)" :key='`empty-circle-${index}`'>
+          </div>
 
         </div>
       </div>
@@ -27,6 +30,10 @@ export default {
     userItem: {
       type: Object,
       required: true,
+    },
+    num: {
+      type: Number,
+      required: true,
     }
   },
   computed: {
@@ -38,10 +45,6 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.wrapper-users {
-  width: calc(66% - 111px);
-}
-
 .user-photo {
   width: 85px;
   height: 85px;
@@ -52,16 +55,6 @@ export default {
     height: 100%;
     object-fit: cover;
   }
-}
-
-.two-users {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.third-user {
-  padding-top: 40px;
 }
 
 
@@ -116,5 +109,11 @@ export default {
 
 .all-rating {
   color: var(--main-color-dark);
+}
+
+.third {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: center;
 }
 </style>

@@ -22,7 +22,7 @@
 
           <div class="item-circle"></div>
           <div class="item-description">
-            <div class="item-title fz-cardo-24px">Pages:</div>
+            <div class="item-title fz-cardo-24px circle-full-a">Pages:</div>
             <div class="item-subtitle fz-inter-18px">{{ getRandomBook.pages }}pages</div>
           </div>
         </div>
